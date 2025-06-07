@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install OpenNext
-        run: npm run preview
+        run: npm install -g opennextjs-cloudflare && npm run preview
 
       - name: Deploy
         uses: cloudflare/wrangler-action@v3
