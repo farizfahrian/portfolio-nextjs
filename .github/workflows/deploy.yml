@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Workers
+name: Deploy
 
 on:
   push:
@@ -8,15 +8,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    name: Deploy
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
         with:
-          node-version: 20
-
-      - name: Build and Deploy
-        run: npm run preview
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
