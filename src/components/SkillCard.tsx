@@ -1,8 +1,7 @@
-import Button from './Button'
-import { motion } from 'motion/react'
+import Image from 'next/image'
 
 type CardProps = {
-    imgsrc?: string
+    imgsrc: string
     title: string
     desc: string
 }
@@ -15,7 +14,7 @@ const SkillCard = ({ imgsrc, title, desc }: CardProps) => {
                 // initial='idle'
                 // whileHover='hover'
             >
-                <img
+                <Image
                     src={imgsrc}
                     width={381}
                     height={196}

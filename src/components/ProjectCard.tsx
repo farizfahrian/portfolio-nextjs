@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Button from './Button'
 import Chip from './Chip'
 
@@ -48,7 +49,7 @@ const ProjectCard = ({
 }: CardProps) => {
     return (
         <div className='flex flex-col font-body min-[1170px]:flex-row gap-3 md:gap-6 sm:gap-9 p-3 md:p-6 lg:p-8 xl:px-14 xl:py-10 bg-zinc-100/60 shadow-sm rounded-[18px]'>
-            <img
+            <Image
                 src={imgsrc}
                 width={572}
                 height={381}
@@ -64,7 +65,7 @@ const ProjectCard = ({
                     <div className='text-sm'>
                         <div className='flex flex-col flex-wrap gap-2 my-2 sm:flex-row'>
                             <div className='flex gap-2 w-fit'>
-                                <img src='/assets/icons/Document.svg' alt='' />
+                                <Image src='/assets/icons/Document.svg' alt='' width={20} height={20} />
                                 <p>{roles}</p>
                             </div>
                             {/* <div className='flex gap-2 w-fit'>
@@ -81,10 +82,12 @@ const ProjectCard = ({
                             <span>Tools:</span>
                             <span className='flex flex-wrap gap-1 mt-2'>
                                 {tools.map((tool, index) => (
-                                    <img
+                                    <Image
                                         key={index}
                                         src={getToolIcon(tool)}
                                         alt={`Tool ${index + 1}`}
+                                        width={24}
+                                        height={24}
                                         className='object-contain w-6 h-6'
                                     />
                                 ))}
