@@ -128,7 +128,7 @@ function Home () {
                         <div className='mb-4 text-center lg:mb-6'>
                             <h1 className='font-display max-w-[1170px] mx-auto max-[415px]:text-2xl max-[415px]:leading-[1.7rem] text-4xl leading-[2.5rem] lg:text-[3.5rem] lg:leading-[3.9rem] xl:text-[4rem] xl:leading-[4.4375rem] font-semibold'>
                                 Designing with Purpose, <br /> Coding with
-                                NextJs.
+                                Precision.
                             </h1>
                             <p className='font-body max-w-[322px] lg:max-w-[526px] mx-auto text-sm mt-2 xl:mt-4 text-zinc-600 font-medium'>
                                 A curious creator blending empathy and logic to
