@@ -48,14 +48,16 @@ const ProjectCard = ({
     urlLink
 }: CardProps) => {
     return (
-        <div className='flex flex-col font-body min-[1170px]:flex-row gap-3 md:gap-6 sm:gap-9 p-3 md:p-6 lg:p-8 xl:px-14 xl:py-10 bg-zinc-100/60 shadow-sm rounded-[18px]'>
-            <Image
-                src={imgsrc}
-                width={572}
-                height={381}
-                className='w-full min-[1170px]:max-w-[572px] h-auto aspect-[1.5/1]'
-                alt='project image'
-            />
+        <div className="flex flex-col font-body min-[1170px]:flex-row gap-3 md:gap-6 sm:gap-9 p-3 md:p-6 lg:p-8 xl:px-14 xl:py-10 bg-zinc-100/60 shadow-sm rounded-[18px]">
+            <div className="relative w-full min-[1170px]:max-w-[572px] aspect-[3/2] overflow-hidden rounded-lg">
+                <Image
+                    src={imgsrc}
+                    width={572}
+                    height={381}
+                    className='w-full min-[1170px]:max-w-[572px] h-auto aspect-[1.5/1]'
+                    alt='project image'
+                />
+            </div>
             <div className='flex flex-col justify-between'>
                 <div className='text-zinc-600'>
                     <Chip text={chiptext} />
@@ -96,18 +98,18 @@ const ProjectCard = ({
                     </div>
                 </div>
                 <div className='flex flex-col gap-2 mt-6 lg:mt-2 sm:flex-row sm:gap-4'>
-                    <Button
+                    {/* <Button
                         link='#'
                         className='w-full md:w-auto'
                         text='Details coming soon'
                         variant='disabled'
                         trailingIcon=''
-                    />
+                    /> */}
                     <Button
                         link={urlLink}
                         className='w-full md:w-auto'
                         text='Link to website'
-                        variant='ghost'
+                        variant='secondary'
                         trailingIcon=''
                     />
                 </div>

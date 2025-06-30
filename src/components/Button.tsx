@@ -36,8 +36,8 @@ const Button = ({
         <motion.a
             href={variant !== 'disabled' ? link : undefined}
             className={`border-2 ${
-                iconOnly ? 'px-2 py-3' : 'px-4 py-3'
-            } font-body rounded-lg ${variantClasses[variant]} ${className}`}
+                iconOnly ? 'px-1 py-1' : 'px-2 py-2'
+            } font-body rounded-md ${variantClasses[variant]} ${className}`}
             target={variant !== 'disabled' ? '_blank' : undefined}
             onClick={
                 variant === 'disabled' ? e => e.preventDefault() : undefined

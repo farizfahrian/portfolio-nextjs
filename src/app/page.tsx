@@ -4,6 +4,7 @@ import { MarqueeImage } from '@/components/MarqueeImage'
 import ProjectCard from '@/components/ProjectCard'
 import SkillCard from '@/components/SkillCard'
 import Image from 'next/image'
+import { ExperienceTimeline } from '@/components/ExperienceTimeline'
 
 const projects = [
     {
@@ -138,7 +139,7 @@ function Home () {
                         </div>
                         <div className='w-full flex max-[415px]:flex-col justify-center max-[415px]:gap-2 gap-4 mb-11'>
                             <Button link='mailto:farizfhrian@gmail.com' />
-                            <div className='flex items-center justify-center'>
+                            <div className='flex items-center gap-2 justify-center'>
                                 <Button
                                     link='https://github.com/farizfahrian'
                                     trailingIcon='/assets/icons/Github.svg'
@@ -172,10 +173,10 @@ function Home () {
             </section>
             <section>
                 <div className='flex justify-center items-center flex-col mx-3 sm:mx-auto my-24 text-center'>
-                    <h2 className='font-display text-xl leading-tight sm:text-5xl mb-2 sm:leading-[3.9rem] font-semibold'>
+                    <h2 className='font-display text-2xl leading-loose sm:text-5xl mb-2 font-semibold'>
                         What I&apos;m Good At
                     </h2>
-                    <p className='font-body leading-tight max-w-[510px]'>
+                    <p className='font-body leading-normal sm:leading-relaxed max-w-[510px]'>
                         Bringing together technical expertise and creative
                         problem-solving to deliver impactful solutions.
                     </p>
@@ -200,7 +201,14 @@ function Home () {
             </section>
             <section>
                 <div className='max-w-[1400px] mx-3 sm:my-6 sm:mx-auto'>
-                    <h2 className='font-display text-xl leading-tight sm:text-4xl my-6 sm:leading-[3.9rem] font-semibold'>
+                    <div className='space-y-4'>
+                        <ExperienceTimeline />
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div className='max-w-[1400px] mx-3 sm:my-6 sm:mx-auto'>
+                    <h2 className='font-display text-2xl leading-tight sm:text-4xl my-6 sm:leading-[3.9rem] font-semibold'>
                         Recent Projects
                     </h2>
                     <div className='space-y-4'>
