@@ -49,16 +49,14 @@ const ProjectCard = ({
 }: CardProps) => {
     return (
         <div className="flex flex-col font-body min-[1170px]:flex-row gap-3 md:gap-6 sm:gap-9 p-3 md:p-6 lg:p-8 xl:px-14 xl:py-10 bg-zinc-100/60 shadow-sm rounded-[18px]">
-            <div className="relative w-full min-[1170px]:max-w-[572px] aspect-[3/2] overflow-hidden rounded-lg">
-                <Image
-                    src={imgsrc}
-                    width={572}
-                    height={381}
-                    className='w-full min-[1170px]:max-w-[572px] h-auto aspect-[1.5/1]'
-                    alt='project image'
-                />
-            </div>
-            <div className='flex flex-col justify-between'>
+            <Image
+                src={imgsrc}
+                width={572}
+                height={381}
+                className='w-full flex-2 min-[1170px]:max-w-[572px] h-auto aspect-[1.5/1]'
+                alt='project image'
+            />
+            <div className='flex flex-col justify-between flex-1'>
                 <div className='text-zinc-600'>
                     <Chip text={chiptext} />
                     <h3 className='font-display my-2 text-zinc-950 sm:text-2xl text-xl leading-[1.1] font-semibold'>
