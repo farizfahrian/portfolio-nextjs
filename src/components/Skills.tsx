@@ -150,6 +150,16 @@ const tools: Skill[] = [
     name: 'Vitest',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitest/vitest-original.svg',
     description: 'Blazing-fast unit test framework powered by Vite',
+  },
+  {
+    name: 'Socket.io',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg',
+    description: 'Real-time bidirectional event-based communication library for web applications',
+  },
+  {
+    name: 'Midtrans',
+    icon: '/assets/icons/color/Midtrans.svg',
+    description: 'Indonesian payment gateway integration for seamless e-commerce transactions',
   }
 ];
 
@@ -211,21 +221,19 @@ const SkillIcon: React.FC<{ skill: Skill }> = ({ skill }) => {
             </div>
         </div>
       </TooltipTrigger>
-      <TooltipContent side="top" className="max-w-xs">
+      <TooltipContent side="top" className="max-w-72 mb-2">
         <div className="space-y-2">
           <p className="font-semibold">{skill.name}</p>
-          <p className="text-sm text-muted-foreground">{skill.description}</p>
+          <p className="text-sm text-zinc-200">{skill.description}</p>
         </div>
       </TooltipContent>
     </Tooltip>
   );
 };
 
-const SkillCategory: React.FC<{ skills: Skill[]; title: string }> = ({ skills, title }) => (
+const SkillCategory: React.FC<{ skills: Skill[]; title: string }> = ({ skills }) => (
   <div className="space-y-6">
     <div className="text-center">
-      <h3 className="text-lg font-semibold text-foreground mb-2">{title}</h3>
-      <div className="w-24 h-1 bg-primary/20 rounded-full mx-auto"></div>
     </div>
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
       {skills.map((skill, index) => (
@@ -243,7 +251,7 @@ export const Skills: React.FC = () => {
           <h2 className="text-4xl font-bold text-foreground mb-4">
             Technical Skills
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="sm:text-base text-muted-foreground max-w-2xl mx-auto">
             A comprehensive overview of my technical expertise across various domains. 
             Hover over each skill to learn more about my experience and proficiency level.
           </p>

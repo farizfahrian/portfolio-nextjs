@@ -1,119 +1,120 @@
 import Chip from '@/components/Chip'
 import Button from '@/components/Button'
 import { MarqueeImage } from '@/components/MarqueeImage'
-import ProjectCard from '@/components/ProjectCard'
+// import ProjectCard from '@/components/ProjectCard'
 import SkillCard from '@/components/SkillCard'
 import Image from 'next/image'
 import { ExperienceTimeline } from '@/components/ExperienceTimeline'
 import { Skills } from '@/components/Skills'
+import Portfolio from '@/components/Portfolio'
 
-const projects = [
-    {
-        imgsrc: '/assets/images/uwgm.png',
-        chiptext: 'Event Website',
-        title: 'UWGM Run Festival | Event Registration Platform',
-        roles: 'UI/UX Designer & Backend Developer',
-        teamSize: '3-Person Team',
-        deliveryTime: '4 weeks',
-        desc: 'Designed and developed a fully functional registration system with automated email confirmations, QR-based check-ins, secure payments, and an intuitive admin dashboard. Ensured seamless user experience.',
-        tools: [
-            'Laravel',
-            'Tailwind',
-            'Alpinejs',
-            'MySQL',
-            'Filament',
-            'Midtrans'
-        ],
-        urlLink: 'https://uwgmrunfestival.com'
-    },
-    {
-        imgsrc: '/assets/images/nps.png',
-        chiptext: 'Profile Company',
-        title: 'Nusantara Prima Solusi | Company Profile Website',
-        roles: 'Wordpress Developer',
-        teamSize: '3-Person Team',
-        deliveryTime: '4 weeks',
-        desc: 'Developed a company profile website for Nusantara Prima Solusi, a Palm Oil company, showcasing their products and services in a modern, responsive, and user-friendly interface.',
-        tools: [
-            'Wordpress',
-        ],
-        urlLink: 'https://gray-bison-645847.hostingersite.com'
-    },
-    {
-        imgsrc: '/assets/images/Activest.png',
-        chiptext: 'Event Website',
-        title: 'Active Festival | Event Registration Platform',
-        roles: 'Full Stack Developer',
-        teamSize: '3-Person Team',
-        deliveryTime: '4 weeks',
-        desc: 'Streamlined a high-performance registration system managing 1,500+ registrations with minimal resources (1GB RAM, single-core server). Delivered key features: automated email confirmations, QR-based check-ins, secure payments, and an intuitive admin dashboard. Ensured zero downtime during peak traffic while supporting hundreds of concurrent users.',
-        tools: [
-            'Laravel',
-            'Tailwind',
-            'Alpinejs',
-            'MySQL',
-            'Filament',
-            'Midtrans'
-        ],
-        urlLink: 'https://activefestsmr.com'
-    },
-    {
-        imgsrc: '/assets/images/Al-Mazaya.png',
-        chiptext: 'School Website',
-        title: 'Al Mazaya | School Management Platform',
-        roles: 'UI/UX Designer & Project Manager',
-        teamSize: '3-Person Team',
-        deliveryTime: '4 weeks',
-        desc: 'Designed a school registration system to enhance accessibility for users with diverse tech literacy levels. Simplified the enrollment process and optimized information architecture. Delivered high-fidelity prototypes that improved the experience for parents and staff. Effectively managed timelines and team collaboration to meet stakeholder expectations.',
-        tools: ['Figma', 'Notion'],
-        urlLink:
-            'https://www.figma.com/design/fuAWQVZXpNVp4iDQyOfMZW/Al-Mazaya-Paser?node-id=0-1&t=K4loj3LluqKX01k3-1'
-    },
-    {
-        imgsrc: '/assets/images/Sirkel.png',
-        chiptext: 'Landing Page',
-        title: 'Digital Marketing Agency Landing Page: Sirkel',
-        roles: 'UI/UX Designer & Frontend Developer',
-        teamSize: '3-Person Team',
-        deliveryTime: '4 weeks',
-        desc: 'Designed and developed a visually engaging and functional landing page for a digital marketing agency. Focused on creating a user-centric interface that effectively communicates the agency’s services and brand identity. Implemented responsive design to ensure seamless performance across devices.',
-        tools: ['React', 'Tailwind', 'Figma', 'Sanity'],
-        urlLink: 'https://snow-gorilla-383164.hostingersite.com/'
-    },
-    {
-        imgsrc: '/assets/images/Kaltimfolks.png',
-        chiptext: 'News Website',
-        title: 'News Media Website: Kaltimfolks',
-        roles: 'Frontend Developer',
-        teamSize: '3-Person Team',
-        deliveryTime: '4 weeks',
-        desc: 'Developed a comprehensive news media platform, crafting wireframes and high-fidelity mockups to visualize user journeys and information architecture. Designed an intuitive user interface to enhance navigation and content discoverability. Implemented a responsive front-end and managed hosting and server configuration to ensure a high-performing and scalable web application.',
-        tools: ['Nextjs', 'Tailwind', 'MongoDB', 'Prisma', 'Sanity'],
-        urlLink: 'https://kaltimfolks.com'
-    },
-    {
-        imgsrc: '/assets/images/Graviton.png',
-        chiptext: 'Landing Page',
-        title: 'Software Agency Landing Page: Graviton Softworks',
-        roles: 'UI/UX Designer & Frontend Developer',
-        teamSize: '3-Person Team',
-        deliveryTime: '4 weeks',
-        desc: 'Collaborated with stakeholders to design and develop a modern landing page for a software agency. Delivered a high-quality, responsive web interface that showcases the company’s expertise and portfolio, using scalable and performance-optimized technologies.',
-        tools: ['Nextjs', 'React', 'Figma', 'Tailwind', 'Sanity'],
-        urlLink: 'https://gravitonsoftworks.com'
-    },
-    {
-        imgsrc: '/assets/images/Davila.png',
-        chiptext: 'Profile Company',
-        title: 'Digital Marketing Profile Company: Davila',
-        roles: 'Frontend Developer',
-        teamSize: '3-Person Team',
-        deliveryTime: '4 weeks',
-        desc: 'Developed a responsive company profile website to highlight the brand identity and services of a digital marketing firm. Ensured smooth navigation and performance optimization for a professional user experience.',
-        tools: ['Laravel', 'React', 'Tailwind', 'Sanity'],
-        urlLink: 'https://davila.id'
-    }
-]
+// const projects = [
+//     {
+//         imgsrc: '/assets/images/uwgm.png',
+//         chiptext: 'Event Website',
+//         title: 'UWGM Run Festival | Event Registration Platform',
+//         roles: 'UI/UX Designer & Backend Developer',
+//         teamSize: '3-Person Team',
+//         deliveryTime: '4 weeks',
+//         desc: 'Designed and developed a fully functional registration system with automated email confirmations, QR-based check-ins, secure payments, and an intuitive admin dashboard. Ensured seamless user experience.',
+//         tools: [
+//             'Laravel',
+//             'Tailwind',
+//             'Alpinejs',
+//             'MySQL',
+//             'Filament',
+//             'Midtrans'
+//         ],
+//         urlLink: 'https://uwgmrunfestival.com'
+//     },
+//     {
+//         imgsrc: '/assets/images/nps.png',
+//         chiptext: 'Profile Company',
+//         title: 'Nusantara Prima Solusi | Company Profile Website',
+//         roles: 'Wordpress Developer',
+//         teamSize: '3-Person Team',
+//         deliveryTime: '4 weeks',
+//         desc: 'Developed a company profile website for Nusantara Prima Solusi, a Palm Oil company, showcasing their products and services in a modern, responsive, and user-friendly interface.',
+//         tools: [
+//             'Wordpress',
+//         ],
+//         urlLink: 'https://gray-bison-645847.hostingersite.com'
+//     },
+//     {
+//         imgsrc: '/assets/images/Activest.png',
+//         chiptext: 'Event Website',
+//         title: 'Active Festival | Event Registration Platform',
+//         roles: 'Full Stack Developer',
+//         teamSize: '3-Person Team',
+//         deliveryTime: '4 weeks',
+//         desc: 'Streamlined a high-performance registration system managing 1,500+ registrations with minimal resources (1GB RAM, single-core server). Delivered key features: automated email confirmations, QR-based check-ins, secure payments, and an intuitive admin dashboard. Ensured zero downtime during peak traffic while supporting hundreds of concurrent users.',
+//         tools: [
+//             'Laravel',
+//             'Tailwind',
+//             'Alpinejs',
+//             'MySQL',
+//             'Filament',
+//             'Midtrans'
+//         ],
+//         urlLink: 'https://activefestsmr.com'
+//     },
+//     {
+//         imgsrc: '/assets/images/Al-Mazaya.png',
+//         chiptext: 'School Website',
+//         title: 'Al Mazaya | School Management Platform',
+//         roles: 'UI/UX Designer & Project Manager',
+//         teamSize: '3-Person Team',
+//         deliveryTime: '4 weeks',
+//         desc: 'Designed a school registration system to enhance accessibility for users with diverse tech literacy levels. Simplified the enrollment process and optimized information architecture. Delivered high-fidelity prototypes that improved the experience for parents and staff. Effectively managed timelines and team collaboration to meet stakeholder expectations.',
+//         tools: ['Figma', 'Notion'],
+//         urlLink:
+//             'https://www.figma.com/design/fuAWQVZXpNVp4iDQyOfMZW/Al-Mazaya-Paser?node-id=0-1&t=K4loj3LluqKX01k3-1'
+//     },
+//     {
+//         imgsrc: '/assets/images/Sirkel.png',
+//         chiptext: 'Landing Page',
+//         title: 'Digital Marketing Agency Landing Page: Sirkel',
+//         roles: 'UI/UX Designer & Frontend Developer',
+//         teamSize: '3-Person Team',
+//         deliveryTime: '4 weeks',
+//         desc: 'Designed and developed a visually engaging and functional landing page for a digital marketing agency. Focused on creating a user-centric interface that effectively communicates the agency’s services and brand identity. Implemented responsive design to ensure seamless performance across devices.',
+//         tools: ['React', 'Tailwind', 'Figma', 'Sanity'],
+//         urlLink: 'https://snow-gorilla-383164.hostingersite.com/'
+//     },
+//     {
+//         imgsrc: '/assets/images/Kaltimfolks.png',
+//         chiptext: 'News Website',
+//         title: 'News Media Website: Kaltimfolks',
+//         roles: 'Frontend Developer',
+//         teamSize: '3-Person Team',
+//         deliveryTime: '4 weeks',
+//         desc: 'Developed a comprehensive news media platform, crafting wireframes and high-fidelity mockups to visualize user journeys and information architecture. Designed an intuitive user interface to enhance navigation and content discoverability. Implemented a responsive front-end and managed hosting and server configuration to ensure a high-performing and scalable web application.',
+//         tools: ['Nextjs', 'Tailwind', 'MongoDB', 'Prisma', 'Sanity'],
+//         urlLink: 'https://kaltimfolks.com'
+//     },
+//     {
+//         imgsrc: '/assets/images/Graviton.png',
+//         chiptext: 'Landing Page',
+//         title: 'Software Agency Landing Page: Graviton Softworks',
+//         roles: 'UI/UX Designer & Frontend Developer',
+//         teamSize: '3-Person Team',
+//         deliveryTime: '4 weeks',
+//         desc: 'Collaborated with stakeholders to design and develop a modern landing page for a software agency. Delivered a high-quality, responsive web interface that showcases the company’s expertise and portfolio, using scalable and performance-optimized technologies.',
+//         tools: ['Nextjs', 'React', 'Figma', 'Tailwind', 'Sanity'],
+//         urlLink: 'https://gravitonsoftworks.com'
+//     },
+//     {
+//         imgsrc: '/assets/images/Davila.png',
+//         chiptext: 'Profile Company',
+//         title: 'Digital Marketing Profile Company: Davila',
+//         roles: 'Frontend Developer',
+//         teamSize: '3-Person Team',
+//         deliveryTime: '4 weeks',
+//         desc: 'Developed a responsive company profile website to highlight the brand identity and services of a digital marketing firm. Ensured smooth navigation and performance optimization for a professional user experience.',
+//         tools: ['Laravel', 'React', 'Tailwind', 'Sanity'],
+//         urlLink: 'https://davila.id'
+//     }
+// ]
 
 function Home () {
     return (
@@ -177,7 +178,7 @@ function Home () {
                     <h2 className='font-display text-3xl sm:text-5xl mb-2 font-semibold'>
                         What I&apos;m Good At
                     </h2>
-                    <p className='leading-normal text-sm sm:text-base sm:leading-relaxed max-w-[510px]'>
+                    <p className='leading-normal text-sm text-muted-foreground sm:text-base sm:leading-relaxed max-w-[510px]'>
                         Bringing together technical expertise and creative
                         problem-solving to deliver impactful solutions.
                     </p>
@@ -200,7 +201,7 @@ function Home () {
                     </div>
                 </div>
             </section>
-            <section>
+            {/* <section>
                 <div className='max-w-[1400px] mx-3 sm:my-6 sm:mx-auto'>
                     <h2 className='font-display text-3xl leading-tight sm:text-4xl my-6 sm:leading-[3.9rem] font-semibold'>
                         Recent Projects
@@ -222,14 +223,14 @@ function Home () {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
             <section>
-                <div className='max-w-[1400px] mx-3 sm:my-6 sm:mx-auto'>
+                <div className='max-w-[1400px] mx-3 my-4 sm:my-6 sm:mx-auto'>
                     <div className="max-w-7xl text-left sm:text-center mx-auto py-4 sm:py-10 px-4 md:px-8 lg:px-10">
                         <h2 className="font-display text-3xl sm:text-5xl mb-2 font-semibold">
                             My Professional Journey
                         </h2>
-                        <p className="text-neutral-700 mx-auto dark:text-neutral-300 text-base md:text-base max-w-md">
+                        <p className="text-muted-foreground mx-auto dark:text-neutral-300 text-base md:text-base max-w-md">
                             Here&apos;s a timeline of my career journey, highlighting key experiences and achievements along the way.
                         </p>
                     </div>
@@ -242,6 +243,9 @@ function Home () {
                 <div className='max-w-[1400px] mx-3 sm:my-6 sm:mx-auto'>
                     <Skills />
                 </div>
+            </section>
+            <section>
+                <Portfolio />
             </section>
         </>
     )

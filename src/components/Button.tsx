@@ -36,7 +36,7 @@ const Button = ({
         <motion.a
             href={variant !== 'disabled' ? link : undefined}
             className={`border-2 ${
-                iconOnly ? 'px-1 py-1' : 'px-2 py-2'
+                iconOnly ? 'px-1 py-1' : 'px-10 py-2'
             } font-body rounded-md ${variantClasses[variant]} ${className}`}
             target={variant !== 'disabled' ? '_blank' : undefined}
             onClick={
