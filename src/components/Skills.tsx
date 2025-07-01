@@ -3,176 +3,193 @@ import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import {
-    FileCode,
     Code2,
-    Terminal,
-    Shield,
-    Braces,
-    Globe,
     Layers,
-    Activity,
-    GitBranch,
-    Box,
-    Workflow,
-    Package,
     Database,
-    Zap,
     Settings
 } from 'lucide-react';
+import Image from 'next/image';
 
 interface Skill {
   name: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: string;
   description: string;
 }
 
+// Programming languages and scripting based on CV
 const programmingLanguages: Skill[] = [
-    {
-      name: 'JavaScript',
-      icon: FileCode,
-      description: 'Expert in modern ES6+ JavaScript for dynamic, responsive web applications',
-    },
-    {
-      name: 'TypeScript',
-      icon: Code2,
-      description: 'Strongly typed superset of JavaScript for scalable, maintainable codebases',
-    },
-    {
-      name: 'PHP',
-      icon: Code2,
-      description: 'Proficient in PHP for backend development, especially with Laravel',
-    },
-    {
-      name: 'Python',
-      icon: Terminal,
-      description: 'Experienced with Python for scripting, automation, and data tasks',
-    },
-    {
-      name: 'Dart',
-      icon: Zap,
-      description: 'Familiar with Dart for building cross-platform Flutter applications',
-    },
-    {
-      name: 'SQL',
-      icon: Database,
-      description: 'Skilled in SQL (MySQL, PostgreSQL) for database design and queries',
-    }
-  ];
-  
-  // Frameworks and libraries from projects and certifications
-  const frameworks: Skill[] = [
-    {
-      name: 'Laravel',
-      icon: Shield,
-      description: 'PHP MVC framework for building secure, maintainable web apps',
-    },
-    {
-      name: 'React',
-      icon: Braces,
-      description: 'Component-driven library for building interactive UIs',
-    },
-    {
-      name: 'Next.js',
-      icon: Globe,
-      description: 'React meta-framework with SSR/SSG and API routes',
-    },
-    {
-      name: 'Flutter',
-      icon: Zap,
-      description: 'UI toolkit for crafting natively compiled mobile/web apps',
-    },
-    {
-      name: 'Alpine.js',
-      icon: Layers,
-      description: 'Minimal JS framework for declarative UI behavior',
-    },
-    {
-      name: 'Tailwind CSS',
-      icon: Package,
-      description: 'Utility-first CSS framework for rapid UI styling',
-    }
-  ];
-  
-  // Development tools and workflows
-  const tools: Skill[] = [
-    {
-      name: 'Git & GitHub',
-      icon: GitBranch,
-      description: 'Version control and collaboration, pull requests, code reviews',
-    },
-    {
-      name: 'Figma',
-      icon: Box,
-      description: 'UI/UX design, prototyping, and developer handoff',
-    },
-    {
-      name: 'Postman & Ngrok',
-      icon: Activity,
-      description: 'API testing and local tunneling for webhooks and callbacks',
-    },
-    {
-      name: 'Docker & Docker Compose',
-      icon: Box,
-      description: 'Containerization for reproducible dev and production environments',
-    },
-    {
-      name: 'CI/CD (GitHub Actions)',
-      icon: Workflow,
-      description: 'Automated testing, linting, and deployment pipelines',
-    },
-    {
-      name: 'Prisma',
-      icon: Layers,
-      description: 'Type-safe ORM for database modeling and migrations',
-    },  
-    {
-      name: 'Webpack',
-      icon: Package,
-      description: 'Module bundler for JavaScript applications with asset optimization',
-    },
-    {
-      name: 'Vite',
-      icon: Zap,
-      description: 'Fast build tool with hot module replacement for modern web development',
-    }
+  {
+    name: 'JavaScript',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
+    description: 'Expert in modern ES6+ JavaScript for dynamic, responsive web applications',
+  },
+  {
+    name: 'TypeScript',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+    description: 'Strongly typed superset of JavaScript for scalable, maintainable codebases',
+  },
+  {
+    name: 'PHP',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg',
+    description: 'Proficient in PHP for backend development, especially with Laravel',
+  },
+  {
+    name: 'Python',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
+    description: 'Experienced with Python for scripting, automation, and data tasks',
+  },
+  {
+    name: 'Dart',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg',
+    description: 'Familiar with Dart for building cross-platform Flutter applications',
+  },
+  {
+    name: 'SQL',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg',
+    description: 'Skilled in SQL (MySQL, PostgreSQL) for database design and queries',
+  }
 ];
 
+// Frameworks and libraries from projects and certifications
+const frameworks: Skill[] = [
+  {
+    name: 'Laravel',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg',
+    description: 'PHP MVC framework for building secure, maintainable web apps',
+  },
+  {
+    name: 'React',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
+    description: 'Component-driven library for building interactive UIs',
+  },
+  {
+    name: 'Next.js',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
+    description: 'React meta-framework with SSR/SSG and API routes',
+  },
+  {
+    name: 'Flutter',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg',
+    description: 'UI toolkit for crafting natively compiled mobile/web apps',
+  },
+  {
+    name: 'Alpine.js',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/alpinejs/alpinejs-original.svg',
+    description: 'Minimal JS framework for declarative UI behavior',
+  },
+  {
+    name: 'Tailwind CSS',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+    description: 'Utility-first CSS framework for rapid UI styling',
+  }
+];
+
+// Development tools and workflows
+const tools: Skill[] = [
+  {
+    name: 'Git & GitHub',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
+    description: 'Version control and collaboration, pull requests, code reviews',
+  },
+  {
+    name: 'Figma',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg',
+    description: 'UI/UX design, prototyping, and developer handoff',
+  },
+  {
+    name: 'Postman',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg',
+    description: 'API testing and local tunneling with Ngrok for webhooks and callbacks',
+  },
+  {
+    name: 'Docker',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',
+    description: 'Containerization for reproducible development and production environments',
+  },
+  {
+    name: 'CI/CD (GitHub Actions)',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg',
+    description: 'Automated testing, linting, and deployment pipelines',
+  },
+  {
+    name: 'Prisma',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg',
+    description: 'Type-safe ORM for database modeling and migrations',
+  },
+  {
+    name: 'Webpack',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/webpack/webpack-original.svg',
+    description: 'Module bundler for JavaScript applications with asset optimization',
+  },
+  {
+    name: 'Vite',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg',
+    description: 'Fast build tool with hot module replacement for modern web development',
+  },
+  {
+    name: 'Storybook',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/storybook/storybook-original.svg',
+    description: 'Component-driven UI development environment for React',
+  },
+  {
+    name: 'Cypress',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cypressio/cypressio-original.svg',
+    description: 'End-to-end testing framework for modern web applications',
+  },
+  {
+    name: 'React Testing Library',
+    icon: 'https://testing-library.com/img/octopus-64x64.png',
+    description: 'Lightweight solution for testing React components',
+  },
+  {
+    name: 'Jest',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg',
+    description: 'Delightful JavaScript testing framework with a focus on simplicity',
+  },
+  {
+    name: 'Vitest',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitest/vitest-original.svg',
+    description: 'Blazing-fast unit test framework powered by Vite',
+  }
+];
+
+// Databases & storage technologies
 const databases: Skill[] = [
   {
+    name: 'MySQL',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg',
+    description: 'Relational database for transactional web applications',
+  },
+  {
     name: 'PostgreSQL',
-    icon: Database,
-    description: 'Advanced open-source relational database with JSON support',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
+    description: 'Advanced open-source RDBMS with JSON support',
   },
   {
     name: 'MongoDB',
-    icon: Database,
-    description: 'NoSQL document database for flexible and scalable applications',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg',
+    description: 'NoSQL document store for flexible schemas and rapid iteration',
   },
   {
     name: 'Redis',
-    icon: Activity,
-    description: 'In-memory data store used for caching and real-time applications',
-  },
-  {
-    name: 'MySQL',
-    icon: Database,
-    description: 'Popular relational database management system for web applications',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg',
+    description: 'In-memory data store for caching, sessions, and pub/sub',
   },
   {
     name: 'Supabase',
-    icon: Database,
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg',
     description: 'Open source Firebase alternative with PostgreSQL backend',
   },
   {
     name: 'Prisma',
-    icon: Layers,
-    description: 'Type-safe database toolkit and ORM for modern application development',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg',
+    description: 'Type-safe ORM for database modeling and migrations',
   }
 ];
 
+
 const SkillIcon: React.FC<{ skill: Skill }> = ({ skill }) => {
     const [open, setOpen] = useState(false)
-  const IconComponent = skill.icon;
   
   return (
     <Tooltip
@@ -185,7 +202,7 @@ const SkillIcon: React.FC<{ skill: Skill }> = ({ skill }) => {
             <div
                 onClick={() => setOpen(!open)} 
                 className="mx-auto flex items-center justify-center p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300">
-                <IconComponent className="h-8 w-8 text-primary group-hover:text-primary/80 transition-colors duration-300" />
+                <Image src={skill.icon} alt={skill.name} width={24} height={24} />
             </div>
             <div className="text-center space-y-1">
                 <h3 className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors duration-300">
