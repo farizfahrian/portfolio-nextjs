@@ -138,7 +138,7 @@ const tools: Skill[] = [
   },
   {
     name: 'React Testing Library',
-    icon: 'https://testing-library.com/img/octopus-64x64.png',
+    icon: '/assets/icons/react-testing-library.svg',
     description: 'Lightweight solution for testing React components',
   },
   {
