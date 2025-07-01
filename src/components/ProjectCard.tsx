@@ -17,12 +17,10 @@ const toolIcons: Record<string, string> = {
     Sanity: '/assets/icons/Sanity.svg',
     Tailwind: '/assets/icons/Tailwind.svg',
     Wordpress: '/assets/icons/Wordpress.svg',
-    // Default fallback for unrecognized tools
-    default: '/assets/icons/Laravel.svg'
 }
 
 const getToolIcon = (tool: string): string =>
-    toolIcons[tool] || toolIcons.default
+    toolIcons[tool]
 
 type CardProps = {
     imgsrc: string

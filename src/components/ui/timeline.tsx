@@ -36,15 +36,6 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
       ref={containerRef}
     >
-      <div className="max-w-7xl text-left sm:text-center mx-auto py-4 sm:py-10 px-4 md:px-8 lg:px-10">
-        <h2 className="text-2xl mx-auto md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-          My Professional journey
-        </h2>
-        <p className="text-neutral-700 mx-auto dark:text-neutral-300 text-base md:text-base max-w-md">
-          Here&apos;s a timeline of my career journey, highlighting key experiences and achievements along the way.
-        </p>
-      </div>
-
       <div ref={ref} className="relative max-w-7xl mx-auto pb-10 mb-20">
         {data.map((item, index) => (
           <div
@@ -55,13 +46,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="h-10 absolute left-2.5 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center sm:justify-center">
                 <div className="h-3 w-3 rounded-full bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700" />
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-3xl font-bold text-neutral-500 dark:text-neutral-500 ">
+              <h3 className="hidden md:block text-xl md:pl-20 md:text-3xl font-bold text-zinc-500 dark:text-zinc-500 ">
                 {item.date}
               </h3>
             </div>
 
             <div className="relative pl-16 sm:pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
+              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-zinc-500 dark:text-zinc-500">
                 {item.date}
               </h3>
               {item.content}{" "}

@@ -5,6 +5,7 @@ import ProjectCard from '@/components/ProjectCard'
 import SkillCard from '@/components/SkillCard'
 import Image from 'next/image'
 import { ExperienceTimeline } from '@/components/ExperienceTimeline'
+import { Skills } from '@/components/Skills'
 
 const projects = [
     {
@@ -118,7 +119,7 @@ function Home () {
     return (
         <>
             <section>
-                <div className='relative font-body border-zinc-200 rounded-[1.25rem] pt-6 md:pt-10 lg:pt-14 pb-4 md:pb-8 xl:pt-20 text-zinc-950 bg-gray-100 m-3 sm:m-6'>
+                <div className='relative border-zinc-200 rounded-[1.25rem] pt-6 md:pt-10 lg:pt-14 pb-4 md:pb-8 xl:pt-20 text-zinc-950 bg-gray-100 m-3 sm:m-6'>
                     <div className='px-3 mb-24'>
                         <div className='flex justify-center w-full mb-2'>
                             <Chip
@@ -127,11 +128,11 @@ function Home () {
                             />
                         </div>
                         <div className='mb-4 text-center lg:mb-6'>
-                            <h1 className='font-display max-w-[1170px] mx-auto max-[415px]:text-2xl max-[415px]:leading-[1.7rem] text-4xl leading-[2.5rem] lg:text-[3.5rem] lg:leading-[3.9rem] xl:text-[4rem] xl:leading-[4.4375rem] font-semibold'>
+                            <h1 className='max-w-[1170px] mx-auto max-[415px]:text-3xl max-[415px]:leading-[2rem] text-4xl leading-[2.5rem] lg:text-[3.5rem] lg:leading-[3.9rem] xl:text-[4rem] xl:leading-[4.4375rem] font-semibold'>
                                 Designing with Purpose, <br /> Coding with
                                 Precision.
                             </h1>
-                            <p className='font-body max-w-[322px] lg:max-w-[526px] mx-auto text-sm mt-2 xl:mt-4 text-zinc-600 font-medium'>
+                            <p className='max-w-[322px] lg:max-w-[526px] mx-auto text-sm mt-2 xl:mt-4 text-zinc-600 font-medium'>
                                 A curious creator blending empathy and logic to
                                 craft digital solutions that solve real problems
                                 and inspire meaningful connections.
@@ -172,11 +173,11 @@ function Home () {
                 </div>
             </section>
             <section>
-                <div className='flex justify-center items-center flex-col mx-3 sm:mx-auto my-24 text-center'>
-                    <h2 className='font-display text-2xl leading-loose sm:text-5xl mb-2 font-semibold'>
+                <div className='flex justify-center items-center flex-col mx-3 sm:mx-auto my-20 text-center'>
+                    <h2 className='font-display text-3xl sm:text-5xl mb-2 font-semibold'>
                         What I&apos;m Good At
                     </h2>
-                    <p className='font-body leading-normal sm:leading-relaxed max-w-[510px]'>
+                    <p className='leading-normal text-sm sm:text-base sm:leading-relaxed max-w-[510px]'>
                         Bringing together technical expertise and creative
                         problem-solving to deliver impactful solutions.
                     </p>
@@ -201,14 +202,7 @@ function Home () {
             </section>
             <section>
                 <div className='max-w-[1400px] mx-3 sm:my-6 sm:mx-auto'>
-                    <div className='space-y-4'>
-                        <ExperienceTimeline />
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div className='max-w-[1400px] mx-3 sm:my-6 sm:mx-auto'>
-                    <h2 className='font-display text-2xl leading-tight sm:text-4xl my-6 sm:leading-[3.9rem] font-semibold'>
+                    <h2 className='font-display text-3xl leading-tight sm:text-4xl my-6 sm:leading-[3.9rem] font-semibold'>
                         Recent Projects
                     </h2>
                     <div className='space-y-4'>
@@ -227,6 +221,26 @@ function Home () {
                             />
                         ))}
                     </div>
+                </div>
+            </section>
+            <section>
+                <div className='max-w-[1400px] mx-3 sm:my-6 sm:mx-auto'>
+                    <div className="max-w-7xl text-left sm:text-center mx-auto py-4 sm:py-10 px-4 md:px-8 lg:px-10">
+                        <h2 className="font-display text-3xl sm:text-5xl mb-2 font-semibold">
+                            My Professional Journey
+                        </h2>
+                        <p className="text-neutral-700 mx-auto dark:text-neutral-300 text-base md:text-base max-w-md">
+                            Here&apos;s a timeline of my career journey, highlighting key experiences and achievements along the way.
+                        </p>
+                    </div>
+                    <div className='space-y-4'>
+                        <ExperienceTimeline />
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div className='max-w-[1400px] mx-3 sm:my-6 sm:mx-auto'>
+                    <Skills />
                 </div>
             </section>
         </>
