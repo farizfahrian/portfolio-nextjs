@@ -112,9 +112,9 @@ const tools: Skill[] = [
     description: 'Automated testing, linting, and deployment pipelines',
   },
   {
-    name: 'Prisma',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg',
-    description: 'Type-safe ORM for database modeling and migrations',
+    name: 'Node.js',
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
+    description: 'JavaScript runtime for scalable server-side applications',
   },
   {
     name: 'Webpack',
