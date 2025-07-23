@@ -1,9 +1,16 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 
 const projects = [
   {
@@ -12,7 +19,14 @@ const projects = [
     description:
       'Designed and developed a fully functional registration system with automated email confirmations, QR-based check-ins, secure payments, and an intuitive admin dashboard. Ensured seamless user experience.',
     image: '/assets/images/uwgm.png?height=200&width=400',
-    technologies: ['Laravel', 'Tailwind', 'Alpinejs', 'MySQL', 'Filament', 'Midtrans'],
+    technologies: [
+      'Laravel',
+      'Tailwind',
+      'Alpinejs',
+      'MySQL',
+      'Filament',
+      'Midtrans',
+    ],
     liveUrl: 'https://uwgmrunfestival.com',
     githubUrl: '',
     realProject: true,
@@ -34,7 +48,14 @@ const projects = [
     description:
       'Streamlined a high-performance registration system managing 1,500+ registrations with minimal resources (1GB RAM, single-core server). Delivered key features: automated email confirmations, QR-based check-ins, secure payments, and an intuitive admin dashboard. Ensured zero downtime during peak traffic while supporting hundreds of concurrent users.',
     image: '/assets/images/Activest.png?height=200&width=400',
-    technologies: ['Laravel', 'Tailwind', 'Alpinejs', 'MySQL', 'Filament', 'Midtrans'],
+    technologies: [
+      'Laravel',
+      'Tailwind',
+      'Alpinejs',
+      'MySQL',
+      'Filament',
+      'Midtrans',
+    ],
     liveUrl: 'https://activefestsmr.com',
     githubUrl: '',
     realProject: true,
@@ -114,7 +135,8 @@ const projects = [
       'A browser extension for content generation that integrates with rich text editors and provides AI-assisted writing tools directly in the browser.',
     image: '/assets/images/catalyst.png',
     technologies: ['JavaScript', 'Web Extensions API', 'React'],
-    liveUrl: 'https://microsoftedge.microsoft.com/addons/detail/creative-content-catalyst/langbocbheocmplkcjdbknpkhdfalpjl',
+    liveUrl:
+      'https://microsoftedge.microsoft.com/addons/detail/creative-content-catalyst/langbocbheocmplkcjdbknpkhdfalpjl',
     githubUrl: 'https://github.com/farizfahrian/catalyst-web-extension',
     realProject: false,
   },
@@ -125,62 +147,79 @@ const projects = [
       'An interactive virtual tour application showcasing campus buildings at Mulawarman University, developed using Three.js and mapping APIs.',
     image: '/assets/images/virtual-tour.png',
     technologies: ['Panolens.js', 'JavaScript', 'Three.js'],
-    liveUrl: 'https://farizfahrian.github.io/Virtual-Tour-of-Recorate-Building-at-Mulawarman-University',
-    githubUrl: 'https://github.com/farizfahrian/Virtual-Tour-of-Recorate-Building-at-Mulawarman-University',
+    liveUrl:
+      'https://farizfahrian.github.io/Virtual-Tour-of-Recorate-Building-at-Mulawarman-University',
+    githubUrl:
+      'https://github.com/farizfahrian/Virtual-Tour-of-Recorate-Building-at-Mulawarman-University',
     realProject: false,
   },
-]
+];
 
 export default function PortfolioSection() {
-  const featuredProjects = projects.filter((project) => project.realProject)
-  const otherProjects = projects.filter((project) => !project.realProject)
+  const featuredProjects = projects.filter((project) => project.realProject);
+  const otherProjects = projects.filter((project) => !project.realProject);
 
   return (
-    <section className="py-16 px-4 max-w-7xl mx-auto">
-      <div className="text-center mb-12">
-        <h2 className="text-2xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-        <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-          Here are some of my recent projects that showcase my skills in web development, design, and problem-solving.
-          Each project represents a unique challenge.
+    <section className="mx-auto max-w-7xl px-4 py-16">
+      <div className="mb-12 text-center">
+        <h2 className="mb-4 font-bold text-2xl md:text-4xl">
+          Featured Projects
+        </h2>
+        <p className="mx-auto max-w-2xl text-base text-muted-foreground">
+          Here are some of my recent projects that showcase my skills in web
+          development, design, and problem-solving. Each project represents a
+          unique challenge.
         </p>
       </div>
 
       {/* Featured Projects */}
-      <div className="grid md:grid-cols-2 gap-8 mb-16">
+      <div className="mb-16 grid gap-8 md:grid-cols-2">
         {featuredProjects.map((project) => (
-          <Card key={project.id} className="flex flex-col justify-between group hover:shadow-lg transition-all duration-300 overflow-hidden">
-                <div className="relative overflow-hidden">
-                    <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        width={400}
-                        height={200}
-                        className="w-full h-48 object-top object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute top-4 left-4">
-                        <Badge variant="secondary" className="bg-primary text-primary-foreground">
-                            Real Project
-                        </Badge>
-                    </div>
-                </div>
-                <CardHeader>
-                    <CardTitle className="text-xl">{project.title}</CardTitle>
-                    <CardDescription className="text-sm leading-relaxed">{project.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="outline" className="text-xs">
-                            {tech}
-                        </Badge>
-                        ))}
-                    </div>
-                </CardContent>
-            <CardFooter className="flex gap-3 mt-auto">
+          <Card
+            className="group flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-lg"
+            key={project.id}
+          >
+            <div className="relative overflow-hidden">
+              <Image
+                alt={project.title}
+                className="h-48 w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                height={200}
+                src={project.image || '/placeholder.svg'}
+                width={400}
+              />
+              <div className="absolute top-4 left-4">
+                <Badge
+                  className="bg-primary text-primary-foreground"
+                  variant="secondary"
+                >
+                  Real Project
+                </Badge>
+              </div>
+            </div>
+            <CardHeader>
+              <CardTitle className="text-xl">{project.title}</CardTitle>
+              <CardDescription className="text-sm leading-relaxed">
+                {project.description}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => (
+                  <Badge className="text-xs" key={tech} variant="outline">
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+            <CardFooter className="mt-auto flex gap-3">
               {project.liveUrl && (
-                  <Button asChild size="sm" className="flex-1">
-                  <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-4 h-4 mr-2" />
+                <Button asChild className="flex-1" size="sm">
+                  <Link
+                    href={project.liveUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <ExternalLink className="mr-2 h-4 w-4" />
                     Live Demo
                   </Link>
                 </Button>
@@ -192,52 +231,84 @@ export default function PortfolioSection() {
 
       {/* Other Projects */}
       <div className="mb-8">
-        <h3 className="text-2xl font-bold mb-6">Other Projects</h3>
+        <h3 className="mb-6 font-bold text-2xl">Other Projects</h3>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {otherProjects.map((project) => (
-          <Card key={project.id} className="flex flex-col justify-between group hover:shadow-md transition-all duration-300 overflow-hidden">
+          <Card
+            className="group flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-md"
+            key={project.id}
+          >
             <div className="relative overflow-hidden">
               <Image
-                src={project.image || "/placeholder.svg"}
                 alt={project.title}
-                width={400}
+                className="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 height={200}
-                className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                src={project.image || '/placeholder.svg'}
+                width={400}
               />
             </div>
             <CardHeader className="pb-3">
               <CardTitle className="text-lg">{project.title}</CardTitle>
-              <CardDescription className="text-sm line-clamp-3">{project.description}</CardDescription>
+              <CardDescription className="line-clamp-3 text-sm">
+                {project.description}
+              </CardDescription>
             </CardHeader>
             <CardContent className="pb-3">
               <div className="flex flex-wrap gap-1">
                 {project.technologies.slice(0, 3).map((tech) => (
-                  <Badge key={tech} variant="outline" className="text-xs">
+                  <Badge className="text-xs" key={tech} variant="outline">
                     {tech}
                   </Badge>
                 ))}
                 {project.technologies.length > 3 && (
-                  <Badge variant="outline" className="text-xs">
+                  <Badge className="text-xs" variant="outline">
                     +{project.technologies.length - 3}
                   </Badge>
                 )}
               </div>
             </CardContent>
             <CardFooter className="flex gap-2 pt-0">
-                {project.liveUrl && (
-                  <Button asChild size="sm" className="flex-1">
-                    <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-3 h-3 mr-1" />
-                      Live
-                    </Link>
-                  </Button>
-                )}
+              {project.liveUrl && (
+                <Button asChild className="flex-1" size="sm">
+                  <Link
+                    href={project.liveUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <ExternalLink className="mr-1 h-3 w-3" />
+                    Live
+                  </Link>
+                </Button>
+              )}
               {project.githubUrl && (
-                <Button asChild size="sm" variant="outline" className="flex-1 bg-transparent">
-                  <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github-icon lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                <Button
+                  asChild
+                  className="flex-1 bg-transparent"
+                  size="sm"
+                  variant="outline"
+                >
+                  <Link
+                    href={project.githubUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <svg
+                      className="lucide lucide-github-icon lucide-github"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                      <path d="M9 18c-4.51 2-5-2-7-2" />
+                    </svg>
                     GitHub
                   </Link>
                 </Button>
@@ -247,23 +318,7 @@ export default function PortfolioSection() {
         ))}
       </div>
 
-      {/* Call to Action */}
-      <div className="text-center mt-16 p-8 bg-muted/50 rounded-lg">
-        <h3 className="text-xl font-semibold mb-3">Interested in working together?</h3>
-        <p className="text-muted-foreground mb-6">
-          I&apos;m always open to discussing new opportunities and interesting projects.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild>
-            <Link href="mailto:farizfhrian@gmail.com">Get In Touch</Link>
-          </Button>
-          <Button asChild variant="outline">
-            <Link href="/assets/CV-Fariz_Fahrian.pdf" target="_blank">
-              View Resume
-            </Link>
-          </Button>
-        </div>
-      </div>
+      
     </section>
-  )
+  );
 }

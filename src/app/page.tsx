@@ -1,12 +1,14 @@
-import Chip from '@/components/Chip'
-import Button from '@/components/Button'
-import { MarqueeImage } from '@/components/MarqueeImage'
+import Image from 'next/image';
+import Button from '@/components/Button';
+import Chip from '@/components/Chip';
+import { ExperienceTimeline } from '@/components/ExperienceTimeline';
+import { MarqueeImage } from '@/components/MarqueeImage';
+import Portfolio from '@/components/Portfolio';
 // import ProjectCard from '@/components/ProjectCard'
-import SkillCard from '@/components/SkillCard'
-import Image from 'next/image'
-import { ExperienceTimeline } from '@/components/ExperienceTimeline'
-import { Skills } from '@/components/Skills'
-import Portfolio from '@/components/Portfolio'
+import SkillCard from '@/components/SkillCard';
+import { Skills } from '@/components/Skills';
+import TrainingTimeline from '@/components/TrainingTimeline';
+import ContactSection from '@/components/ContactSection';
 
 // const projects = [
 //     {
@@ -116,92 +118,91 @@ import Portfolio from '@/components/Portfolio'
 //     }
 // ]
 
-function Home () {
-    return (
-        <>
-            <section>
-                <div className='relative border-zinc-200 rounded-[1.25rem] pt-6 md:pt-10 lg:pt-14 pb-4 md:pb-8 xl:pt-20 text-zinc-950 bg-gray-100 m-3 sm:m-6'>
-                    <div className='px-3 mb-24'>
-                        <div className='flex justify-center w-full mb-2'>
-                            <Chip
-                                className='text-[0.75rem]'
-                                text='Software Engineer •  UI/UX Designer'
-                            />
-                        </div>
-                        <div className='mb-4 text-center lg:mb-6'>
-                            <h1 className='max-w-[1170px] mx-auto max-[415px]:text-3xl max-[415px]:leading-[2rem] text-4xl leading-[2.5rem] lg:text-[3.5rem] lg:leading-[3.9rem] xl:text-[4rem] xl:leading-[4.4375rem] font-semibold'>
-                                Designing with Purpose, <br /> Coding with
-                                Precision.
-                            </h1>
-                            <p className='max-w-[322px] lg:max-w-[526px] mx-auto text-sm mt-2 xl:mt-4 text-zinc-600 font-medium'>
-                                A curious creator blending empathy and logic to
-                                craft digital solutions that solve real problems
-                                and inspire meaningful connections.
-                            </p>
-                        </div>
-                        <div className='w-full flex max-[415px]:flex-col justify-center max-[415px]:gap-2 gap-4 mb-11'>
-                            <Button link='mailto:farizfhrian@gmail.com' />
-                            <div className='flex items-center gap-2 justify-center'>
-                                <Button
-                                    link='https://github.com/farizfahrian'
-                                    trailingIcon='/assets/icons/Github.svg'
-                                    variant='ghost'
-                                    iconOnly={true}
-                                />
-                                <Button
-                                    link='https://linkedin.com/in/fariz-fahrian-60a75014a'
-                                    trailingIcon='/assets/icons/Linkedin.svg'
-                                    variant='ghost'
-                                    iconOnly={true}
-                                />
-                                <Button
-                                    link='/assets/CV-Fariz_Fahrian.pdf'
-                                    trailingIcon='/assets/icons/CV.svg'
-                                    variant='ghost'
-                                    iconOnly={true}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <Image
-                        width={96}
-                        height={42}
-                        className='absolute bottom-[160px] right-[20px] w-[72px] sm:w-[96px] h-auto sm:bottom-[160px] sm:right-[30px] md:bottom-[170px] md:right-[50px] lg:bottom-[190px] lg:right-[50px]'
-                        src='/assets/images/Mywork-arrow.png'
-                        alt=''
-                    />
-                    <MarqueeImage />
-                </div>
-            </section>
-            <section>
-                <div className='flex justify-center items-center flex-col mx-3 sm:mx-auto my-20 text-center'>
-                    <h2 className='font-display text-3xl sm:text-5xl mb-2 font-semibold'>
-                        What I&apos;m Good At
-                    </h2>
-                    <p className='leading-normal text-sm text-muted-foreground sm:text-base sm:leading-relaxed max-w-[510px]'>
-                        Bringing together technical expertise and creative
-                        problem-solving to deliver impactful solutions.
-                    </p>
-                    <div className='flex flex-col gap-8 mt-10 sm:flex-row'>
-                        <SkillCard
-                            imgsrc='/assets/images/skill-software.png'
-                            title='Software Development'
-                            desc='Building reliable web applications is where I excel, combining clean structured code, and optimized performance throughout development.'
-                        />
-                        <SkillCard
-                            imgsrc='/assets/images/skill-design.png'
-                            title='UI/UX Design'
-                            desc='Creating thoughtful user-focused designs is my strength, blending creativity, deep user empathy, and practical functionality seamlessly.'
-                        />
-                        <SkillCard
-                            imgsrc='/assets/images/skill-ai.png'
-                            title='Making Use of AI'
-                            desc='Optimizing workflows is what I consistently do best, using AI tools to boost productivity and substantially improve my overall efficiency.'
-                        />
-                    </div>
-                </div>
-            </section>
-            {/* <section>
+function Home() {
+  return (
+    <>
+      <section>
+        <div className="relative m-3 rounded-[1.25rem] border-zinc-200 bg-gray-100 pt-6 pb-4 text-zinc-950 sm:m-6 md:pt-10 md:pb-8 lg:pt-14 xl:pt-20">
+          <div className="mb-24 px-3">
+            <div className="mb-2 flex w-full justify-center">
+              <Chip
+                className="text-[0.75rem]"
+                text="Software Engineer •  UI/UX Designer"
+              />
+            </div>
+            <div className="mb-4 text-center lg:mb-6">
+              <h1 className="mx-auto max-w-[1170px] font-semibold text-4xl leading-[2.5rem] max-[415px]:text-3xl max-[415px]:leading-[2rem] lg:text-[3.5rem] lg:leading-[3.9rem] xl:text-[4rem] xl:leading-[4.4375rem]">
+                Designing with Purpose, <br /> Coding with Precision.
+              </h1>
+              <p className="mx-auto mt-2 max-w-[322px] font-medium text-sm text-zinc-600 lg:max-w-[526px] xl:mt-4">
+                A curious creator blending empathy and logic to craft digital
+                solutions that solve real problems and inspire meaningful
+                connections.
+              </p>
+            </div>
+            <div className="mb-11 flex w-full justify-center gap-4 max-[415px]:flex-col max-[415px]:gap-2">
+              <Button link="mailto:farizfhrian@gmail.com" />
+              <div className="flex items-center justify-center gap-2">
+                <Button
+                  iconOnly={true}
+                  link="https://github.com/farizfahrian"
+                  trailingIcon="/assets/icons/Github.svg"
+                  variant="ghost"
+                />
+                <Button
+                  iconOnly={true}
+                  link="https://linkedin.com/in/fariz-fahrian-60a75014a"
+                  trailingIcon="/assets/icons/Linkedin.svg"
+                  variant="ghost"
+                />
+                <Button
+                  iconOnly={true}
+                  link="/assets/CV-Fariz_Fahrian.pdf"
+                  trailingIcon="/assets/icons/CV.svg"
+                  variant="ghost"
+                />
+              </div>
+            </div>
+          </div>
+          <Image
+            alt=""
+            className="absolute right-[20px] bottom-[160px] h-auto w-[72px] sm:right-[30px] sm:bottom-[160px] sm:w-[96px] md:right-[50px] md:bottom-[170px] lg:right-[50px] lg:bottom-[190px]"
+            height={42}
+            src="/assets/images/Mywork-arrow.png"
+            width={96}
+          />
+          <MarqueeImage />
+        </div>
+      </section>
+      <section>
+        <div className="mx-3 my-20 flex flex-col items-center justify-center text-center sm:mx-auto">
+          <h2 className="mb-2 font-display font-semibold text-3xl sm:text-5xl">
+            What I&apos;m Good At
+          </h2>
+          <p className="max-w-[510px] text-muted-foreground text-sm leading-normal sm:text-base sm:leading-relaxed">
+            Bringing together technical expertise and creative problem-solving
+            to deliver impactful solutions.
+          </p>
+          <div className="mt-10 flex flex-col gap-8 sm:flex-row">
+            <SkillCard
+              desc="Building reliable web applications is where I excel, combining clean structured code, and optimized performance throughout development."
+              imgsrc="/assets/images/skill-software.png"
+              title="Software Development"
+            />
+            <SkillCard
+              desc="Creating thoughtful user-focused designs is my strength, blending creativity, deep user empathy, and practical functionality seamlessly."
+              imgsrc="/assets/images/skill-design.png"
+              title="UI/UX Design"
+            />
+            <SkillCard
+              desc="Optimizing workflows is what I consistently do best, using AI tools to boost productivity and substantially improve my overall efficiency."
+              imgsrc="/assets/images/skill-ai.png"
+              title="Making Use of AI"
+            />
+          </div>
+        </div>
+      </section>
+      {/* <section>
                 <div className='max-w-[1400px] mx-3 sm:my-6 sm:mx-auto'>
                     <h2 className='font-display text-3xl leading-tight sm:text-4xl my-6 sm:leading-[3.9rem] font-semibold'>
                         Recent Projects
@@ -224,31 +225,49 @@ function Home () {
                     </div>
                 </div>
             </section> */}
-            <section>
-                <div className='max-w-[1400px] mx-3 my-4 sm:my-6 sm:mx-auto'>
-                    <div className="max-w-7xl text-left sm:text-center mx-auto py-4 sm:py-10 px-4 md:px-8 lg:px-10">
-                        <h2 className="font-display text-3xl sm:text-5xl mb-2 font-semibold">
-                            My Professional Journey
-                        </h2>
-                        <p className="text-muted-foreground mx-auto dark:text-neutral-300 text-base md:text-base max-w-md">
-                            Here&apos;s a timeline of my career journey, highlighting key experiences and achievements along the way.
-                        </p>
-                    </div>
-                    <div className='space-y-4'>
-                        <ExperienceTimeline />
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div className='max-w-[1400px] mx-3 sm:my-6 sm:mx-auto'>
-                    <Skills />
-                </div>
-            </section>
-            <section>
-                <Portfolio />
-            </section>
-        </>
-    )
+      <section>
+        <div className="mx-3 max-w-[1400px] sm:mx-auto sm:my-6">
+          <Skills />
+        </div>
+      </section>
+      <section>
+        <Portfolio />
+      </section>
+      <section>
+        <div className="mx-3 my-4 max-w-[1400px] sm:mx-auto sm:my-6">
+          <div className="mx-auto max-w-7xl px-4 py-4 text-left sm:py-10 sm:text-center md:px-8 lg:px-10">
+            <h2 className="mb-2 font-display font-semibold text-3xl sm:text-5xl">
+              My Professional Journey
+            </h2>
+            <p className="mx-auto max-w-md text-base text-muted-foreground md:text-base dark:text-neutral-300">
+              Here&apos;s a timeline of my career journey, highlighting key
+              experiences and achievements along the way.
+            </p>
+          </div>
+          <div className="space-y-4">
+            <ExperienceTimeline />
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="mx-3 my-4 max-w-[1400px] sm:mx-auto sm:my-6">
+          <div className="mx-auto max-w-7xl px-4 py-4 text-left sm:py-10 sm:text-center md:px-8 lg:px-10">
+            <h2 className="mb-2 font-display font-semibold text-3xl sm:text-5xl">
+              My Training and Achievement
+            </h2>
+            <p className="mx-auto max-w-md text-base text-muted-foreground md:text-base dark:text-neutral-300">
+              Here&apos;s a timeline of my career journey, highlighting key
+              experiences and achievements along the way.
+            </p>
+          </div>
+          <div className="space-y-4">
+            <TrainingTimeline />
+          </div>
+        </div>
+        <ContactSection />
+      </section>
+    </>
+  );
 }
 
-export default Home
+export default Home;
