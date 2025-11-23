@@ -5,6 +5,7 @@ import Chip from './Chip';
 export function ExperienceTimeline() {
   const data = [
     {
+      id: 'orimba',
       date: 'Sep 2025 – Present',
       content: (
         <div>
@@ -29,6 +30,7 @@ export function ExperienceTimeline() {
       ),
     },
     {
+      id: 'davila',
       date: 'Feb 2025 – Aug 2025',
       content: (
         <div>
@@ -54,6 +56,7 @@ export function ExperienceTimeline() {
       ),
     },
     {
+      id: 'graviton',
       date: 'Feb 2024 – Jan 2025',
       content: (
         <div>
@@ -81,6 +84,7 @@ export function ExperienceTimeline() {
       ),
     },
     {
+      id: 'mulawarman',
       date: 'Sep 2022 – Apr 2023',
       content: (
         <div>

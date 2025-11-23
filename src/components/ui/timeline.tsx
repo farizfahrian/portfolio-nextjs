@@ -4,6 +4,7 @@ import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
 
 interface TimelineEntry {
+  id?: string;
   date: string;
   content: React.ReactNode;
 }
@@ -37,7 +38,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         {data.map((item, index) => (
           <div
             className="flex justify-start pt-10 md:gap-10 md:pt-20"
-            key={index}
+            key={item.id || index}
           >
             <div className="top-40 z-40 flex max-w-xs flex-col items-center self-start md:w-full md:flex-row lg:max-w-sm">
               <div className="absolute left-2.5 flex h-10 w-10 items-center rounded-full bg-white sm:justify-center md:left-3 dark:bg-black">
