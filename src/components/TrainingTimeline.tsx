@@ -7,7 +7,7 @@ export function TrainingTimeline() {
       id: 'react-expert',
       date: 'June 2025',
       content: (
-        <div>
+        <div key={'react-expert'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             Becoming a React Web Developer Expert
           </h3>
@@ -28,34 +28,10 @@ export function TrainingTimeline() {
       ),
     },
     {
-      id: 'react-fundamentals-feb-2025-1',
+      id: 'react-fundamentals',
       date: 'February 2025',
       content: (
-        <div>
-          <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
-            React Web Fundamentals
-          </h3>
-          <div className="mb-2">
-            <Chip text="Dicoding" className="text-xs bg-blue-50 border-blue-200 text-blue-600" />
-          </div>
-          <p className="mb-4 font-normal text-neutral-700 text-sm md:text-sm dark:text-neutral-300">
-            Comprehensive React fundamentals course focusing on essential concepts for building modern web applications. Covers props validation with PropTypes, navigation using React Router, component lifecycle methods, state management with Context API, and functional components with React Hooks implementation.
-          </p>
-          <div className="mb-8 flex flex-wrap gap-2">
-            <Chip text="PropTypes" className="text-xs" />
-            <Chip text="React Router" className="text-xs" />
-            <Chip text="Lifecycle Methods" className="text-xs" />
-            <Chip text="Context API" className="text-xs" />
-            <Chip text="React Hooks" className="text-xs" />
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: 'react-fundamentals-feb-2025-2',
-      date: 'February 2025',
-      content: (
-        <div>
+        <div key={'react-fundamentals'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             React Web Fundamentals
           </h3>
@@ -79,7 +55,7 @@ export function TrainingTimeline() {
       id: 'react-basic-sep-2024',
       date: 'September 2024',
       content: (
-        <div>
+        <div key={'react-basic-sep-2024'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             Learning to Build Web Applications with React
           </h3>
@@ -108,7 +84,7 @@ export function TrainingTimeline() {
       id: 'creativity-festival',
       date: 'August 2023',
       content: (
-        <div>
+        <div key={"creativity-festival"}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             3rd Place – Provincial Youth Creativity Festival (Software Category)
           </h3>
