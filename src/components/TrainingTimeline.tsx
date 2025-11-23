@@ -106,7 +106,7 @@ export function TrainingTimeline() {
       id: 'flutter-beginners',
       date: 'June 2022',
       content: (
-        <div>
+        <div key={'flutter-beginners'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             Flutter App Development for Beginners
           </h3>
@@ -129,7 +129,7 @@ export function TrainingTimeline() {
       id: 'java-programming',
       date: 'August 2021',
       content: (
-        <div>
+        <div key={'java-programming'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             Java Programming
           </h3>
@@ -153,7 +153,7 @@ export function TrainingTimeline() {
       id: 'nodejs-web-dev',
       date: 'August 2021',
       content: (
-        <div>
+        <div key={'nodejs-web-dev'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             Node.js Web Development
           </h3>
@@ -177,7 +177,7 @@ export function TrainingTimeline() {
       id: 'solid-principles',
       date: 'May 2021',
       content: (
-        <div>
+        <div key={'solid-principles'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             SOLID Programming Principles
           </h3>
@@ -201,7 +201,7 @@ export function TrainingTimeline() {
       id: 'dart-basics',
       date: 'May 2021',
       content: (
-        <div>
+        <div key={'dart-basics'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             Dart Programming Basics
           </h3>
@@ -225,7 +225,7 @@ export function TrainingTimeline() {
       id: 'alibaba-cloud',
       date: 'January 2021',
       content: (
-        <div>
+        <div key={'alibaba-cloud'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             Alibaba Cloud Apsara Clouder
           </h3>
@@ -248,7 +248,7 @@ export function TrainingTimeline() {
       id: 'ml-beginners',
       date: 'November 2020',
       content: (
-        <div>
+        <div key={'ml-beginners'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             Machine Learning for Beginners
           </h3>
@@ -271,7 +271,7 @@ export function TrainingTimeline() {
       id: 'python-basics',
       date: 'October 2020',
       content: (
-        <div>
+        <div key={'python-basics'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             Python Programming Basics
           </h3>
@@ -295,7 +295,7 @@ export function TrainingTimeline() {
       id: 'data-viz',
       date: 'September 2020',
       content: (
-        <div>
+        <div key={'data-viz'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             Data Visualization Fundamentals
           </h3>
@@ -318,7 +318,7 @@ export function TrainingTimeline() {
       id: 'db-foundations',
       date: 'September 2020',
       content: (
-        <div>
+        <div key={'db-foundations'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             Database Foundations
           </h3>
@@ -342,7 +342,7 @@ export function TrainingTimeline() {
       id: 'kotlin-basics',
       date: 'August 2020',
       content: (
-        <div>
+        <div key={'kotlin-basics'}>
           <h3 className="mb-2 font-bold text-lg text-zinc-700 md:text-2xl dark:text-zinc-200">
             Kotlin Programming Basics
           </h3>
