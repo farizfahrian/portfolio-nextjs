@@ -18,7 +18,7 @@ const projects = [
     title: 'UWGM Run Festival | Event Registration Platform',
     description:
       'Designed and developed a fully functional registration system with automated email confirmations, QR-based check-ins, secure payments, and an intuitive admin dashboard. Ensured seamless user experience.',
-    image: '/assets/images/uwgm.png?height=200&width=400',
+    image: '/assets/images/uwgm.png',
     technologies: [
       'Laravel',
       'Tailwind',
@@ -36,7 +36,7 @@ const projects = [
     title: 'Nusantara Prima Solusi | Company Profile Website',
     description:
       'Developed a company profile website for Nusantara Prima Solusi, a Palm Oil company, showcasing their products and services in a modern, responsive, and user-friendly interface.',
-    image: '/assets/images/nps.png?height=200&width=400',
+    image: '/assets/images/nps.png',
     technologies: ['Wordpress'],
     liveUrl: 'https://gray-bison-645847.hostingersite.com',
     githubUrl: '',
@@ -47,7 +47,7 @@ const projects = [
     title: 'Active Festival | Event Registration Platform',
     description:
       'Streamlined a high-performance registration system managing 1,500+ registrations with minimal resources (1GB RAM, single-core server). Delivered key features: automated email confirmations, QR-based check-ins, secure payments, and an intuitive admin dashboard. Ensured zero downtime during peak traffic while supporting hundreds of concurrent users.',
-    image: '/assets/images/Activest.png?height=200&width=400',
+    image: '/assets/images/Activest.png',
     technologies: [
       'Laravel',
       'Tailwind',
@@ -65,7 +65,7 @@ const projects = [
     title: 'Al Mazaya | School Management Platform',
     description:
       'Designed a school registration system to enhance accessibility for users with diverse tech literacy levels. Simplified the enrollment process and optimized information architecture. Delivered high-fidelity prototypes that improved the experience for parents and staff. Effectively managed timelines and team collaboration to meet stakeholder expectations.',
-    image: '/assets/images/Al-Mazaya.png?height=200&width=400',
+    image: '/assets/images/Al-Mazaya.png',
     technologies: ['Figma', 'Notion'],
     liveUrl:
       'https://www.figma.com/design/fuAWQVZXpNVp4iDQyOfMZW/Al-Mazaya-Paser?node-id=0-1&t=K4loj3LluqKX01k3-1',
@@ -77,7 +77,7 @@ const projects = [
     title: 'Digital Marketing Agency Landing Page: Sirkel',
     description:
       'Designed and developed a visually engaging and functional landing page for a digital marketing agency. Focused on creating a user-centric interface that effectively communicates the agency’s services and brand identity. Implemented responsive design to ensure seamless performance across devices.',
-    image: '/assets/images/Sirkel.png?height=200&width=400',
+    image: '/assets/images/Sirkel.png',
     technologies: ['React', 'Tailwind', 'Figma', 'Sanity'],
     liveUrl: 'https://snow-gorilla-383164.hostingersite.com/',
     githubUrl: '',
@@ -88,7 +88,7 @@ const projects = [
     title: 'News Media Website: Kaltimfolks',
     description:
       'Developed a comprehensive news media platform, crafting wireframes and high-fidelity mockups to visualize user journeys and information architecture. Designed an intuitive user interface to enhance navigation and content discoverability. Implemented a responsive front-end and managed hosting and server configuration to ensure a high-performing and scalable web application.',
-    image: '/assets/images/Kaltimfolks.png?height=200&width=400',
+    image: '/assets/images/Kaltimfolks.png',
     technologies: ['Nextjs', 'Tailwind', 'MongoDB', 'Prisma', 'Sanity'],
     liveUrl: 'https://kaltimfolks.com',
     githubUrl: '',
@@ -99,7 +99,7 @@ const projects = [
     title: 'Software Agency Landing Page: Graviton Softworks',
     description:
       'Collaborated with stakeholders to design and develop a modern landing page for a software agency. Delivered a high-quality, responsive web interface that showcases the company’s expertise and portfolio, using scalable and performance-optimized technologies.',
-    image: '/assets/images/Graviton.png?height=200&width=400',
+    image: '/assets/images/Graviton.png',
     technologies: ['Nextjs', 'React', 'Figma', 'Tailwind', 'Sanity'],
     liveUrl: 'https://gravitonsoftworks.com',
     githubUrl: '',
@@ -110,7 +110,7 @@ const projects = [
     title: 'Digital Marketing Profile Company: Davila',
     description:
       'Developed a responsive company profile website to highlight the brand identity and services of a digital marketing firm. Ensured smooth navigation and performance optimization for a professional user experience.',
-    image: '/assets/images/Davila.png?height=200&width=400',
+    image: '/assets/images/Davila.png',
     technologies: ['Laravel', 'React', 'Tailwind', 'Sanity'],
     liveUrl: 'https://davila.id',
     githubUrl: '',

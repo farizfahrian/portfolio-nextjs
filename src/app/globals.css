@@ -154,3 +154,719 @@
     font-family: var(--font-display);
   }
 }
+
+@layer components {
+  .hero-panel {
+    animation: hero-panel-reveal 560ms cubic-bezier(0.23, 1, 0.32, 1) both;
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.68);
+    transform-origin: top center;
+  }
+
+  .hero-grid-dots {
+    animation: hero-decor-reveal 620ms cubic-bezier(0.23, 1, 0.32, 1) 260ms both;
+    position: absolute;
+    z-index: 0;
+    width: 8rem;
+    height: 8rem;
+    opacity: 0.34;
+    background-image: radial-gradient(
+      circle,
+      oklch(0.62 0.012 75) 1px,
+      transparent 1px
+    );
+    background-size: 18px 18px;
+    pointer-events: none;
+  }
+
+  .hero-grid-dots-left {
+    top: 4rem;
+    left: 4rem;
+  }
+
+  .hero-grid-dots-right {
+    right: 4rem;
+    bottom: 16rem;
+  }
+
+  .hero-orbit {
+    animation: hero-decor-reveal 680ms cubic-bezier(0.23, 1, 0.32, 1) 320ms both;
+    position: absolute;
+    right: 4rem;
+    bottom: 12rem;
+    z-index: 0;
+    width: 15rem;
+    aspect-ratio: 1;
+    border-radius: 999px;
+    opacity: 0.38;
+    background:
+      repeating-radial-gradient(
+        circle,
+        transparent 0 14px,
+        oklch(0.72 0.13 45 / 0.45) 15px 16px
+      ), radial-gradient(circle, oklch(0.95 0.04 45 / 0.5), transparent 58%);
+    pointer-events: none;
+  }
+
+  .hero-callout {
+    animation: hero-callout-reveal 520ms cubic-bezier(0.23, 1, 0.32, 1) both;
+    animation-delay: calc(220ms + (var(--hero-callout-index) * 45ms));
+  }
+
+  .hero-callout-icon {
+    display: grid;
+    width: 4.5rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid oklch(0.88 0.01 75);
+    border-radius: 0.75rem;
+    background: oklch(0.995 0.004 75);
+    color: oklch(0.18 0.006 75);
+    box-shadow: 0 18px 26px -22px rgb(9 9 11 / 0.32);
+  }
+
+  .hero-eyebrow {
+    animation: hero-clip-reveal 480ms cubic-bezier(0.23, 1, 0.32, 1) 70ms both;
+  }
+
+  .hero-heading h1 {
+    animation: hero-title-reveal 620ms cubic-bezier(0.23, 1, 0.32, 1) 140ms both;
+  }
+
+  .hero-heading p {
+    animation: hero-clip-reveal 520ms cubic-bezier(0.23, 1, 0.32, 1) 230ms both;
+  }
+
+  .hero-actions {
+    animation: hero-clip-reveal 500ms cubic-bezier(0.23, 1, 0.32, 1) 320ms both;
+  }
+
+  .hero-work-label {
+    animation: hero-clip-reveal 460ms cubic-bezier(0.23, 1, 0.32, 1) 410ms both;
+  }
+
+  .hero-work-image-link {
+    display: inline-flex;
+    transform-origin: center;
+    transition:
+      opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
+      transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .hero-work-image-link:active {
+    transform: scale(0.97);
+    transition-duration: 120ms;
+  }
+
+  .portfolio-button {
+    border-radius: 999px;
+    transform-origin: center;
+    transition:
+      background-color 180ms cubic-bezier(0.23, 1, 0.32, 1),
+      border-color 180ms cubic-bezier(0.23, 1, 0.32, 1),
+      color 180ms cubic-bezier(0.23, 1, 0.32, 1),
+      transform 140ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .portfolio-button::before {
+    position: absolute;
+    inset: 2px;
+    z-index: -1;
+    border-radius: inherit;
+    background: oklch(0.52 0.17 38);
+    clip-path: inset(0 100% 0 0 round 999px);
+    content: "";
+    transition: clip-path 190ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .portfolio-button:active {
+    transform: scale(0.97);
+    transition-duration: 120ms;
+  }
+
+  .portfolio-button-content {
+    transition: transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .portfolio-button-icon-shell {
+    width: 1.75rem;
+    aspect-ratio: 1;
+    border-radius: 999px;
+    background: oklch(0.985 0.03 55 / 0.24);
+    transition:
+      background-color 180ms cubic-bezier(0.23, 1, 0.32, 1),
+      transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .portfolio-button-icon {
+    transform-origin: center;
+    transition: transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .portfolio-text-link {
+    transition:
+      border-color 180ms cubic-bezier(0.23, 1, 0.32, 1),
+      color 180ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .portfolio-text-link svg {
+    transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .hero-project-card {
+    animation: hero-card-reveal 420ms cubic-bezier(0.23, 1, 0.32, 1) both;
+    animation-delay: calc(var(--hero-project-index) * 45ms + 520ms);
+    backface-visibility: hidden;
+    box-shadow:
+      0 1px 2px rgb(9 9 11 / 0.04),
+      0 16px 32px -30px rgb(9 9 11 / 0.24);
+    transform-origin: center bottom;
+    transition:
+      border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
+      transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .hero-project-image {
+    transform: rotate(var(--hero-project-rotate)) scale(1.045);
+    transition: transform 240ms cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+  }
+
+  .hero-project-arrow {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transform-origin: center;
+    transition:
+      border-color 180ms cubic-bezier(0.23, 1, 0.32, 1),
+      color 180ms cubic-bezier(0.23, 1, 0.32, 1),
+      transform 190ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .hero-project-arrow::before {
+    position: absolute;
+    inset: 2px;
+    z-index: -1;
+    border-radius: 999px;
+    background: oklch(0.646 0.194 41.116);
+    clip-path: inset(0 100% 0 0 round 999px);
+    content: "";
+    transition: clip-path 190ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .hero-project-arrow-icon {
+    filter: invert(1);
+    transform-origin: center;
+    transition:
+      filter 180ms cubic-bezier(0.23, 1, 0.32, 1),
+      transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .skill-card-motion {
+    transition:
+      border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
+      background-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
+      box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1),
+      transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .skill-card-motion:active {
+    transform: scale(0.98);
+  }
+
+  .skill-tab-motion {
+    transition:
+      color 180ms cubic-bezier(0.23, 1, 0.32, 1),
+      transform 120ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .skill-tab-motion:active {
+    transform: scale(0.98);
+  }
+
+  .skills-tabs-list {
+    --skill-tab-gap: 0.5rem;
+    --skill-tab-padding: 0.375rem;
+    --skill-tab-size: calc(
+      (100% - (var(--skill-tab-padding) * 2) - var(--skill-tab-gap)) /
+      2
+    );
+    position: relative;
+    isolation: isolate;
+  }
+
+  .skills-tabs-list::before {
+    position: absolute;
+    top: var(--skill-tab-padding);
+    left: var(--skill-tab-padding);
+    z-index: 0;
+    width: var(--skill-tab-size);
+    height: calc(
+      (100% - (var(--skill-tab-padding) * 2) - var(--skill-tab-gap)) /
+      2
+    );
+    border-radius: 0.75rem;
+    background: oklch(0.646 0.194 41.116);
+    box-shadow: 0 10px 15px -3px rgb(234 88 12 / 0.24);
+    content: "";
+    transform: translate3d(
+      calc(var(--skill-tab-col) * (100% + var(--skill-tab-gap))),
+      calc(var(--skill-tab-row) * (100% + var(--skill-tab-gap))),
+      0
+    );
+    transition:
+      transform 240ms cubic-bezier(0.32, 0.72, 0, 1),
+      width 200ms cubic-bezier(0.23, 1, 0.32, 1),
+      height 200ms cubic-bezier(0.23, 1, 0.32, 1),
+      box-shadow 180ms cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+  }
+
+  .skills-tab-content[data-state="active"] {
+    animation: skills-content-enter 220ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+
+  .skill-tooltip-motion {
+    transform-origin: var(--radix-tooltip-content-transform-origin);
+  }
+
+  .hero-project-strip {
+    animation: hero-strip-reveal 620ms cubic-bezier(0.23, 1, 0.32, 1) 470ms both;
+    transform-origin: center top;
+  }
+
+  .about-panel {
+    animation: section-panel-reveal 560ms cubic-bezier(0.23, 1, 0.32, 1) both;
+    animation-delay: 120ms;
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.7);
+    transform-origin: center top;
+  }
+
+  .about-copy,
+  .about-system {
+    animation: section-content-reveal 520ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+
+  .about-copy {
+    animation-delay: 210ms;
+  }
+
+  .about-system {
+    animation-delay: 290ms;
+  }
+
+  .about-focus-row,
+  .about-loop-item {
+    animation: section-row-reveal 420ms cubic-bezier(0.23, 1, 0.32, 1) both;
+    animation-delay: calc(360ms + (var(--about-row-index) * 45ms));
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-work-image-link:hover {
+    opacity: 0.78;
+    transform: translateY(-2px);
+  }
+
+  .portfolio-button:not([aria-disabled="true"]):hover {
+    transform: none;
+  }
+
+  .portfolio-button:not([aria-disabled="true"]):hover::before {
+    clip-path: inset(0 0 0 0 round 999px);
+  }
+
+  .portfolio-button[data-variant="primary"]:not([aria-disabled="true"]):hover {
+    border-color: oklch(0.76 0.12 45);
+  }
+
+  .portfolio-button[data-variant="secondary"]:not([aria-disabled="true"]):hover,
+  .portfolio-button[data-variant="ghost"]:not([aria-disabled="true"]):hover {
+    border-color: oklch(0.84 0.055 45);
+    background-color: oklch(0.985 0.012 75);
+  }
+
+  .portfolio-button:not(.portfolio-button-icon-only):not(
+      [aria-disabled="true"]
+    ):hover
+    .portfolio-button-content {
+    transform: none;
+  }
+
+  .portfolio-button:not(.portfolio-button-icon-only):not(
+      [aria-disabled="true"]
+    ):hover
+    .portfolio-button-icon-shell {
+    background-color: oklch(0.995 0.004 75 / 0.28);
+    transform: translateX(2px);
+  }
+
+  .portfolio-button:not(.portfolio-button-icon-only):not(
+      [aria-disabled="true"]
+    ):hover
+    .portfolio-button-icon {
+    transform: translateX(1px);
+  }
+
+  .portfolio-button-icon-only:not([aria-disabled="true"]):hover {
+    border-color: oklch(0.872 0.01 258.338);
+    background-color: oklch(0.99 0.006 75);
+  }
+
+  .portfolio-button-icon-only:not([aria-disabled="true"]):hover
+    .portfolio-button-icon-shell {
+    background-color: oklch(0.985 0.018 55 / 0.32);
+    transform: scale(0.94);
+  }
+
+  .portfolio-button-icon-only:not([aria-disabled="true"]):hover
+    .portfolio-button-icon {
+    transform: scale(1.06);
+  }
+
+  .portfolio-button-icon-only:not([aria-disabled="true"]):active
+    .portfolio-button-icon-shell {
+    transform: scale(0.9);
+  }
+
+  .portfolio-button-icon-only:not([aria-disabled="true"]):active
+    .portfolio-button-icon {
+    transform: scale(0.98);
+  }
+
+  .portfolio-text-link:hover {
+    border-color: oklch(0.84 0.055 45);
+    color: oklch(0.646 0.194 41.116);
+  }
+
+  .portfolio-text-link:hover svg {
+    transform: translateX(3px);
+  }
+
+  .hero-project-card:hover {
+    transform: translateY(-5px) rotateX(1.25deg);
+    border-color: oklch(0.86 0.012 75);
+  }
+
+  .hero-project-card:active {
+    transform: translateY(-1px) scale(0.99);
+    transition-duration: 120ms;
+  }
+
+  .hero-project-card:hover .hero-project-image {
+    transform: rotate(0deg) scale(1.085) translateY(-2px);
+  }
+
+  .hero-project-card:hover .hero-project-arrow {
+    border-color: oklch(0.646 0.194 41.116);
+    color: oklch(0.995 0.004 75);
+  }
+
+  .hero-project-card:hover .hero-project-arrow::before {
+    clip-path: inset(0 0 0 0 round 999px);
+  }
+
+  .hero-project-card:hover .hero-project-arrow-icon {
+    filter: none;
+    transform: translateX(3px);
+  }
+
+  .skill-card-motion:hover {
+    transform: translateY(-2px);
+    border-color: oklch(0.872 0.01 258.338);
+    background-color: oklch(0.99 0.006 75);
+    box-shadow: 0 12px 20px -12px rgb(9 9 11 / 0.22);
+  }
+
+  .skill-tab-motion:not([data-state="active"]):hover {
+    color: oklch(0.44 0.02 75);
+  }
+}
+
+@media (min-width: 40rem) {
+  .skills-tabs-list {
+    --skill-tab-size: calc(
+      (100% - (var(--skill-tab-padding) * 2) - (var(--skill-tab-gap) * 3)) /
+      4
+    );
+  }
+
+  .skills-tabs-list::before {
+    width: var(--skill-tab-size);
+    height: calc(100% - (var(--skill-tab-padding) * 2));
+    transform: translate3d(
+      calc(var(--skill-tab-index) * (100% + var(--skill-tab-gap))),
+      0,
+      0
+    );
+  }
+}
+
+@media (max-width: 48rem) {
+  .hero-grid-dots-left {
+    top: 1.5rem;
+    left: 1rem;
+    width: 6rem;
+    height: 6rem;
+    opacity: 0.18;
+    background-size: 16px 16px;
+  }
+
+  .hero-grid-dots-right,
+  .hero-orbit {
+    display: none;
+  }
+
+  .hero-project-strip {
+    margin-top: 0.75rem;
+  }
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-panel-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hero-clip-reveal {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0 round 0.75rem);
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 0.75rem);
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-title-reveal {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0 round 1rem);
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 1rem);
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-callout-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hero-decor-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-strip-reveal {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0 round 0.75rem);
+    transform: translateY(16px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 0.75rem);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes hero-card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes skills-content-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes section-panel-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes section-content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes section-row-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-panel,
+  .hero-eyebrow,
+  .hero-heading,
+  .hero-heading h1,
+  .hero-heading p,
+  .hero-proof,
+  .hero-actions,
+  .hero-callout,
+  .hero-work-label,
+  .hero-project-strip,
+  .hero-work-image-link,
+  .hero-work-image-link:active,
+  .hero-work-image-link:hover,
+  .hero-grid-dots,
+  .hero-orbit,
+  .portfolio-button,
+  .portfolio-button::before,
+  .portfolio-button:active,
+  .portfolio-button:hover,
+  .portfolio-button:hover::before,
+  .portfolio-button-content,
+  .portfolio-button:hover .portfolio-button-content,
+  .portfolio-button-icon-shell,
+  .portfolio-button:hover .portfolio-button-icon-shell,
+  .portfolio-button-icon-only:active .portfolio-button-icon-shell,
+  .portfolio-button-icon,
+  .portfolio-button:hover .portfolio-button-icon,
+  .portfolio-button-icon-only:active .portfolio-button-icon,
+  .portfolio-text-link,
+  .portfolio-text-link:hover,
+  .portfolio-text-link svg,
+  .portfolio-text-link:hover svg,
+  .hero-callout-icon,
+  .hero-project-card,
+  .hero-project-card:hover,
+  .hero-project-image,
+  .hero-project-card:hover .hero-project-image,
+  .hero-project-arrow,
+  .hero-project-arrow::before,
+  .hero-project-card:hover .hero-project-arrow,
+  .hero-project-arrow-icon,
+  .hero-project-card:hover .hero-project-arrow-icon,
+  .skill-card-motion,
+  .skill-card-motion:active,
+  .skill-card-motion:hover,
+  .skill-tab-motion,
+  .skill-tab-motion:active,
+  .skill-tab-motion:not([data-state="active"]):hover,
+  .skills-tab-content[data-state="active"],
+  .skill-tooltip-motion,
+  .about-panel,
+  .about-copy,
+  .about-system,
+  .about-focus-row,
+  .about-loop-item {
+    animation: none;
+    transform: none;
+  }
+
+  .hero-project-image,
+  .hero-project-card:hover .hero-project-image {
+    transform: scale(1.045);
+  }
+
+  .animate-marquee,
+  .animate-marquee-vertical {
+    animation-play-state: paused;
+  }
+
+  .skills-tabs-list::before {
+    transition: none;
+  }
+
+  .portfolio-button,
+  .portfolio-button::before,
+  .portfolio-button-content,
+  .portfolio-button-icon-shell,
+  .portfolio-button-icon,
+  .portfolio-text-link,
+  .portfolio-text-link svg,
+  .hero-work-image-link,
+  .hero-callout-icon,
+  .hero-project-card,
+  .hero-project-image,
+  .hero-project-arrow,
+  .hero-project-arrow::before,
+  .hero-project-arrow-icon,
+  .skill-card-motion,
+  .skill-tab-motion {
+    transition:
+      border-color 120ms ease,
+      box-shadow 120ms ease,
+      color 120ms ease;
+  }
+
+  .skill-tooltip-motion {
+    transition: opacity 120ms ease;
+  }
+}
