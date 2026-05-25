@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import type React from 'react';
 
 type ButtonProps = {
   link: string;
@@ -49,7 +50,6 @@ const Button = ({
     : 'min-h-11 px-10 py-2';
   const contentClasses = iconOnly ? 'justify-center' : '';
   const iconSpacingClasses = iconOnly ? '' : 'ml-2';
-  const iconSizeClasses = iconOnly ? 'h-6 w-6' : 'h-auto w-[17px]';
   const iconSize = iconOnly ? 24 : 17;
 
   return (
@@ -73,14 +73,28 @@ const Button = ({
           <span
             className={`portfolio-button-icon-shell inline-grid place-items-center ${iconSpacingClasses}`}
           >
-            <Image
-              alt=""
-              aria-hidden="true"
-              className={`portfolio-button-icon inline-block ${iconSizeClasses}`}
-              height={iconSize}
-              src={trailingIcon}
-              width={iconSize}
-            />
+            {iconOnly ? (
+              <Image
+                alt=""
+                aria-hidden="true"
+                className="portfolio-button-icon inline-block"
+                height={iconSize}
+                src={trailingIcon}
+                style={{ width: `${iconSize}px`, height: `${iconSize}px` }}
+                width={iconSize}
+              />
+            ) : (
+              // Plain <img> for the small SVG arrow – SVGs don't need
+              // Next.js image optimisation and avoids the aspect-ratio warning.
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                alt=""
+                aria-hidden="true"
+                className="portfolio-button-icon inline-block"
+                src={trailingIcon}
+                style={{ width: '17px', height: 'auto' }}
+              />
+            )}
           </span>
         )}
       </span>

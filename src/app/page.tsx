@@ -77,7 +77,7 @@ function Home() {
                   <p className="font-semibold text-sm text-zinc-950 uppercase tracking-[0.12em]">
                     {callout.title}
                   </p>
-                  <p className="mt-1 max-w-[8rem] text-sm text-zinc-600 leading-6">
+                  <p className="mt-1 max-w-32 text-sm text-zinc-600 leading-6">
                     {callout.description}
                   </p>
                 </div>
@@ -144,6 +144,7 @@ function Home() {
                 alt=""
                 className="h-auto w-[74px] sm:w-[96px]"
                 height={42}
+                loading="eager"
                 src="/assets/images/Mywork-arrow.png"
                 width={96}
               />
@@ -201,7 +202,7 @@ function Home() {
                   ))}
                 </div>
               </div>
-              <div className="mt-8 rounded-2xl border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-5 shadow-[0_1px_2px_rgb(9_9_11_/_0.04)]">
+              <div className="mt-8 rounded-2xl border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-5 shadow-[0_1px_2px_rgb(9_9_11/0.04)]">
                 <p className="font-semibold text-xs text-zinc-500 uppercase tracking-[0.18em]">
                   Working loop
                 </p>

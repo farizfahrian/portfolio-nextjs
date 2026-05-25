@@ -157,13 +157,17 @@
 
 @layer components {
   .hero-panel {
-    animation: hero-panel-reveal 560ms cubic-bezier(0.23, 1, 0.32, 1) both;
+    --hero-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --hero-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --hero-entry-base: 120ms;
+    --hero-entry-step: 70ms;
+    animation: hero-panel-reveal 520ms var(--hero-ease-out) both;
     box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.68);
     transform-origin: top center;
   }
 
   .hero-grid-dots {
-    animation: hero-decor-reveal 620ms cubic-bezier(0.23, 1, 0.32, 1) 260ms both;
+    animation: hero-decor-reveal 560ms var(--hero-ease-out) 430ms both;
     position: absolute;
     z-index: 0;
     width: 8rem;
@@ -189,7 +193,7 @@
   }
 
   .hero-orbit {
-    animation: hero-decor-reveal 680ms cubic-bezier(0.23, 1, 0.32, 1) 320ms both;
+    animation: hero-decor-reveal 620ms var(--hero-ease-out) 510ms both;
     position: absolute;
     right: 4rem;
     bottom: 12rem;
@@ -208,8 +212,10 @@
   }
 
   .hero-callout {
-    animation: hero-callout-reveal 520ms cubic-bezier(0.23, 1, 0.32, 1) both;
-    animation-delay: calc(220ms + (var(--hero-callout-index) * 45ms));
+    animation: hero-callout-reveal 460ms var(--hero-ease-out) both;
+    animation-delay: calc(
+      380ms + (var(--hero-callout-index) * var(--hero-entry-step))
+    );
   }
 
   .hero-callout-icon {
@@ -225,23 +231,32 @@
   }
 
   .hero-eyebrow {
-    animation: hero-clip-reveal 480ms cubic-bezier(0.23, 1, 0.32, 1) 70ms both;
+    animation: hero-clip-reveal 440ms var(--hero-ease-out) 80ms both;
+  }
+
+  .hero-heading {
+    perspective: 1000px;
   }
 
   .hero-heading h1 {
-    animation: hero-title-reveal 620ms cubic-bezier(0.23, 1, 0.32, 1) 140ms both;
+    animation: hero-title-reveal 700ms var(--hero-ease-out)
+      var(--hero-entry-base) both;
+    transform-origin: center 72%;
   }
 
   .hero-heading p {
-    animation: hero-clip-reveal 520ms cubic-bezier(0.23, 1, 0.32, 1) 230ms both;
+    animation: hero-clip-reveal 460ms var(--hero-ease-out)
+      calc(var(--hero-entry-base) + var(--hero-entry-step) * 2) both;
   }
 
   .hero-actions {
-    animation: hero-clip-reveal 500ms cubic-bezier(0.23, 1, 0.32, 1) 320ms both;
+    animation: hero-clip-reveal 440ms var(--hero-ease-out)
+      calc(var(--hero-entry-base) + var(--hero-entry-step) * 3) both;
   }
 
   .hero-work-label {
-    animation: hero-clip-reveal 460ms cubic-bezier(0.23, 1, 0.32, 1) 410ms both;
+    animation: hero-clip-reveal 400ms var(--hero-ease-out)
+      calc(var(--hero-entry-base) + var(--hero-entry-step) * 5) both;
   }
 
   .hero-work-image-link {
@@ -313,8 +328,11 @@
   }
 
   .hero-project-card {
-    animation: hero-card-reveal 420ms cubic-bezier(0.23, 1, 0.32, 1) both;
-    animation-delay: calc(var(--hero-project-index) * 45ms + 520ms);
+    animation: hero-card-reveal 440ms var(--hero-ease-out) both;
+    animation-delay: calc(
+      var(--hero-project-index) * 52ms + var(--hero-entry-base) +
+      var(--hero-entry-step) * 7
+    );
     backface-visibility: hidden;
     box-shadow:
       0 1px 2px rgb(9 9 11 / 0.04),
@@ -430,7 +448,8 @@
   }
 
   .hero-project-strip {
-    animation: hero-strip-reveal 620ms cubic-bezier(0.23, 1, 0.32, 1) 470ms both;
+    animation: hero-strip-reveal 640ms var(--hero-ease-out)
+      calc(var(--hero-entry-base) + var(--hero-entry-step) * 6) both;
     transform-origin: center top;
   }
 
@@ -636,12 +655,12 @@
 @keyframes hero-panel-reveal {
   from {
     opacity: 0;
-    transform: translateY(10px) scale(0.985);
+    transform: translate3d(0, 10px, 0) scale(0.992);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
@@ -649,13 +668,15 @@
   from {
     opacity: 0;
     clip-path: inset(0 0 100% 0 round 0.75rem);
-    transform: translateY(12px);
+    filter: blur(3px);
+    transform: translate3d(0, 12px, 0);
   }
 
   to {
     opacity: 1;
     clip-path: inset(0 0 0 0 round 0.75rem);
-    transform: translateY(0);
+    filter: blur(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -663,32 +684,36 @@
   from {
     opacity: 0;
     clip-path: inset(0 0 100% 0 round 1rem);
-    transform: translateY(18px);
+    filter: blur(4px);
+    transform: translate3d(0, 22px, 0) rotateX(4deg);
   }
 
   to {
     opacity: 1;
     clip-path: inset(0 0 0 0 round 1rem);
-    transform: translateY(0);
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) rotateX(0);
   }
 }
 
 @keyframes hero-callout-reveal {
   from {
     opacity: 0;
-    transform: translateY(10px) scale(0.98);
+    filter: blur(3px);
+    transform: translate3d(0, 10px, 0) scale(0.98);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
 @keyframes hero-decor-reveal {
   from {
     opacity: 0;
-    transform: scale(0.96);
+    transform: scale(0.97);
   }
 
   to {
@@ -700,25 +725,27 @@
   from {
     opacity: 0;
     clip-path: inset(0 0 100% 0 round 0.75rem);
-    transform: translateY(16px) scale(0.99);
+    filter: blur(4px);
+    transform: translate3d(0, 18px, 0) scale(0.992);
   }
 
   to {
     opacity: 1;
     clip-path: inset(0 0 0 0 round 0.75rem);
-    transform: translateY(0) scale(1);
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
 @keyframes hero-card-reveal {
   from {
     opacity: 0;
-    transform: translateY(14px) scale(0.98);
+    transform: translate3d(0, 14px, 0) scale(0.985);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 

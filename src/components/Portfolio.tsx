@@ -179,13 +179,14 @@ export default function PortfolioSection() {
             className="group flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-lg"
             key={project.id}
           >
-            <div className="relative overflow-hidden">
+            <div className="relative h-48 overflow-hidden">
               <Image
                 alt={project.title}
-                className="h-48 w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
-                height={200}
+                className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                fill
+                loading="eager"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 src={project.image || '/placeholder.svg'}
-                width={400}
               />
               <div className="absolute top-4 left-4">
                 <Badge
@@ -240,13 +241,13 @@ export default function PortfolioSection() {
             className="group flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-md"
             key={project.id}
           >
-            <div className="relative overflow-hidden">
+            <div className="relative h-40 overflow-hidden">
               <Image
                 alt={project.title}
-                className="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                height={200}
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 src={project.image || '/placeholder.svg'}
-                width={400}
               />
             </div>
             <CardHeader className="pb-3">

@@ -1,5 +1,5 @@
 'use client';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, useMotionValue, useTransform } from 'motion/react';
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
 
@@ -21,17 +21,41 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     }
   }, [ref]);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start 10%', 'end 50%'],
-  });
+  const scrollYProgress = useMotionValue(0);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const updateProgress = () => {
+      const rect = container.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      // Mirrors useScroll offset: ['start 10%', 'end 50%']
+      // start: container top reaches 90% from viewport top (10% from bottom)
+      // end:   container bottom reaches 50% from viewport top
+      const start = rect.top - windowHeight * 0.9;
+      const end = rect.bottom - windowHeight * 0.5;
+      const range = end - start;
+      if (range <= 0) return;
+      const raw = -start / range;
+      scrollYProgress.set(Math.min(1, Math.max(0, raw)));
+    };
+
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    return () => {
+      window.removeEventListener('scroll', updateProgress);
+      window.removeEventListener('resize', updateProgress);
+    };
+  }, [scrollYProgress]);
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
     <div
-      className="w-full bg-white font-sans md:px-10 dark:bg-neutral-950"
+      className="relative w-full bg-white font-sans md:px-10 dark:bg-neutral-950"
       ref={containerRef}
     >
       <div className="relative mx-auto mb-20 max-w-7xl pb-10" ref={ref}>
@@ -58,13 +82,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           </div>
         ))}
         <div
-          className="absolute top-0 left-4 w-[2px] overflow-hidden bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-[0%] from-transparent via-zinc-200 to-[99%] to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] md:left-8 dark:via-zinc-800 "
+          className="absolute top-0 left-4 w-[2px] overflow-hidden bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-0% from-transparent via-zinc-200 to-99% to-transparent mask-[linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] md:left-8 dark:via-zinc-800 "
           style={{
             height: height + 'px',
           }}
         >
           <motion.div
-            className="absolute inset-x-0 top-0 w-[2px] rounded-full bg-gradient-to-t from-[0%] from-zinc-200 via-[10%] via-zinc-500 to-transparent dark:from-zinc-800 dark:via-zinc-500"
+            className="absolute inset-x-0 top-0 w-[2px] rounded-full bg-linear-to-t from-0% from-zinc-200 via-10% via-zinc-500 to-transparent dark:from-zinc-800 dark:via-zinc-500"
             style={{
               height: heightTransform,
               opacity: opacityTransform,
