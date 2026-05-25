@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image';
-import type React from 'react';
 
 type ButtonProps = {
   link: string;
@@ -8,7 +7,7 @@ type ButtonProps = {
   className?: string;
   text?: string;
   variant?: 'primary' | 'secondary' | 'ghost' | 'disabled';
-  trailingIcon?: string;
+  trailingIcon?: string | null;
   iconOnly?: boolean;
 };
 
@@ -84,15 +83,14 @@ const Button = ({
                 width={iconSize}
               />
             ) : (
-              // Plain <img> for the small SVG arrow – SVGs don't need
-              // Next.js image optimisation and avoids the aspect-ratio warning.
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
+              <Image
                 alt=""
                 aria-hidden="true"
                 className="portfolio-button-icon inline-block"
+                height={17}
                 src={trailingIcon}
-                style={{ width: '17px', height: 'auto' }}
+                style={{ width: '17px', height: '17px' }}
+                width={17}
               />
             )}
           </span>
