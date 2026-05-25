@@ -363,8 +363,8 @@ export const Skills: React.FC = () => {
 
   return (
     <TooltipProvider delayDuration={160} skipDelayDuration={0}>
-      <section className="section-stage section-stage-skills mx-3 my-4 sm:mx-6 sm:my-6">
-        <div className="skills-panel mx-auto max-w-[1400px] overflow-hidden rounded-[1.25rem] px-4 py-12 text-zinc-950 sm:px-6 md:px-8 lg:px-10 lg:py-16">
+      <section className="mx-3 my-4 sm:mx-6 sm:my-6">
+        <div className="mx-auto max-w-[1400px] rounded-[1.25rem] bg-[oklch(0.965_0.004_75)] px-4 py-12 text-zinc-950 sm:px-6 md:px-8 lg:px-10 lg:py-16">
           <div className="mx-auto max-w-7xl">
             <div className="mb-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.6fr)] lg:items-end">
               <div className="space-y-4">

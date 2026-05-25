@@ -142,12 +142,6 @@
 
   body {
     @apply bg-background text-foreground;
-    background:
-      linear-gradient(180deg, oklch(0.998 0.004 75) 0 10%, transparent 10% 100%),
-      linear-gradient(180deg, transparent 0 24%, oklch(0.972 0.006 75 / 0.5) 24% 42%, transparent 42% 100%),
-      linear-gradient(180deg, transparent 0 58%, oklch(0.966 0.006 92 / 0.46) 58% 76%, transparent 76% 100%),
-      linear-gradient(180deg, oklch(0.998 0.004 75), oklch(0.982 0.006 75)),
-      oklch(0.992 0.004 75);
     font-family: var(--font-body);
   }
 
@@ -162,154 +156,14 @@
 }
 
 @layer components {
-  .section-stage {
-    position: relative;
-    isolation: isolate;
-  }
-
-  .section-stage::before {
-    position: absolute;
-    inset: -1.5rem 0;
-    z-index: -1;
-    pointer-events: none;
-    content: "";
-  }
-
-  .section-stage-about::before {
-    inset: -2rem 0;
-    background:
-      linear-gradient(90deg, oklch(0.988 0.006 75 / 0.72), transparent 42%),
-      linear-gradient(180deg, transparent, oklch(0.966 0.008 82 / 0.58) 18%, transparent 78%);
-  }
-
-  .section-stage-skills::before {
-    inset-inline: -1.5rem;
-    background:
-      linear-gradient(90deg, transparent 0 6%, oklch(0.9 0.016 220 / 0.7) 6% 6.12%, transparent 6.12% 100%),
-      linear-gradient(180deg, transparent 0 8%, oklch(0.948 0.011 218 / 0.68) 26%, oklch(0.972 0.006 75 / 0.3) 72%, transparent 100%);
-  }
-
-  .section-stage-portfolio::before {
-    inset-inline: -1.5rem;
-    background:
-      linear-gradient(90deg, transparent 0 8%, oklch(0.92 0.008 75 / 0.58) 8% 8.08%, transparent 8.08% 100%),
-      linear-gradient(180deg, oklch(0.994 0.004 75), oklch(0.986 0.005 75) 52%, oklch(0.968 0.006 75));
-  }
-
-  .section-stage-journey::before {
-    inset-inline: -1.5rem;
-    background:
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 7rem,
-        oklch(0.865 0.012 75 / 0.5) 7rem calc(7rem + 1px)
-      ),
-      linear-gradient(180deg, transparent 0 6%, oklch(0.958 0.008 75 / 0.68) 20%, oklch(0.982 0.006 75 / 0.5) 72%, transparent 100%);
-  }
-
-  .section-stage-training::before {
-    inset-inline: -1.5rem;
-    background:
-      linear-gradient(135deg, transparent 0 18%, oklch(0.926 0.014 98 / 0.58) 18% 38%, transparent 38% 100%),
-      linear-gradient(180deg, transparent 0 10%, oklch(0.956 0.01 96 / 0.7) 28%, oklch(0.978 0.006 75 / 0.4) 78%, transparent 100%);
-  }
-
-  .section-stage-contact::before {
-    inset-block: -2rem -0.5rem;
-    inset-inline: -1.5rem;
-    background:
-      linear-gradient(90deg, transparent 0 52%, oklch(0.938 0.018 55 / 0.46) 52% 100%),
-      linear-gradient(180deg, transparent, oklch(0.955 0.008 75 / 0.72) 42%, oklch(0.94 0.011 75 / 0.64));
-  }
-
-  :where(
-      .hero-panel,
-      .about-panel,
-      .skills-panel,
-      .portfolio-panel,
-      .journey-panel,
-      .training-panel,
-      .contact-panel
-    ) {
-    position: relative;
-    isolation: isolate;
-  }
-
-  :where(
-      .hero-panel,
-      .about-panel,
-      .skills-panel,
-      .portfolio-panel,
-      .journey-panel,
-      .training-panel,
-      .contact-panel
-    ) > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  :where(
-      .hero-panel,
-      .about-panel,
-      .skills-panel,
-      .portfolio-panel,
-      .journey-panel,
-      .training-panel,
-      .contact-panel
-    )::before,
-  :where(
-      .hero-panel,
-      .about-panel,
-      .skills-panel,
-      .portfolio-panel,
-      .journey-panel,
-      .training-panel,
-      .contact-panel
-    )::after {
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-    content: "";
-  }
-
   .hero-panel {
     --hero-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --hero-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
     --hero-entry-base: 120ms;
     --hero-entry-step: 70ms;
     animation: hero-panel-reveal 520ms var(--hero-ease-out) both;
-    background:
-      linear-gradient(180deg, oklch(0.968 0.005 75), oklch(0.952 0.007 75));
     box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.68);
     transform-origin: top center;
-  }
-
-  .hero-panel::before {
-    inset: 0;
-    background:
-      linear-gradient(115deg, oklch(0.995 0.004 75 / 0.92) 0 28%, transparent 28% 100%),
-      linear-gradient(180deg, transparent 58%, oklch(0.93 0.007 75 / 0.78) 58% 100%),
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 5.5rem,
-        oklch(0.86 0.012 75 / 0.42) 5.5rem calc(5.5rem + 1px)
-      );
-  }
-
-  .hero-panel::after {
-    top: clamp(4rem, 10vw, 8rem);
-    right: clamp(-5rem, -4vw, -2rem);
-    width: min(42vw, 34rem);
-    height: min(46vw, 36rem);
-    border: 1px solid oklch(0.84 0.055 45 / 0.42);
-    border-radius: 36% 0 0 36%;
-    background:
-      linear-gradient(90deg, oklch(0.98 0.018 55 / 0.42), transparent 62%),
-      repeating-linear-gradient(
-        0deg,
-        transparent 0 1.1rem,
-        oklch(0.8 0.045 45 / 0.22) 1.1rem calc(1.1rem + 1px)
-      );
   }
 
   .hero-grid-dots {
@@ -602,44 +456,8 @@
   .about-panel {
     animation: section-panel-reveal 560ms cubic-bezier(0.23, 1, 0.32, 1) both;
     animation-delay: 120ms;
-    border-color: oklch(0.888 0.01 75);
-    background:
-      linear-gradient(180deg, oklch(0.988 0.005 75), oklch(0.978 0.006 75));
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.7),
-      0 18px 45px -44px rgb(9 9 11 / 0.38);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.7);
     transform-origin: center top;
-  }
-
-  .about-panel::before {
-    inset: 0;
-    background:
-      linear-gradient(90deg, oklch(0.995 0.004 75 / 0.9) 0 42%, transparent 42% 100%),
-      repeating-linear-gradient(
-        0deg,
-        transparent 0 3.4rem,
-        oklch(0.88 0.01 75 / 0.46) 3.4rem calc(3.4rem + 1px)
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 3.4rem,
-        oklch(0.9 0.009 75 / 0.4) 3.4rem calc(3.4rem + 1px)
-      );
-    opacity: 0.78;
-  }
-
-  .about-panel::after {
-    top: 0;
-    right: clamp(1.5rem, 8vw, 8rem);
-    bottom: 0;
-    width: clamp(5rem, 12vw, 10rem);
-    background:
-      linear-gradient(180deg, oklch(0.97 0.018 55 / 0.38), transparent 46%),
-      repeating-linear-gradient(
-        180deg,
-        oklch(0.78 0.07 45 / 0.25) 0 1px,
-        transparent 1px 0.95rem
-      );
   }
 
   .about-copy,
@@ -659,208 +477,6 @@
   .about-loop-item {
     animation: section-row-reveal 420ms cubic-bezier(0.23, 1, 0.32, 1) both;
     animation-delay: calc(360ms + (var(--about-row-index) * 45ms));
-  }
-
-  .journey-entry {
-    transform-origin: center top;
-    transition:
-      background-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  .journey-panel {
-    border-color: oklch(0.872 0.01 75);
-    background:
-      linear-gradient(180deg, oklch(0.986 0.006 75), oklch(0.972 0.007 75));
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.72),
-      0 20px 50px -46px rgb(9 9 11 / 0.42);
-  }
-
-  .skills-panel {
-    border: 1px solid oklch(0.865 0.017 218);
-    background:
-      linear-gradient(180deg, oklch(0.956 0.009 218), oklch(0.968 0.006 210));
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.72),
-      0 20px 50px -46px rgb(9 9 11 / 0.36);
-  }
-
-  .skills-panel::before {
-    inset: 0;
-    background:
-      linear-gradient(118deg, oklch(0.99 0.004 75 / 0.76) 0 28%, transparent 28% 100%),
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 2.7rem,
-        oklch(0.78 0.026 210 / 0.24) 2.7rem calc(2.7rem + 1px)
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent 0 2.7rem,
-        oklch(0.8 0.02 210 / 0.18) 2.7rem calc(2.7rem + 1px)
-      );
-  }
-
-  .skills-panel::after {
-    top: 0;
-    right: 0;
-    width: min(34vw, 24rem);
-    height: 100%;
-    background:
-      linear-gradient(90deg, transparent, oklch(0.93 0.014 210 / 0.78)),
-      repeating-linear-gradient(
-        135deg,
-        transparent 0 1rem,
-        oklch(0.7 0.04 210 / 0.2) 1rem calc(1rem + 1px)
-      );
-  }
-
-  .portfolio-panel {
-    border-color: oklch(0.878 0.009 75);
-    background:
-      linear-gradient(180deg, oklch(0.995 0.004 75), oklch(0.982 0.006 75));
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.72),
-      0 20px 50px -44px rgb(9 9 11 / 0.4);
-  }
-
-  .portfolio-panel::before {
-    inset: 0;
-    background:
-      linear-gradient(90deg, transparent 0 12%, oklch(0.928 0.01 75 / 0.74) 12% 12.1%, transparent 12.1% 100%),
-      linear-gradient(90deg, transparent 0 72%, oklch(0.928 0.01 75 / 0.68) 72% 72.1%, transparent 72.1% 100%),
-      linear-gradient(180deg, oklch(0.996 0.004 75 / 0.94), transparent 28%, oklch(0.972 0.007 75 / 0.82));
-  }
-
-  .portfolio-panel::after {
-    top: clamp(5rem, 12vw, 10rem);
-    left: -8rem;
-    width: min(44vw, 34rem);
-    height: min(44vw, 34rem);
-    border: 1px solid oklch(0.84 0.055 45 / 0.36);
-    transform: rotate(-11deg);
-    background:
-      linear-gradient(135deg, oklch(0.985 0.023 55 / 0.44), transparent 56%),
-      repeating-linear-gradient(
-        90deg,
-        oklch(0.77 0.07 45 / 0.18) 0 1px,
-        transparent 1px 1.15rem
-      );
-  }
-
-  .journey-panel::before {
-    inset: 0;
-    background:
-      linear-gradient(90deg, transparent 0 3.75rem, oklch(0.81 0.038 45 / 0.28) 3.75rem calc(3.75rem + 1px), transparent calc(3.75rem + 1px) 100%),
-      repeating-linear-gradient(
-        0deg,
-        transparent 0 5rem,
-        oklch(0.9 0.008 75 / 0.52) 5rem calc(5rem + 1px)
-      );
-  }
-
-  .journey-panel::after {
-    top: 0;
-    right: 0;
-    width: min(30vw, 22rem);
-    height: 100%;
-    background: linear-gradient(90deg, transparent, oklch(0.965 0.014 75 / 0.72));
-  }
-
-  .journey-rail {
-    transform: translateX(-50%);
-  }
-
-  .journey-marker,
-  .journey-impact {
-    transition:
-      border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      background-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  .journey-proof-item svg {
-    transform-origin: center;
-    transition:
-      color 180ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  .training-panel {
-    border-color: oklch(0.872 0.013 95);
-    background:
-      linear-gradient(180deg, oklch(0.958 0.009 96), oklch(0.972 0.007 82));
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.72),
-      0 20px 50px -44px rgb(9 9 11 / 0.38);
-  }
-
-  .training-panel::before {
-    inset: 0;
-    background:
-      linear-gradient(108deg, oklch(0.992 0.004 75 / 0.72) 0 38%, transparent 38% 100%),
-      repeating-linear-gradient(
-        135deg,
-        transparent 0 1.6rem,
-        oklch(0.83 0.024 92 / 0.22) 1.6rem calc(1.6rem + 1px)
-      );
-  }
-
-  .training-panel::after {
-    right: clamp(1rem, 4vw, 4rem);
-    bottom: -5rem;
-    width: min(42vw, 30rem);
-    height: min(34vw, 22rem);
-    border: 1px solid oklch(0.82 0.04 75 / 0.32);
-    transform: rotate(8deg);
-    background:
-      linear-gradient(180deg, oklch(0.985 0.018 80 / 0.46), transparent),
-      repeating-linear-gradient(
-        0deg,
-        transparent 0 0.85rem,
-        oklch(0.76 0.04 75 / 0.18) 0.85rem calc(0.85rem + 1px)
-      );
-  }
-
-  .training-card {
-    transition:
-      border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      background-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  .contact-panel {
-    border-color: oklch(0.872 0.01 75);
-    background:
-      linear-gradient(180deg, oklch(0.996 0.004 75), oklch(0.982 0.007 75));
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.72),
-      0 22px 50px -42px rgb(9 9 11 / 0.42);
-  }
-
-  .contact-panel::before {
-    inset: 0;
-    background:
-      linear-gradient(100deg, oklch(0.992 0.004 75 / 0.92) 0 54%, transparent 54% 100%),
-      linear-gradient(180deg, transparent, oklch(0.965 0.014 75 / 0.76));
-  }
-
-  .contact-panel::after {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: min(36vw, 28rem);
-    background:
-      linear-gradient(90deg, transparent, oklch(0.93 0.018 55 / 0.72)),
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 1.25rem,
-        oklch(0.76 0.06 45 / 0.18) 1.25rem calc(1.25rem + 1px)
-      );
   }
 }
 
@@ -982,30 +598,6 @@
 
   .skill-tab-motion:not([data-state="active"]):hover {
     color: oklch(0.44 0.02 75);
-  }
-
-  .journey-entry:hover {
-    transform: translateY(-3px);
-    border-color: oklch(0.86 0.012 75);
-    background-color: oklch(0.998 0.004 75);
-    box-shadow: 0 16px 28px -24px rgb(9 9 11 / 0.28);
-  }
-
-  .journey-entry:hover .journey-marker,
-  .journey-entry:hover .journey-impact {
-    border-color: oklch(0.84 0.055 45);
-    background-color: oklch(0.99 0.012 75);
-  }
-
-  .journey-entry:hover .journey-proof-item svg {
-    transform: scale(1.08);
-  }
-
-  .training-card:hover {
-    transform: translateY(-3px);
-    border-color: oklch(0.86 0.012 75);
-    background-color: oklch(0.998 0.004 75);
-    box-shadow: 0 16px 28px -24px rgb(9 9 11 / 0.28);
   }
 }
 
@@ -1260,13 +852,7 @@
   .about-copy,
   .about-system,
   .about-focus-row,
-  .about-loop-item,
-  .journey-marker,
-  .journey-impact,
-  .journey-proof-item svg,
-  .training-card,
-  .training-card:hover,
-  .journey-entry:hover {
+  .about-loop-item {
     animation: none;
     transform: none;
   }
@@ -1300,12 +886,7 @@
   .hero-project-arrow::before,
   .hero-project-arrow-icon,
   .skill-card-motion,
-  .skill-tab-motion,
-  .journey-marker,
-  .journey-impact,
-  .journey-proof-item svg,
-  .training-card,
-  .journey-entry {
+  .skill-tab-motion {
     transition:
       border-color 120ms ease,
       box-shadow 120ms ease,
