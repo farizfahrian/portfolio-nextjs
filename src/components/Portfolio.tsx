@@ -1,6 +1,7 @@
 import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import type React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
@@ -234,9 +235,9 @@ export default function PortfolioSection() {
   );
 
   return (
-    <section className="section-stage section-stage-portfolio mx-3 my-4 sm:mx-6 sm:my-6">
-      <div className="portfolio-panel mx-auto max-w-[1400px] overflow-hidden rounded-[1.25rem] border border-zinc-200 px-4 py-12 text-zinc-950 sm:px-6 md:px-8 lg:px-10 lg:py-16">
-        <div className="mx-auto max-w-7xl">
+    <section className="section-stage section-stage-portfolio section-frame">
+      <div className="portfolio-panel overflow-hidden rounded-[1.25rem] border border-zinc-200 px-4 py-12 text-zinc-950 sm:px-6 md:px-8 lg:px-10 lg:py-16">
+        <div className="page-content">
           <div className="mb-10 border-zinc-200 border-b pb-8">
             <div className="grid gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(280px,0.48fr)] lg:items-end">
               <div className="max-w-4xl">
@@ -261,7 +262,7 @@ export default function PortfolioSection() {
                   'Currently building practical AI sales workflows',
                 ].map((item, index) => (
                   <div
-                    className="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-3 shadow-[0_1px_2px_rgb(9_9_11_/_0.04)]"
+                    className="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-3 shadow-[0_1px_2px_rgb(9_9_11/0.04)]"
                     key={item}
                   >
                     <span className="mt-0.5 font-medium text-orange-600 text-xs tabular-nums">
@@ -279,13 +280,14 @@ export default function PortfolioSection() {
           <div className="space-y-5">
             {featuredProjects.map((project, index) => (
               <article
-                className="project-card group grid overflow-hidden rounded-[1.125rem] border border-zinc-200 bg-[oklch(0.995_0.004_75)] shadow-[0_1px_2px_rgb(9_9_11_/_0.04)] transition-[border-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] lg:grid-cols-[minmax(320px,0.95fr)_minmax(0,1.05fr)]"
+                className="project-card grid overflow-hidden rounded-[1.125rem] border border-zinc-200 bg-[oklch(0.995_0.004_75)] shadow-[0_1px_2px_rgb(9_9_11/0.04)] lg:grid-cols-[minmax(320px,0.95fr)_minmax(0,1.05fr)]"
                 key={project.id}
+                style={{ '--project-index': index } as React.CSSProperties}
               >
                 <div className="relative min-h-[230px] overflow-hidden bg-zinc-100 sm:min-h-[310px] lg:min-h-full">
                   <Image
                     alt={`${project.title} project screenshot`}
-                    className="object-cover object-top transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.025]"
+                    className="project-image-motion object-cover object-top"
                     fill
                     priority={index < 2}
                     sizes="(max-width: 1024px) 100vw, 46vw"
@@ -394,13 +396,14 @@ export default function PortfolioSection() {
                   Active
                 </span>
               </div>
-              {currentlyBuildingProjects.map((project) => (
+              {currentlyBuildingProjects.map((project, index) => (
                 <article
-                  className="group grid gap-4 rounded-[1.125rem] border border-orange-200 bg-[oklch(0.995_0.008_55)] p-3 shadow-[0_1px_2px_rgb(9_9_11_/_0.04)] transition-[border-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] sm:grid-cols-[168px_minmax(0,1fr)] sm:p-4"
+                  className="compact-project-card grid gap-4 rounded-[1.125rem] border border-orange-200 bg-[oklch(0.995_0.008_55)] p-3 shadow-[0_1px_2px_rgb(9_9_11/0.04)] sm:grid-cols-[168px_minmax(0,1fr)] sm:p-4"
                   key={project.id}
+                  style={{ '--project-index': index } as React.CSSProperties}
                 >
                   <div className="relative grid aspect-[1.45/1] overflow-hidden rounded-xl border border-zinc-200 bg-[oklch(0.94_0.004_75)] p-4 text-zinc-500 sm:aspect-auto sm:min-h-32">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,oklch(0.99_0.004_75_/_0.72),transparent_34%),linear-gradient(135deg,oklch(0.97_0.004_75_/_0.72),transparent_55%)]" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,oklch(0.99_0.004_75/0.72),transparent_34%),linear-gradient(135deg,oklch(0.97_0.004_75/0.72),transparent_55%)]" />
                     <div className="flex items-start justify-between">
                       <div className="relative grid size-9 place-items-center rounded-lg border border-zinc-200 bg-[oklch(0.985_0.004_75)] font-semibold text-sm text-zinc-500">
                         WIP
@@ -455,15 +458,16 @@ export default function PortfolioSection() {
               <h4 className="pt-5 font-display font-semibold text-2xl leading-tight">
                 Other Projects
               </h4>
-              {otherProjects.map((project) => (
+              {otherProjects.map((project, index) => (
                 <article
-                  className="group grid gap-4 rounded-[1.125rem] border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-3 shadow-[0_1px_2px_rgb(9_9_11_/_0.04)] transition-[border-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] sm:grid-cols-[168px_minmax(0,1fr)] sm:p-4"
+                  className="compact-project-card grid gap-4 rounded-[1.125rem] border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-3 shadow-[0_1px_2px_rgb(9_9_11/0.04)] sm:grid-cols-[168px_minmax(0,1fr)] sm:p-4"
                   key={project.id}
+                  style={{ '--project-index': index } as React.CSSProperties}
                 >
                   <div className="relative aspect-[1.45/1] overflow-hidden rounded-xl bg-zinc-100 sm:aspect-auto sm:min-h-32">
                     <Image
                       alt={`${project.title} project screenshot`}
-                      className="object-cover object-top transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.025]"
+                      className="project-image-motion object-cover object-top"
                       fill
                       sizes="(max-width: 640px) 100vw, 168px"
                       src={project.image}
