@@ -274,17 +274,13 @@ const skillGroups: SkillGroup[] = [
   },
 ];
 
-const SkillIcon: React.FC<{ index: number; skill: Skill }> = ({
-  index,
-  skill,
-}) => {
+const SkillIcon: React.FC<{ skill: Skill }> = ({ skill }) => {
   return (
     <Tooltip delayDuration={160}>
       <TooltipTrigger asChild>
         <button
           aria-label={`${skill.name}: ${skill.description}`}
           className="skill-card-motion group flex min-h-[9.5rem] w-full flex-col items-start justify-between gap-4 rounded-2xl border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-4 text-left shadow-[0_1px_2px_rgb(9_9_11_/_0.04)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[oklch(0.965_0.004_75)]"
-          style={{ '--skill-card-index': index } as React.CSSProperties}
           type="button"
         >
           <div className="flex size-11 items-center justify-center rounded-full border border-zinc-200 bg-[oklch(0.97_0.005_75)] transition-colors duration-200 group-hover:border-orange-200 group-hover:bg-orange-50 motion-reduce:transition-colors">
@@ -324,8 +320,8 @@ const SkillIcon: React.FC<{ index: number; skill: Skill }> = ({
 };
 
 const SkillCategory: React.FC<{ group: SkillGroup }> = ({ group }) => (
-  <div className="skill-category-motion grid gap-8 lg:grid-cols-[minmax(240px,0.72fr)_minmax(0,1.8fr)] lg:items-start">
-    <div className="skill-category-copy space-y-5 lg:sticky lg:top-8">
+  <div className="grid gap-8 lg:grid-cols-[minmax(240px,0.72fr)_minmax(0,1.8fr)] lg:items-start">
+    <div className="space-y-5 lg:sticky lg:top-8">
       <div className="inline-flex items-center rounded-full border border-zinc-200 bg-[oklch(0.995_0.004_75)] px-4 py-2 font-medium text-sm text-zinc-600">
         {group.skills.length} capabilities
       </div>
@@ -342,9 +338,9 @@ const SkillCategory: React.FC<{ group: SkillGroup }> = ({ group }) => (
       </p>
     </div>
 
-    <div className="skill-category-grid grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3">
-      {group.skills.map((skill, index) => (
-        <SkillIcon index={index} key={skill.name} skill={skill} />
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3">
+      {group.skills.map((skill) => (
+        <SkillIcon key={skill.name} skill={skill} />
       ))}
     </div>
   </div>
@@ -367,15 +363,14 @@ export const Skills: React.FC = () => {
 
   return (
     <TooltipProvider delayDuration={160} skipDelayDuration={0}>
-      <section className="section-stage section-stage-skills section-frame">
-        <div className="skills-panel overflow-hidden rounded-[1.25rem] px-4 py-12 text-zinc-950 sm:px-6 md:px-8 lg:px-10 lg:py-16">
-          <div className="page-content">
+      <section className="section-stage section-stage-skills mx-3 my-4 sm:mx-6 sm:my-6">
+        <div className="skills-panel mx-auto max-w-[1400px] overflow-hidden rounded-[1.25rem] px-4 py-12 text-zinc-950 sm:px-6 md:px-8 lg:px-10 lg:py-16">
+          <div className="mx-auto max-w-7xl">
             <div className="mb-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.6fr)] lg:items-end">
               <div className="space-y-4">
-                <p className="mb-4 flex items-center gap-3 font-semibold text-[0.68rem] text-zinc-700 uppercase tracking-[0.24em]">
-                <span className="size-1.5 rounded-full bg-orange-600" />
-                Technical range
-              </p>
+                <div className="inline-flex rounded-full border border-zinc-200 bg-[oklch(0.995_0.004_75)] px-4 py-2 font-medium text-sm text-zinc-600">
+                  Technical range
+                </div>
                 <div className="space-y-3">
                   <h2 className="max-w-4xl font-display font-semibold text-4xl leading-tight sm:text-5xl">
                     Tools I use to turn product problems into working systems.

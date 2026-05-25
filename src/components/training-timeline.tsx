@@ -67,7 +67,7 @@ const learningTracks = [
 export function TrainingTimeline() {
   return (
     <div className="training-dossier grid gap-4 lg:grid-cols-[0.42fr_1fr] lg:items-start">
-      <aside className="training-aside-motion rounded-[1.125rem] border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-5 shadow-[0_1px_2px_rgb(9_9_11/0.04)] lg:sticky lg:top-6">
+      <aside className="rounded-[1.125rem] border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-5 shadow-[0_1px_2px_rgb(9_9_11/0.04)] lg:sticky lg:top-6">
         <div className="flex items-center gap-3">
           <div className="grid size-10 shrink-0 place-items-center rounded-full bg-[oklch(0.985_0.018_55)] text-orange-700">
             <BookOpenCheck className="size-5" strokeWidth={1.8} />
@@ -89,12 +89,8 @@ export function TrainingTimeline() {
         </p>
 
         <div className="mt-6 grid gap-3 border-zinc-200 border-t pt-5">
-          {learningTracks.map(([title, description], index) => (
-            <div
-              className="training-track-motion flex gap-3"
-              key={title}
-              style={{ '--training-track-index': index } as React.CSSProperties}
-            >
+          {learningTracks.map(([title, description]) => (
+            <div className="flex gap-3" key={title}>
               <BadgeCheck
                 aria-hidden="true"
                 className="mt-0.5 size-4 shrink-0 text-orange-600"
@@ -113,13 +109,10 @@ export function TrainingTimeline() {
 
       <div className="grid gap-4">
         <div className="grid gap-4 md:grid-cols-2">
-          {featuredCredentials.map((credential, index) => (
+          {featuredCredentials.map((credential) => (
             <article
               className="training-card rounded-[1.125rem] border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-5 shadow-[0_1px_2px_rgb(9_9_11/0.04)]"
               key={credential.title}
-              style={
-                { '--training-card-index': index } as React.CSSProperties
-              }
             >
               <div className="flex flex-wrap items-center gap-2">
                 <Chip
@@ -154,7 +147,7 @@ export function TrainingTimeline() {
           ))}
         </div>
 
-        <div className="training-archive-motion rounded-[1.125rem] border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-5 shadow-[0_1px_2px_rgb(9_9_11/0.04)]">
+        <div className="rounded-[1.125rem] border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-5 shadow-[0_1px_2px_rgb(9_9_11/0.04)]">
           <div className="flex flex-wrap items-center justify-between gap-3 border-zinc-200 border-b pb-4">
             <div>
               <p className="font-semibold text-[0.68rem] text-zinc-500 uppercase tracking-[0.16em]">
@@ -177,13 +170,10 @@ export function TrainingTimeline() {
           </div>
 
           <div className="mt-2 divide-y divide-zinc-200">
-            {credentialArchive.map(([title, issuer, date], index) => (
+            {credentialArchive.map(([title, issuer, date]) => (
               <div
-                className="training-archive-row grid gap-2 py-3 sm:grid-cols-[minmax(0,1fr)_8rem_8rem] sm:items-center"
+                className="grid gap-2 py-3 sm:grid-cols-[minmax(0,1fr)_8rem_8rem] sm:items-center"
                 key={title}
-                style={
-                  { '--training-row-index': index } as React.CSSProperties
-                }
               >
                 <p className="font-semibold text-sm text-zinc-950">{title}</p>
                 <p className="text-sm text-zinc-600">{issuer}</p>
