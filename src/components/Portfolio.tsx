@@ -1,23 +1,21 @@
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
 
 const projects = [
   {
     id: 1,
-    title: 'UWGM Run Festival | Event Registration Platform',
+    title: 'UWGM Run Festival',
+    type: 'Event registration platform',
+    role: 'Full-stack delivery',
+    proof:
+      'Registration, payment, QR check-in, and admin operations in one flow.',
+    outcome:
+      'Reduced manual event work with automated confirmations and scan-ready attendance.',
     description:
-      'Designed and developed a fully functional registration system with automated email confirmations, QR-based check-ins, secure payments, and an intuitive admin dashboard. Ensured seamless user experience.',
+      'Designed and built a production registration system for a public running event. The platform connected participant onboarding, Midtrans payments, email confirmations, QR-based check-ins, and a Filament admin dashboard so organizers could manage race-day operations without spreadsheet handoffs.',
     image: '/assets/images/uwgm.png',
     technologies: [
       'Laravel',
@@ -33,9 +31,14 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Nusantara Prima Solusi | Company Profile Website',
+    title: 'Nusantara Prima Solusi',
+    type: 'Company profile website',
+    role: 'Website development',
+    proof: 'Clear product storytelling for an industrial palm oil business.',
+    outcome:
+      'A responsive company profile that makes products, services, and credibility easier to evaluate.',
     description:
-      'Developed a company profile website for Nusantara Prima Solusi, a Palm Oil company, showcasing their products and services in a modern, responsive, and user-friendly interface.',
+      'Developed a responsive company profile for a palm oil business, shaping the content structure around products, services, and trust signals. The result gives buyers and partners a cleaner path to understand the company before starting a conversation.',
     image: '/assets/images/nps.png',
     technologies: ['Wordpress'],
     liveUrl: 'https://gray-bison-645847.hostingersite.com',
@@ -44,9 +47,14 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Active Festival | Event Registration Platform',
+    title: 'Active Festival',
+    type: 'Event registration platform',
+    role: 'Full-stack delivery',
+    proof: '1,500+ registrations on a 1GB RAM, single-core server.',
+    outcome:
+      'Kept registration, payment, email, QR check-in, and admin workflows stable during peak demand.',
     description:
-      'Streamlined a high-performance registration system managing 1,500+ registrations with minimal resources (1GB RAM, single-core server). Delivered key features: automated email confirmations, QR-based check-ins, secure payments, and an intuitive admin dashboard. Ensured zero downtime during peak traffic while supporting hundreds of concurrent users.',
+      'Built a lean registration system that handled 1,500+ signups on constrained hosting. I tuned the operational flow around fast registration, Midtrans payments, automated email confirmations, QR check-ins, and admin visibility, keeping the experience dependable during traffic spikes.',
     image: '/assets/images/Activest.png',
     technologies: [
       'Laravel',
@@ -62,9 +70,14 @@ const projects = [
   },
   {
     id: 4,
-    title: 'Al Mazaya | School Management Platform',
+    title: 'Al Mazaya',
+    type: 'School registration platform',
+    role: 'UI/UX design',
+    proof: 'Parent and staff workflows mapped before interface production.',
+    outcome:
+      'A clearer enrollment experience for users with varied levels of technical confidence.',
     description:
-      'Designed a school registration system to enhance accessibility for users with diverse tech literacy levels. Simplified the enrollment process and optimized information architecture. Delivered high-fidelity prototypes that improved the experience for parents and staff. Effectively managed timelines and team collaboration to meet stakeholder expectations.',
+      'Designed the enrollment experience for a school registration system, with emphasis on accessibility for parents and staff who have different levels of technical literacy. The work covered flow structure, information architecture, high-fidelity prototypes, and stakeholder handoff.',
     image: '/assets/images/Al-Mazaya.png',
     technologies: ['Figma', 'Notion'],
     liveUrl:
@@ -74,9 +87,14 @@ const projects = [
   },
   {
     id: 5,
-    title: 'Digital Marketing Agency Landing Page: Sirkel',
+    title: 'Sirkel',
+    type: 'Digital marketing agency landing page',
+    role: 'Design and frontend',
+    proof: 'Brand messaging, responsive UI, and CMS-backed content structure.',
+    outcome:
+      'A sharper first impression for an agency selling strategy, content, and campaign work.',
     description:
-      'Designed and developed a visually engaging and functional landing page for a digital marketing agency. Focused on creating a user-centric interface that effectively communicates the agency’s services and brand identity. Implemented responsive design to ensure seamless performance across devices.',
+      'Designed and developed a landing page for a digital marketing agency, translating service positioning into a responsive interface with clear sections, brand presence, and content structure that can support ongoing campaign updates.',
     image: '/assets/images/Sirkel.png',
     technologies: ['React', 'Tailwind', 'Figma', 'Sanity'],
     liveUrl: 'https://snow-gorilla-383164.hostingersite.com/',
@@ -85,9 +103,15 @@ const projects = [
   },
   {
     id: 6,
-    title: 'News Media Website: Kaltimfolks',
+    title: 'Kaltimfolks',
+    type: 'News media website',
+    role: 'Product design and web delivery',
+    proof:
+      'Editorial navigation, content discovery, hosting, and server setup.',
+    outcome:
+      'A scalable media experience that supports publishing depth without losing readability.',
     description:
-      'Developed a comprehensive news media platform, crafting wireframes and high-fidelity mockups to visualize user journeys and information architecture. Designed an intuitive user interface to enhance navigation and content discoverability. Implemented a responsive front-end and managed hosting and server configuration to ensure a high-performing and scalable web application.',
+      'Delivered a news platform from wireframes to deployment, including information architecture, high-fidelity UI, responsive front-end implementation, hosting, and server configuration. The work focused on making a growing editorial library easier to scan and navigate.',
     image: '/assets/images/Kaltimfolks.png',
     technologies: ['Nextjs', 'Tailwind', 'MongoDB', 'Prisma', 'Sanity'],
     liveUrl: 'https://kaltimfolks.com',
@@ -96,9 +120,15 @@ const projects = [
   },
   {
     id: 7,
-    title: 'Software Agency Landing Page: Graviton Softworks',
+    title: 'Graviton Softworks',
+    type: 'Software agency landing page',
+    role: 'Design and frontend',
+    proof:
+      'Positioning, portfolio presentation, and performance-minded implementation.',
+    outcome:
+      'A polished agency presence that explains the team, offer, and proof of work quickly.',
     description:
-      'Collaborated with stakeholders to design and develop a modern landing page for a software agency. Delivered a high-quality, responsive web interface that showcases the company’s expertise and portfolio, using scalable and performance-optimized technologies.',
+      'Collaborated with stakeholders to design and build a responsive software agency site. The interface presents services, expertise, and portfolio context with a clean content model and scalable front-end implementation.',
     image: '/assets/images/Graviton.png',
     technologies: ['Nextjs', 'React', 'Figma', 'Tailwind', 'Sanity'],
     liveUrl: 'https://gravitonsoftworks.com',
@@ -107,9 +137,14 @@ const projects = [
   },
   {
     id: 8,
-    title: 'Digital Marketing Profile Company: Davila',
+    title: 'Davila',
+    type: 'Digital marketing company profile',
+    role: 'Full-stack web delivery',
+    proof: 'Laravel, React, Tailwind, and Sanity for a manageable brand site.',
+    outcome:
+      'A responsive profile that makes services and brand identity easier to browse.',
     description:
-      'Developed a responsive company profile website to highlight the brand identity and services of a digital marketing firm. Ensured smooth navigation and performance optimization for a professional user experience.',
+      'Developed a responsive company profile for a digital marketing firm, connecting brand identity, service explanation, and manageable content. The build prioritized smooth navigation, clear hierarchy, and practical performance.',
     image: '/assets/images/Davila.png',
     technologies: ['Laravel', 'React', 'Tailwind', 'Sanity'],
     liveUrl: 'https://davila.id',
@@ -120,8 +155,13 @@ const projects = [
   {
     id: 9,
     title: 'Forum Discussion App',
+    type: 'React learning project',
+    role: 'Frontend engineering',
+    proof: 'Topic creation, comments, likes, routing, and shared state.',
+    outcome:
+      'A compact social discussion interface built to practice production React patterns.',
     description:
-      'A forum-style discussion application built during the Dicoding React Expert class. Users can create topics, post comments, and like discussions in a Twitter-like interface.',
+      'A forum-style discussion application built during the Dicoding React Expert class. Users can create topics, post comments, and like discussions in a familiar social interface.',
     image: '/assets/images/forum-discussion-app.png',
     technologies: ['React', 'Context API', 'React Router', 'Tailwind CSS'],
     liveUrl: 'https://forum-discussion-app-eta.vercel.app',
@@ -131,6 +171,12 @@ const projects = [
   {
     id: 10,
     title: 'Catalyst Web Extension',
+    type: 'Browser extension',
+    role: 'Extension development',
+    proof:
+      'AI-assisted writing tools embedded into rich text editor workflows.',
+    outcome:
+      'A browser-native writing utility that reduces context switching during content creation.',
     description:
       'A browser extension for content generation that integrates with rich text editors and provides AI-assisted writing tools directly in the browser.',
     image: '/assets/images/catalyst.png',
@@ -143,6 +189,11 @@ const projects = [
   {
     id: 11,
     title: 'Virtual Tour of University Buildings',
+    type: 'Interactive campus tour',
+    role: '3D web prototype',
+    proof: 'Panorama navigation with Three.js, Panolens.js, and mapping APIs.',
+    outcome:
+      'A spatial browsing prototype for exploring campus buildings remotely.',
     description:
       'An interactive virtual tour application showcasing campus buildings at Mulawarman University, developed using Three.js and mapping APIs.',
     image: '/assets/images/virtual-tour.png',
@@ -153,173 +204,340 @@ const projects = [
       'https://github.com/farizfahrian/Virtual-Tour-of-Recorate-Building-at-Mulawarman-University',
     realProject: false,
   },
+  {
+    id: 12,
+    title: 'AI Sales Bot',
+    type: 'Currently building',
+    role: 'AI automation product',
+    proof:
+      'Lead intake, qualification logic, follow-up messaging, and handoff notes.',
+    outcome:
+      'A sales assistant designed to help small teams respond faster without losing context between first contact and follow-up.',
+    description:
+      'An AI-assisted sales workflow for capturing inquiries, qualifying intent, drafting follow-ups, and preparing useful handoff summaries for the person closing the conversation.',
+    image: '',
+    technologies: ['Nextjs', 'React', 'Tailwind', 'AI Workflows'],
+    liveUrl: '',
+    githubUrl: '',
+    realProject: false,
+    currentlyBuilding: true,
+  },
 ];
 
 export default function PortfolioSection() {
   const featuredProjects = projects.filter((project) => project.realProject);
-  const otherProjects = projects.filter((project) => !project.realProject);
+  const currentlyBuildingProjects = projects.filter(
+    (project) => project.currentlyBuilding
+  );
+  const otherProjects = projects.filter(
+    (project) => !(project.realProject || project.currentlyBuilding)
+  );
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16">
-      <div className="mb-12 text-center">
-        <h2 className="mb-4 font-bold text-2xl md:text-4xl">
-          Featured Projects
-        </h2>
-        <p className="mx-auto max-w-2xl text-base text-muted-foreground">
-          Here are some of my recent projects that showcase my skills in web
-          development, design, and problem-solving. Each project represents a
-          unique challenge.
-        </p>
-      </div>
-
-      {/* Featured Projects */}
-      <div className="mb-16 grid gap-8 md:grid-cols-2">
-        {featuredProjects.map((project) => (
-          <Card
-            className="group flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-lg"
-            key={project.id}
-          >
-            <div className="relative h-48 overflow-hidden">
-              <Image
-                alt={project.title}
-                className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
-                fill
-                loading="eager"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                src={project.image || '/placeholder.svg'}
-              />
-              <div className="absolute top-4 left-4">
-                <Badge
-                  className="bg-primary text-primary-foreground"
-                  variant="secondary"
-                >
-                  Real Project
-                </Badge>
+    <section className="section-stage section-stage-portfolio mx-3 my-4 sm:mx-6 sm:my-6">
+      <div className="portfolio-panel mx-auto max-w-[1400px] overflow-hidden rounded-[1.25rem] border border-zinc-200 px-4 py-12 text-zinc-950 sm:px-6 md:px-8 lg:px-10 lg:py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 border-zinc-200 border-b pb-8">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(280px,0.48fr)] lg:items-end">
+              <div className="max-w-4xl">
+                <p className="flex items-center gap-3 font-semibold text-[0.68rem] text-zinc-700 uppercase tracking-[0.24em]">
+                  <span className="size-1.5 rounded-full bg-orange-600" />
+                  Selected work
+                </p>
+                <h2 className="mt-4 max-w-[860px] text-balance font-display font-semibold text-4xl leading-tight sm:text-5xl">
+                  Shipped systems, designed from the workflow outward.
+                </h2>
+                <p className="mt-5 max-w-3xl text-base text-zinc-600 leading-7">
+                  Each project pairs interface craft with the operational layer
+                  behind it: registration, payments, admin tooling, publishing,
+                  content systems, and handoff-ready product decisions.
+                </p>
               </div>
-            </div>
-            <CardHeader>
-              <CardTitle className="text-xl">{project.title}</CardTitle>
-              <CardDescription className="text-sm leading-relaxed">
-                {project.description}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech) => (
-                  <Badge className="text-xs" key={tech} variant="outline">
-                    {tech}
-                  </Badge>
+
+              <div className="grid gap-2 sm:grid-cols-3 lg:grid-cols-1">
+                {[
+                  'Event platforms with payments and QR check-ins',
+                  'CMS-backed marketing and media websites',
+                  'Currently building practical AI sales workflows',
+                ].map((item, index) => (
+                  <div
+                    className="flex items-start gap-3 rounded-2xl border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-3 shadow-[0_1px_2px_rgb(9_9_11_/_0.04)]"
+                    key={item}
+                  >
+                    <span className="mt-0.5 font-medium text-orange-600 text-xs tabular-nums">
+                      0{index + 1}
+                    </span>
+                    <p className="font-medium text-sm text-zinc-700 leading-6">
+                      {item}
+                    </p>
+                  </div>
                 ))}
               </div>
-            </CardContent>
-            <CardFooter className="mt-auto flex gap-3">
-              {project.liveUrl && (
-                <Button asChild className="flex-1" size="sm">
-                  <Link
-                    href={project.liveUrl}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Live Demo
-                  </Link>
-                </Button>
-              )}
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      {/* Other Projects */}
-      <div className="mb-8">
-        <h3 className="mb-6 font-bold text-2xl">Other Projects</h3>
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {otherProjects.map((project) => (
-          <Card
-            className="group flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-md"
-            key={project.id}
-          >
-            <div className="relative h-40 overflow-hidden">
-              <Image
-                alt={project.title}
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                src={project.image || '/placeholder.svg'}
-              />
             </div>
-            <CardHeader className="pb-3">
-              <CardTitle className="text-lg">{project.title}</CardTitle>
-              <CardDescription className="line-clamp-3 text-sm">
-                {project.description}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="pb-3">
-              <div className="flex flex-wrap gap-1">
-                {project.technologies.slice(0, 3).map((tech) => (
-                  <Badge className="text-xs" key={tech} variant="outline">
-                    {tech}
-                  </Badge>
-                ))}
-                {project.technologies.length > 3 && (
-                  <Badge className="text-xs" variant="outline">
-                    +{project.technologies.length - 3}
-                  </Badge>
-                )}
-              </div>
-            </CardContent>
-            <CardFooter className="flex gap-2 pt-0">
-              {project.liveUrl && (
-                <Button asChild className="flex-1" size="sm">
-                  <Link
-                    href={project.liveUrl}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <ExternalLink className="mr-1 h-3 w-3" />
-                    Live
-                  </Link>
-                </Button>
-              )}
-              {project.githubUrl && (
-                <Button
-                  asChild
-                  className="flex-1 bg-transparent"
-                  size="sm"
-                  variant="outline"
-                >
-                  <Link
-                    href={project.githubUrl}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <svg
-                      className="lucide lucide-github-icon lucide-github"
-                      fill="none"
-                      height="24"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      xmlns="http://www.w3.org/2000/svg"
+          </div>
+
+          <div className="space-y-5">
+            {featuredProjects.map((project, index) => (
+              <article
+                className="project-card group grid overflow-hidden rounded-[1.125rem] border border-zinc-200 bg-[oklch(0.995_0.004_75)] shadow-[0_1px_2px_rgb(9_9_11_/_0.04)] transition-[border-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] lg:grid-cols-[minmax(320px,0.95fr)_minmax(0,1.05fr)]"
+                key={project.id}
+              >
+                <div className="relative min-h-[230px] overflow-hidden bg-zinc-100 sm:min-h-[310px] lg:min-h-full">
+                  <Image
+                    alt={`${project.title} project screenshot`}
+                    className="object-cover object-top transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.025]"
+                    fill
+                    priority={index < 2}
+                    sizes="(max-width: 1024px) 100vw, 46vw"
+                    src={project.image}
+                  />
+                </div>
+
+                <div className="flex flex-col justify-between gap-8 p-5 sm:p-6 lg:p-8">
+                  <div className="space-y-5">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Badge className="rounded-full border-zinc-200 bg-[oklch(0.965_0.004_75)] px-3 py-1 font-medium text-zinc-600 hover:bg-[oklch(0.965_0.004_75)]">
+                        {project.type}
+                      </Badge>
+                      <Badge
+                        className="rounded-full border-orange-200 bg-[oklch(0.985_0.028_55)] px-3 py-1 font-medium text-orange-700"
+                        variant="outline"
+                      >
+                        {project.role}
+                      </Badge>
+                    </div>
+
+                    <div className="space-y-3">
+                      <h3 className="font-display font-semibold text-3xl leading-tight sm:text-4xl">
+                        {project.title}
+                      </h3>
+                      <p className="max-w-2xl text-base text-zinc-600 leading-7">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    <div className="grid gap-3 border-zinc-200 border-y py-4 sm:grid-cols-2">
+                      <div>
+                        <p className="font-medium text-xs text-zinc-500 uppercase tracking-[0.16em]">
+                          Constraint
+                        </p>
+                        <p className="mt-2 font-medium text-sm text-zinc-800 leading-6">
+                          {project.proof}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-medium text-xs text-zinc-500 uppercase tracking-[0.16em]">
+                          Result
+                        </p>
+                        <p className="mt-2 font-medium text-sm text-zinc-800 leading-6">
+                          {project.outcome}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <Badge
+                          className="rounded-full border-zinc-200 bg-white px-3 py-1 font-medium text-xs text-zinc-600"
+                          key={tech}
+                          variant="outline"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  {project.liveUrl && (
+                    <Button
+                      asChild
+                      className="h-10 w-full rounded-md border-2 border-orange-200 bg-orange-600 px-5 font-semibold text-orange-50 transition-[transform,background-color,border-color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-orange-700 active:scale-[0.98] sm:w-fit"
+                      size="sm"
                     >
-                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                      <path d="M9 18c-4.51 2-5-2-7-2" />
-                    </svg>
-                    GitHub
-                  </Link>
-                </Button>
-              )}
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
+                      <Link
+                        href={project.liveUrl}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        View live project
+                      </Link>
+                    </Button>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
 
-      
+          <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(240px,0.72fr)_minmax(0,1.8fr)] lg:items-start">
+            <div className="space-y-4">
+              <div className="inline-flex items-center rounded-full border border-zinc-200 bg-[oklch(0.995_0.004_75)] px-4 py-2 font-medium text-sm text-zinc-600">
+                {otherProjects.length} additional builds
+              </div>
+              <div className="space-y-3">
+                <h3 className="font-display font-semibold text-3xl leading-tight sm:text-4xl">
+                  Smaller builds that sharpened specific product skills.
+                </h3>
+                <p className="max-w-xl text-base text-zinc-600 leading-7">
+                  Focused projects for React architecture, browser extension
+                  behavior, and spatial interfaces.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid gap-3">
+              <div className="mb-1 flex items-center justify-between gap-4">
+                <h4 className="font-display font-semibold text-2xl leading-tight">
+                  Currently Building
+                </h4>
+                <span className="rounded-full border border-orange-200 bg-[oklch(0.985_0.028_55)] px-3 py-1 font-medium text-[0.7rem] text-orange-700">
+                  Active
+                </span>
+              </div>
+              {currentlyBuildingProjects.map((project) => (
+                <article
+                  className="group grid gap-4 rounded-[1.125rem] border border-orange-200 bg-[oklch(0.995_0.008_55)] p-3 shadow-[0_1px_2px_rgb(9_9_11_/_0.04)] transition-[border-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] sm:grid-cols-[168px_minmax(0,1fr)] sm:p-4"
+                  key={project.id}
+                >
+                  <div className="relative grid aspect-[1.45/1] overflow-hidden rounded-xl border border-zinc-200 bg-[oklch(0.94_0.004_75)] p-4 text-zinc-500 sm:aspect-auto sm:min-h-32">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,oklch(0.99_0.004_75_/_0.72),transparent_34%),linear-gradient(135deg,oklch(0.97_0.004_75_/_0.72),transparent_55%)]" />
+                    <div className="flex items-start justify-between">
+                      <div className="relative grid size-9 place-items-center rounded-lg border border-zinc-200 bg-[oklch(0.985_0.004_75)] font-semibold text-sm text-zinc-500">
+                        WIP
+                      </div>
+                      <span className="relative rounded-full border border-zinc-200 bg-[oklch(0.985_0.004_75)] px-2.5 py-1 font-medium text-[0.68rem] text-zinc-500">
+                        Draft
+                      </span>
+                    </div>
+                    <div className="relative mt-auto space-y-2">
+                      <div className="h-2 w-3/4 rounded-full bg-zinc-300/70" />
+                      <div className="h-2 w-1/2 rounded-full bg-zinc-300/50" />
+                      <div className="grid grid-cols-3 gap-1.5 pt-1">
+                        <span className="h-7 rounded-md bg-[oklch(0.985_0.004_75)]/70" />
+                        <span className="h-7 rounded-md bg-[oklch(0.985_0.004_75)]/70" />
+                        <span className="h-7 rounded-md bg-[oklch(0.985_0.004_75)]/70" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="min-w-0 space-y-3">
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <p className="font-medium text-orange-600 text-sm">
+                          {project.role}
+                        </p>
+                        <Badge className="rounded-full border-orange-200 bg-[oklch(0.985_0.028_55)] px-2.5 py-1 font-medium text-[0.68rem] text-orange-700">
+                          In progress
+                        </Badge>
+                      </div>
+                      <h4 className="mt-1 font-display font-semibold text-2xl leading-tight">
+                        {project.title}
+                      </h4>
+                    </div>
+                    <p className="max-w-2xl text-sm text-zinc-600 leading-6">
+                      {project.outcome}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <Badge
+                          className="rounded-full border-zinc-200 bg-white px-2.5 py-1 font-medium text-[0.7rem] text-zinc-600"
+                          key={tech}
+                          variant="outline"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              ))}
+
+              <h4 className="pt-5 font-display font-semibold text-2xl leading-tight">
+                Other Projects
+              </h4>
+              {otherProjects.map((project) => (
+                <article
+                  className="group grid gap-4 rounded-[1.125rem] border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-3 shadow-[0_1px_2px_rgb(9_9_11_/_0.04)] transition-[border-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] sm:grid-cols-[168px_minmax(0,1fr)] sm:p-4"
+                  key={project.id}
+                >
+                  <div className="relative aspect-[1.45/1] overflow-hidden rounded-xl bg-zinc-100 sm:aspect-auto sm:min-h-32">
+                    <Image
+                      alt={`${project.title} project screenshot`}
+                      className="object-cover object-top transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.025]"
+                      fill
+                      sizes="(max-width: 640px) 100vw, 168px"
+                      src={project.image}
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="min-w-0 space-y-3">
+                      <div>
+                        <p className="font-medium text-orange-600 text-sm">
+                          {project.type}
+                        </p>
+                        <h4 className="mt-1 font-display font-semibold text-2xl leading-tight">
+                          {project.title}
+                        </h4>
+                      </div>
+                      <p className="max-w-2xl text-sm text-zinc-600 leading-6">
+                        {project.outcome}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech) => (
+                          <Badge
+                            className="rounded-full border-zinc-200 bg-white px-2.5 py-1 font-medium text-[0.7rem] text-zinc-600"
+                            key={tech}
+                            variant="outline"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex shrink-0 gap-2 sm:flex-col">
+                      {project.liveUrl && (
+                        <Button
+                          asChild
+                          className="h-9 rounded-md px-3 font-semibold transition-[transform,background-color,border-color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.98]"
+                          size="sm"
+                        >
+                          <Link
+                            href={project.liveUrl}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            <ExternalLink className="mr-2 h-3.5 w-3.5" />
+                            Live
+                          </Link>
+                        </Button>
+                      )}
+                      {project.githubUrl && (
+                        <Button
+                          asChild
+                          className="h-9 rounded-md bg-transparent px-3 font-semibold transition-[transform,background-color,border-color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.98]"
+                          size="sm"
+                          variant="outline"
+                        >
+                          <Link
+                            href={project.githubUrl}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            <Github className="mr-2 h-3.5 w-3.5" />
+                            Code
+                          </Link>
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

@@ -2,12 +2,12 @@ import { Code2, Cpu, Figma, Search } from 'lucide-react';
 import Image from 'next/image';
 import type React from 'react';
 import Button from '@/components/Button';
-import ContactSection from '@/components/ContactSection';
-import { ExperienceTimeline } from '@/components/ExperienceTimeline';
+import ContactSection from '@/components/contact-section';
+import { ExperienceTimeline } from '@/components/experience-timeline';
 import { MarqueeImage } from '@/components/MarqueeImage';
 import Portfolio from '@/components/Portfolio';
 import { Skills } from '@/components/Skills';
-import TrainingTimeline from '@/components/TrainingTimeline';
+import TrainingTimeline from '@/components/training-timeline';
 
 const heroCallouts = [
   {
@@ -56,8 +56,8 @@ const aboutLoop = [
 function Home() {
   return (
     <>
-      <section>
-        <div className="hero-panel relative m-3 overflow-hidden rounded-[1.25rem] bg-[oklch(0.965_0.004_75)] pt-8 pb-4 text-zinc-950 sm:m-6 md:pt-12 md:pb-8 lg:pt-16 xl:pt-20">
+      <section className="section-stage section-stage-hero">
+        <div className="hero-panel relative m-3 overflow-hidden rounded-[1.25rem] pt-8 pb-4 text-zinc-950 sm:m-6 md:pt-12 md:pb-8 lg:pt-16 xl:pt-20">
           <div className="hero-grid-dots hero-grid-dots-left" />
           <div className="hero-grid-dots hero-grid-dots-right" />
           <div className="hero-orbit" />
@@ -153,19 +153,19 @@ function Home() {
           <MarqueeImage />
         </div>
       </section>
-      <section id="about">
-        <div className="about-panel mx-3 my-4 overflow-hidden rounded-[1.25rem] border border-zinc-200 bg-[oklch(0.985_0.004_75)] text-zinc-950 sm:mx-6 sm:my-6">
+      <section className="section-stage section-stage-about" id="about">
+        <div className="about-panel mx-3 my-4 overflow-hidden rounded-[1.25rem] border border-zinc-200 text-zinc-950 sm:mx-6 sm:my-6">
           <div className="mx-auto grid max-w-[1360px] gap-10 px-5 py-10 sm:px-8 md:px-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:py-14">
             <div className="about-copy max-w-3xl">
               <p className="mb-4 flex items-center gap-3 font-semibold text-[0.68rem] text-zinc-700 uppercase tracking-[0.24em]">
                 <span className="size-1.5 rounded-full bg-orange-600" />
                 About
               </p>
-              <h2 className="max-w-[760px] text-balance font-display font-semibold text-[2.45rem] leading-[1.02] sm:text-5xl lg:text-[4.4rem]">
+              <h2 className="max-w-[760px] text-balance font-display font-semibold text-4xl leading-tight sm:text-5xl">
                 I connect product thinking with the systems that run the
                 business.
               </h2>
-              <div className="mt-6 space-y-5 text-pretty font-medium text-base text-zinc-600 leading-8 sm:text-lg">
+              <div className="mt-6 space-y-5 text-pretty font-medium text-base text-zinc-600 leading-7">
                 <p>
                   I&apos;m Fariz Fahrian, a software engineer working across
                   frontend, backend, UI/UX, and AI-assisted workflows. I focus
@@ -195,7 +195,7 @@ function Home() {
                       <span className="font-semibold text-sm text-zinc-950 sm:text-base">
                         {item}
                       </span>
-                      <span className="font-medium text-xs text-orange-600 tabular-nums">
+                      <span className="font-medium text-orange-600 text-xs tabular-nums">
                         0{index + 1}
                       </span>
                     </div>
@@ -231,35 +231,71 @@ function Home() {
       <div id="portfolio">
         <Portfolio />
       </div>
-      <section>
-        <div className="mx-3 my-4 max-w-[1400px] sm:mx-auto sm:my-6">
-          <div className="mx-auto max-w-7xl px-4 py-4 text-left sm:py-10 sm:text-center md:px-8 lg:px-10">
-            <h2 className="mb-2 font-display font-semibold text-3xl sm:text-5xl">
-              My Professional Journey
-            </h2>
-            <p className="mx-auto max-w-md text-base text-muted-foreground md:text-base dark:text-neutral-300">
-              Here&apos;s a timeline of my career journey, highlighting key
-              experiences and achievements along the way.
-            </p>
-          </div>
-          <div className="space-y-4">
-            <ExperienceTimeline />
+      <section className="section-stage section-stage-journey">
+        <div className="mx-3 my-4 sm:mx-6 sm:my-6">
+          <div className="journey-panel mx-auto max-w-[1400px] overflow-hidden rounded-[1.25rem] border border-zinc-200 px-4 py-12 text-zinc-950 sm:px-6 md:px-8 lg:px-10 lg:py-16">
+            <div className="mx-auto max-w-7xl">
+              <div className="mb-9 grid gap-8 border-zinc-200 border-b pb-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(280px,0.48fr)] lg:items-end">
+                <div>
+                  <p className="flex items-center gap-3 font-semibold text-[0.68rem] text-zinc-700 uppercase tracking-[0.24em]">
+                    <span className="size-1.5 rounded-full bg-orange-600" />
+                    Professional journey
+                  </p>
+                  <h2 className="mt-4 max-w-[820px] text-balance font-display font-semibold text-4xl leading-tight sm:text-5xl">
+                    Progress shaped by production pressure, not just job titles.
+                  </h2>
+                  <p className="mt-5 max-w-3xl text-base text-zinc-600 leading-7">
+                    A concise view of the roles where I built, led, debugged,
+                    and shipped. The thread is consistent: understand the
+                    operation, reduce friction, and leave the system easier to
+                    run.
+                  </p>
+                </div>
+                <div className="journey-summary-grid grid gap-2 sm:grid-cols-3 lg:grid-cols-1">
+                  {[
+                    ['6M rows', 'database performance improved'],
+                    ['1,500+', 'event signups supported'],
+                    ['PR review', 'delivery discipline added'],
+                  ].map(([value, label]) => (
+                    <div
+                      className="rounded-2xl border border-zinc-200 bg-[oklch(0.995_0.004_75)] px-4 py-3"
+                      key={value}
+                    >
+                      <p className="font-display font-semibold text-2xl text-zinc-950 leading-none">
+                        {value}
+                      </p>
+                      <p className="mt-1 text-sm text-zinc-600">{label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <ExperienceTimeline />
+            </div>
           </div>
         </div>
       </section>
-      <section>
-        <div className="mx-3 my-4 max-w-[1400px] sm:mx-auto sm:my-6">
-          <div className="mx-auto max-w-7xl px-4 py-4 text-left sm:py-10 sm:text-center md:px-8 lg:px-10">
-            <h2 className="mb-2 font-display font-semibold text-3xl sm:text-5xl">
-              My Training and Achievement
-            </h2>
-            <p className="mx-auto max-w-md text-base text-muted-foreground md:text-base dark:text-neutral-300">
-              Explore my academic background, specialized training, and key
-              certifications that have shaped my expertise.
-            </p>
-          </div>
-          <div className="space-y-4">
-            <TrainingTimeline />
+      <section className="section-stage section-stage-training">
+        <div className="mx-3 my-4 sm:mx-6 sm:my-6">
+          <div className="training-panel mx-auto max-w-[1400px] overflow-hidden rounded-[1.25rem] border border-zinc-200 px-4 py-12 text-zinc-950 sm:px-6 md:px-8 lg:px-10 lg:py-16">
+            <div className="mx-auto max-w-7xl">
+              <div className="mb-9 grid gap-6 border-zinc-200 border-b pb-8 lg:grid-cols-[minmax(0,0.78fr)_minmax(280px,0.42fr)] lg:items-end">
+                <div>
+                  <p className="flex items-center gap-3 font-semibold text-[0.68rem] text-zinc-700 uppercase tracking-[0.24em]">
+                    <span className="size-1.5 rounded-full bg-orange-600" />
+                    Training and achievement
+                  </p>
+                  <h2 className="mt-4 max-w-[820px] text-balance font-display font-semibold text-4xl leading-tight sm:text-5xl">
+                    Proof of study that connects back to shipped work.
+                  </h2>
+                </div>
+                <p className="max-w-xl text-base text-zinc-600 leading-7 lg:justify-self-end">
+                  A curated record of certifications, coursework, and one
+                  competitive award, organized by practical value rather than
+                  chronology.
+                </p>
+              </div>
+              <TrainingTimeline />
+            </div>
           </div>
         </div>
       </section>
