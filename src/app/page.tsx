@@ -24,14 +24,14 @@ const heroCallouts = [
     className: 'hero-callout-design hidden 2xl:flex',
   },
   {
-    title: 'Build',
-    description: 'Backend flows',
+    title: 'Code',
+    description: 'Scalable systems',
     icon: Code2,
     className: 'hero-callout-build hidden 2xl:flex',
   },
   {
     title: 'AI',
-    description: 'Useful flows',
+    description: 'Automate flows',
     icon: Cpu,
     className: 'hero-callout-automate hidden 2xl:flex',
   },
@@ -77,7 +77,7 @@ function Home() {
                   <p className="font-semibold text-sm text-zinc-950 uppercase tracking-[0.12em]">
                     {callout.title}
                   </p>
-                  <p className="mt-1 max-w-32 text-sm text-zinc-600 leading-6">
+                  <p className="mt-1 max-w-32 text-xs text-zinc-600 leading-6">
                     {callout.description}
                   </p>
                 </div>
