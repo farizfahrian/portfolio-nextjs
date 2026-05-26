@@ -1,7 +1,7 @@
 'use client';
 
 import { CheckCircle2 } from 'lucide-react';
-import { motion, useReducedMotion } from 'motion/react';
+import type * as React from 'react';
 import Chip from './Chip';
 
 const experiences = [
@@ -83,33 +83,14 @@ const experiences = [
 ];
 
 export function ExperienceTimeline() {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <div className="journey-list">
       <div className="grid gap-3">
         {experiences.map((experience, index) => (
-          <motion.article
+          <article
             className="journey-entry group rounded-[1.125rem] border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-5 shadow-[0_1px_2px_rgb(9_9_11/0.04)] md:p-6 lg:p-7"
-            initial={
-              shouldReduceMotion
-                ? false
-                : {
-                    opacity: 0,
-                    transform: 'translate3d(0, 22px, 0) scale(0.985)',
-                  }
-            }
             key={experience.id}
-            transition={{
-              duration: 0.46,
-              ease: [0.23, 1, 0.32, 1],
-              delay: index * 0.04,
-            }}
-            viewport={{ once: true, margin: '-80px 0px -120px 0px' }}
-            whileInView={{
-              opacity: 1,
-              transform: 'translate3d(0, 0, 0) scale(1)',
-            }}
+            style={{ '--motion-reveal-index': index } as React.CSSProperties}
           >
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
               <p className="rounded-full border border-orange-200 bg-[oklch(0.985_0.018_55)] px-3 py-1 font-semibold text-[0.72rem] text-orange-700 uppercase tracking-[0.12em]">
@@ -164,7 +145,7 @@ export function ExperienceTimeline() {
                 ))}
               </div>
             </div>
-          </motion.article>
+          </article>
         ))}
       </div>
     </div>

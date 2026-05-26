@@ -353,7 +353,7 @@ export default function PortfolioSection() {
                   {project.liveUrl && (
                     <Button
                       asChild
-                      className="h-10 w-full rounded-md border-2 border-orange-200 bg-orange-600 px-5 font-semibold text-orange-50 transition-[transform,background-color,border-color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-orange-700 active:scale-[0.98] sm:w-fit"
+                      className="h-10 w-full rounded-md border-2 border-orange-200 bg-orange-600 px-5 font-semibold text-orange-50 transition-[transform,background-color,border-color] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-orange-700 active:scale-[0.98] sm:w-fit"
                       size="sm"
                     >
                       <Link
@@ -504,7 +504,7 @@ export default function PortfolioSection() {
                       {project.liveUrl && (
                         <Button
                           asChild
-                          className="h-9 rounded-md px-3 font-semibold transition-[transform,background-color,border-color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.98]"
+                          className="h-9 rounded-md px-3 font-semibold transition-[transform,background-color,border-color] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.98]"
                           size="sm"
                         >
                           <Link
@@ -520,7 +520,7 @@ export default function PortfolioSection() {
                       {project.githubUrl && (
                         <Button
                           asChild
-                          className="h-9 rounded-md bg-transparent px-3 font-semibold transition-[transform,background-color,border-color] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.98]"
+                          className="h-9 rounded-md bg-transparent px-3 font-semibold transition-[transform,background-color,border-color] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.98]"
                           size="sm"
                           variant="outline"
                         >

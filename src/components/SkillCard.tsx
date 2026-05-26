@@ -8,7 +8,7 @@ type CardProps = {
 
 const SkillCard = ({ imgsrc, title, desc }: CardProps) => {
   return (
-    <div className="card flex max-w-[425px] cursor-pointer flex-col overflow-hidden rounded-[18px] bg-gray-50 px-8 pt-8 pb-6 shadow-lg transition-transform duration-300 hover:translate-y-[-10px] hover:shadow-xl">
+    <div className="card flex max-w-[425px] cursor-pointer flex-col overflow-hidden rounded-[18px] bg-gray-50 px-8 pt-8 pb-6 shadow-lg transition-[transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-0.5 hover:shadow-xl active:scale-[0.98]">
       <div
         className="flex flex-col gap-4"
         // initial='idle'

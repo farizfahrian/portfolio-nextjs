@@ -86,8 +86,8 @@ function Home() {
           })}
           <div className="hero-copy relative z-10 mx-auto mb-10 max-w-[1220px] px-4 sm:mb-16 sm:px-6 lg:mb-16">
             <div className="hero-eyebrow mb-5 flex w-full justify-center">
-              <div className="hero-availability inline-flex max-w-full items-center gap-2 rounded-full border border-zinc-200 bg-[oklch(0.995_0.004_75_/_0.86)] px-3 py-2 shadow-[0_10px_26px_-22px_rgb(9_9_11_/_0.42)] sm:gap-3 sm:px-4">
-                <span className="size-2.5 shrink-0 rounded-full bg-orange-600 shadow-[0_0_0_4px_oklch(0.82_0.12_45_/_0.22)]" />
+              <div className="hero-availability inline-flex max-w-full items-center gap-2 rounded-full border border-zinc-200 bg-[oklch(0.995_0.004_75/0.86)] px-3 py-2 shadow-[0_10px_26px_-22px_rgb(9_9_11/0.42)] sm:gap-3 sm:px-4">
+                <span className="size-2.5 shrink-0 rounded-full bg-orange-600 shadow-[0_0_0_4px_oklch(0.82_0.12_45/0.22)]" />
                 <p className="font-semibold text-[0.68rem] text-zinc-700 uppercase tracking-[0.2em] max-[420px]:tracking-[0.12em]">
                   Available for product engineering roles
                 </p>

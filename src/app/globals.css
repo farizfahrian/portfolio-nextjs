@@ -141,6 +141,31 @@
     --page-panel-width: 1400px;
     --page-content-width: 1280px;
     --page-gutter: clamp(0.75rem, 2.4vw, 1.5rem);
+    --motion-ease-standard: cubic-bezier(0.23, 1, 0.32, 1);
+    --motion-ease-emphasized: cubic-bezier(0.77, 0, 0.175, 1);
+    --motion-ease-snappy: cubic-bezier(0.32, 0.72, 0, 1);
+    --motion-ease-linear: linear;
+    --motion-duration-instant: 120ms;
+    --motion-duration-fast: 160ms;
+    --motion-duration-base: 200ms;
+    --motion-duration-image: 260ms;
+    --motion-duration-state: 320ms;
+    --motion-duration-reveal: 460ms;
+    --motion-duration-section: 560ms;
+    --motion-duration-hero: 700ms;
+    --motion-stagger-tight: 32ms;
+    --motion-stagger-normal: 48ms;
+    --motion-stagger-loose: 64ms;
+    --motion-reveal-y-section: 18px;
+    --motion-reveal-y-card: 16px;
+    --motion-reveal-y-text: 8px;
+    --motion-reveal-scale-section: 0.992;
+    --motion-reveal-scale-card: 0.986;
+    --motion-hover-lift-sm: -2px;
+    --motion-hover-lift-md: -3px;
+    --motion-hover-lift-hero: -5px;
+    --motion-active-press: 0.97;
+    --motion-active-press-soft: 0.98;
   }
 
   html {
@@ -193,13 +218,14 @@
   html[data-section-reveal-ready="true"]
     .section-stage:not([data-section-revealed="true"]) {
     opacity: 0;
-    transform: translate3d(0, 18px, 0) scale(0.992);
+    transform: translate3d(0, var(--motion-reveal-y-section), 0)
+      scale(var(--motion-reveal-scale-section));
   }
 
   html[data-section-reveal-ready="true"] .section-stage {
     transition:
-      opacity 520ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 560ms cubic-bezier(0.23, 1, 0.32, 1);
+      opacity var(--motion-duration-section) var(--motion-ease-standard),
+      transform var(--motion-duration-section) var(--motion-ease-standard);
     will-change: opacity, transform;
   }
 
@@ -312,13 +338,14 @@
   }
 
   .hero-panel {
-    --hero-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-    --hero-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-    --hero-entry-base: 120ms;
-    --hero-entry-step: 70ms;
+    --hero-ease-out: var(--motion-ease-standard);
+    --hero-ease-in-out: var(--motion-ease-emphasized);
+    --hero-entry-base: var(--motion-duration-instant);
+    --hero-entry-step: 64ms;
     width: 100%;
     min-height: min(900px, calc(100svh - 1rem));
-    animation: hero-panel-reveal 520ms var(--hero-ease-out) both;
+    animation: hero-panel-reveal var(--motion-duration-section)
+      var(--hero-ease-out) both;
     background:
       linear-gradient(180deg, oklch(0.982 0.005 75), oklch(0.952 0.007 75));
     box-shadow:
@@ -343,7 +370,8 @@
   }
 
   .hero-grid-dots {
-    animation: hero-decor-reveal 560ms var(--hero-ease-out) 430ms both;
+    animation: hero-decor-reveal var(--motion-duration-section)
+      var(--hero-ease-out) 430ms both;
     position: absolute;
     z-index: 0;
     width: 8rem;
@@ -388,7 +416,8 @@
   }
 
   .hero-callout {
-    animation: hero-callout-reveal 460ms var(--hero-ease-out) both;
+    animation: hero-callout-reveal var(--motion-duration-reveal)
+      var(--hero-ease-out) both;
     animation-delay: calc(
       380ms + (var(--hero-callout-index) * var(--hero-entry-step))
     );
@@ -443,7 +472,8 @@
   }
 
   .hero-eyebrow {
-    animation: hero-clip-reveal 440ms var(--hero-ease-out) 80ms both;
+    animation: hero-clip-reveal var(--motion-duration-reveal)
+      var(--hero-ease-out) 80ms both;
   }
 
   .hero-heading {
@@ -451,23 +481,26 @@
   }
 
   .hero-heading h1 {
-    animation: hero-title-reveal 700ms var(--hero-ease-out)
+    animation: hero-title-reveal var(--motion-duration-hero) var(--hero-ease-out)
       var(--hero-entry-base) both;
     transform-origin: center 72%;
   }
 
   .hero-heading p {
-    animation: hero-clip-reveal 460ms var(--hero-ease-out)
+    animation: hero-clip-reveal var(--motion-duration-reveal)
+      var(--hero-ease-out)
       calc(var(--hero-entry-base) + var(--hero-entry-step) * 2) both;
   }
 
   .hero-actions {
-    animation: hero-clip-reveal 440ms var(--hero-ease-out)
+    animation: hero-clip-reveal var(--motion-duration-reveal)
+      var(--hero-ease-out)
       calc(var(--hero-entry-base) + var(--hero-entry-step) * 3) both;
   }
 
   .hero-work-label {
-    animation: hero-clip-reveal 400ms var(--hero-ease-out)
+    animation: hero-clip-reveal var(--motion-duration-reveal)
+      var(--hero-ease-out)
       calc(var(--hero-entry-base) + var(--hero-entry-step) * 5) both;
   }
 
@@ -475,24 +508,24 @@
     display: inline-flex;
     transform-origin: center;
     transition:
-      opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+      opacity var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-fast) var(--motion-ease-standard);
   }
 
   .hero-work-image-link:active {
-    transform: scale(0.97);
-    transition-duration: 120ms;
+    transform: scale(var(--motion-active-press));
+    transition-duration: var(--motion-duration-instant);
   }
 
   .portfolio-button {
     border-radius: 0.375rem;
     transform-origin: center;
     transition:
-      background-color 180ms cubic-bezier(0.23, 1, 0.32, 1),
-      border-color 180ms cubic-bezier(0.23, 1, 0.32, 1),
-      box-shadow 180ms cubic-bezier(0.23, 1, 0.32, 1),
-      color 180ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 140ms cubic-bezier(0.23, 1, 0.32, 1);
+      background-color var(--motion-duration-base) var(--motion-ease-standard),
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-base) var(--motion-ease-standard),
+      color var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-fast) var(--motion-ease-standard);
   }
 
   .portfolio-button::before {
@@ -500,19 +533,19 @@
   }
 
   .portfolio-button:active {
-    transform: scale(0.97);
-    transition-duration: 120ms;
+    transform: scale(var(--motion-active-press));
+    transition-duration: var(--motion-duration-instant);
   }
 
   .portfolio-button-content {
-    transition: transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform var(--motion-duration-fast) var(--motion-ease-standard);
   }
 
   .portfolio-button-icon-shell {
     width: 1.25rem;
     aspect-ratio: 1;
     border-radius: 0.25rem;
-    transition: transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform var(--motion-duration-fast) var(--motion-ease-standard);
   }
 
   .portfolio-button-icon-only .portfolio-button-icon-shell {
@@ -521,23 +554,24 @@
 
   .portfolio-button-icon {
     transform-origin: center;
-    transition: transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform var(--motion-duration-fast) var(--motion-ease-standard);
   }
 
   .portfolio-text-link {
     transition:
-      border-color 180ms cubic-bezier(0.23, 1, 0.32, 1),
-      color 180ms cubic-bezier(0.23, 1, 0.32, 1);
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      color var(--motion-duration-base) var(--motion-ease-standard);
   }
 
   .portfolio-text-link svg {
-    transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform var(--motion-duration-fast) var(--motion-ease-standard);
   }
 
   .hero-project-card {
-    animation: hero-card-reveal 440ms var(--hero-ease-out) both;
+    animation: hero-card-reveal var(--motion-duration-reveal)
+      var(--hero-ease-out) both;
     animation-delay: calc(
-      var(--hero-project-index) * 52ms + var(--hero-entry-base) +
+      var(--hero-project-index) * 48ms + var(--hero-entry-base) +
       var(--hero-entry-step) * 7
     );
     backface-visibility: hidden;
@@ -546,13 +580,14 @@
       0 16px 32px -30px rgb(9 9 11 / 0.24);
     transform-origin: center bottom;
     transition:
-      border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-base) var(--motion-ease-standard);
   }
 
   .hero-project-image {
     transform: rotate(var(--hero-project-rotate)) scale(1.045);
-    transition: transform 240ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform var(--motion-duration-image)
+      var(--motion-ease-standard);
     will-change: transform;
   }
 
@@ -562,9 +597,9 @@
     isolation: isolate;
     transform-origin: center;
     transition:
-      border-color 180ms cubic-bezier(0.23, 1, 0.32, 1),
-      color 180ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 190ms cubic-bezier(0.23, 1, 0.32, 1);
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      color var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-base) var(--motion-ease-standard);
   }
 
   .hero-project-arrow::before {
@@ -575,38 +610,40 @@
     background: oklch(0.646 0.194 41.116);
     clip-path: inset(0 100% 0 0 round 999px);
     content: "";
-    transition: clip-path 190ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition: clip-path var(--motion-duration-base)
+      var(--motion-ease-standard);
   }
 
   .hero-project-arrow-icon {
     filter: invert(1);
     transform-origin: center;
     transition:
-      filter 180ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+      filter var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-fast) var(--motion-ease-standard);
   }
 
   .skill-card-motion {
     transition:
-      border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      background-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      background-color var(--motion-duration-base) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-fast) var(--motion-ease-standard);
   }
 
   .skill-card-motion:active {
-    transform: scale(0.98);
+    transform: scale(var(--motion-active-press-soft));
   }
 
   .skill-tab-motion {
     transform-origin: center;
     transition:
-      color 180ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 120ms cubic-bezier(0.23, 1, 0.32, 1);
+      color var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-instant) var(--motion-ease-standard);
   }
 
   .skill-tab-motion svg {
-    transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform var(--motion-duration-base)
+      var(--motion-ease-standard);
   }
 
   .skill-tab-motion[data-state="active"] svg {
@@ -614,7 +651,7 @@
   }
 
   .skill-tab-motion:active {
-    transform: scale(0.98);
+    transform: scale(var(--motion-active-press-soft));
   }
 
   .skills-tabs-list {
@@ -648,27 +685,25 @@
       0
     );
     transition:
-      transform 320ms cubic-bezier(0.32, 0.72, 0, 1),
-      width 240ms cubic-bezier(0.23, 1, 0.32, 1),
-      height 240ms cubic-bezier(0.23, 1, 0.32, 1),
-      box-shadow 220ms cubic-bezier(0.23, 1, 0.32, 1);
+      transform var(--motion-duration-state) var(--motion-ease-snappy),
+      width var(--motion-duration-image) var(--motion-ease-standard),
+      height var(--motion-duration-image) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-base) var(--motion-ease-standard);
     will-change: transform;
   }
 
   .skills-tab-content[data-state="active"] {
-    animation: skills-content-enter 340ms cubic-bezier(0.23, 1, 0.32, 1)
-      backwards;
+    animation: skills-content-enter var(--motion-duration-base)
+      var(--motion-ease-standard) backwards;
   }
 
   .skills-tab-content[data-state="active"] .skill-category-copy {
-    animation: skills-copy-enter 380ms cubic-bezier(0.23, 1, 0.32, 1)
-      backwards;
+    animation: skills-copy-enter var(--motion-duration-base)
+      var(--motion-ease-standard) backwards;
   }
 
   .skills-tab-content[data-state="active"] .skill-card-motion {
-    animation: skills-card-enter 360ms cubic-bezier(0.23, 1, 0.32, 1)
-      backwards;
-    animation-delay: calc(70ms + (var(--skill-card-index) * 34ms));
+    animation: none;
   }
 
   .skill-tooltip-motion {
@@ -682,8 +717,9 @@
   }
 
   .about-panel {
-    animation: section-panel-reveal 560ms cubic-bezier(0.23, 1, 0.32, 1) both;
-    animation-delay: 120ms;
+    animation: section-panel-reveal var(--motion-duration-section)
+      var(--motion-ease-standard) both;
+    animation-delay: var(--motion-duration-instant);
     border-color: oklch(0.888 0.01 75);
     background:
       linear-gradient(180deg, oklch(0.988 0.005 75), oklch(0.978 0.006 75));
@@ -726,7 +762,8 @@
 
   .about-copy,
   .about-system {
-    animation: section-content-reveal 520ms cubic-bezier(0.23, 1, 0.32, 1) both;
+    animation: section-content-reveal var(--motion-duration-reveal)
+      var(--motion-ease-standard) both;
   }
 
   .about-copy {
@@ -739,8 +776,9 @@
 
   .about-focus-row,
   .about-loop-item {
-    animation: section-row-reveal 420ms cubic-bezier(0.23, 1, 0.32, 1) both;
-    animation-delay: calc(360ms + (var(--about-row-index) * 45ms));
+    animation: section-row-reveal var(--motion-duration-reveal)
+      var(--motion-ease-standard) both;
+    animation-delay: calc(360ms + (var(--about-row-index) * 48ms));
   }
 
   .journey-entry,
@@ -748,27 +786,28 @@
   .compact-project-card {
     transform-origin: center top;
     transition:
-      background-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      opacity 460ms cubic-bezier(0.23, 1, 0.32, 1),
-      box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+      background-color var(--motion-duration-base) var(--motion-ease-standard),
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      opacity var(--motion-duration-reveal) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-fast) var(--motion-ease-standard);
   }
 
   .project-card > *,
   .compact-project-card > * {
     transition:
-      opacity 480ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 520ms cubic-bezier(0.23, 1, 0.32, 1),
-      clip-path 620ms cubic-bezier(0.77, 0, 0.175, 1);
+      opacity var(--motion-duration-reveal) var(--motion-ease-standard),
+      transform var(--motion-duration-reveal) var(--motion-ease-standard),
+      clip-path 620ms var(--motion-ease-emphasized);
   }
 
   html[data-section-reveal-ready="true"]
-    :where(.project-card, .compact-project-card):not(
+    :where(.journey-entry, .project-card, .compact-project-card):not(
       [data-section-revealed="true"]
     ) {
     opacity: 0;
-    transform: translate3d(0, 22px, 0) scale(0.985);
+    transform: translate3d(0, var(--motion-reveal-y-card), 0)
+      scale(var(--motion-reveal-scale-card));
   }
 
   html[data-section-reveal-ready="true"]
@@ -787,13 +826,6 @@
     .compact-project-card:not([data-section-revealed="true"])
     > :first-child {
     clip-path: inset(0 0 100% 0 round 0.75rem);
-  }
-
-  html[data-section-reveal-ready="true"]
-    :where(.project-card, .compact-project-card)[data-section-revealed="true"] {
-    animation: project-card-reveal 460ms cubic-bezier(0.23, 1, 0.32, 1)
-      backwards;
-    animation-delay: calc(var(--project-index) * 40ms);
   }
 
   html[data-section-reveal-ready="true"]
@@ -893,7 +925,8 @@
 
   .project-image-motion {
     transform: translate3d(0, 0, 0) scale(1);
-    transition: transform 260ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition: transform var(--motion-duration-image)
+      var(--motion-ease-standard);
     will-change: transform;
   }
 
@@ -923,16 +956,16 @@
   .journey-marker,
   .journey-impact {
     transition:
-      border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      background-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1);
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      background-color var(--motion-duration-base) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-base) var(--motion-ease-standard);
   }
 
   .journey-proof-item svg {
     transform-origin: center;
     transition:
-      color 180ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+      color var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-base) var(--motion-ease-standard);
   }
 
   .training-panel {
@@ -974,48 +1007,48 @@
   .training-card {
     transform-origin: center top;
     transition:
-      border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      background-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1),
-      transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+      border-color var(--motion-duration-base) var(--motion-ease-standard),
+      background-color var(--motion-duration-base) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-base) var(--motion-ease-standard),
+      transform var(--motion-duration-fast) var(--motion-ease-standard);
   }
 
   html[data-section-reveal-ready="true"]
     .section-stage-training[data-section-revealed="true"]
     .training-aside-motion {
-    animation: training-aside-enter 520ms cubic-bezier(0.23, 1, 0.32, 1) 120ms
-      backwards;
+    animation: training-aside-enter var(--motion-duration-section)
+      var(--motion-ease-standard) var(--motion-duration-instant) backwards;
   }
 
   html[data-section-reveal-ready="true"]
     .section-stage-training[data-section-revealed="true"]
     .training-track-motion {
-    animation: training-row-enter 360ms cubic-bezier(0.23, 1, 0.32, 1)
+    animation: training-row-enter 360ms var(--motion-ease-standard)
       backwards;
-    animation-delay: calc(260ms + (var(--training-track-index) * 44ms));
+    animation-delay: calc(260ms + (var(--training-track-index) * 48ms));
   }
 
   html[data-section-reveal-ready="true"]
     .section-stage-training[data-section-revealed="true"]
     .training-card {
-    animation: training-card-enter 460ms cubic-bezier(0.23, 1, 0.32, 1)
-      backwards;
-    animation-delay: calc(180ms + (var(--training-card-index) * 54ms));
+    animation: training-card-enter var(--motion-duration-reveal)
+      var(--motion-ease-standard) backwards;
+    animation-delay: calc(180ms + (var(--training-card-index) * 48ms));
   }
 
   html[data-section-reveal-ready="true"]
     .section-stage-training[data-section-revealed="true"]
     .training-archive-motion {
-    animation: training-archive-enter 480ms cubic-bezier(0.23, 1, 0.32, 1)
+    animation: training-archive-enter var(--motion-duration-reveal) var(--motion-ease-standard)
       360ms backwards;
   }
 
   html[data-section-reveal-ready="true"]
     .section-stage-training[data-section-revealed="true"]
     .training-archive-row {
-    animation: training-row-enter 340ms cubic-bezier(0.23, 1, 0.32, 1)
+    animation: training-row-enter 360ms var(--motion-ease-standard)
       backwards;
-    animation-delay: calc(450ms + (var(--training-row-index) * 24ms));
+    animation-delay: calc(450ms + (var(--training-row-index) * 32ms));
   }
 
   .contact-panel {
@@ -1135,7 +1168,7 @@
   }
 
   .hero-project-card:hover {
-    transform: translateY(-5px) rotateX(1.25deg);
+    transform: translateY(var(--motion-hover-lift-hero)) rotateX(1.25deg);
     border-color: oklch(0.86 0.012 75);
   }
 
@@ -1163,7 +1196,7 @@
   }
 
   .skill-card-motion:hover {
-    transform: translateY(-2px);
+    transform: translateY(var(--motion-hover-lift-sm));
     border-color: oklch(0.872 0.01 258.338);
     background-color: oklch(0.99 0.006 75);
     box-shadow: 0 12px 20px -12px rgb(9 9 11 / 0.22);
@@ -1176,7 +1209,7 @@
   .journey-entry:hover,
   .project-card:hover,
   .compact-project-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(var(--motion-hover-lift-md));
     border-color: oklch(0.86 0.012 75);
     background-color: oklch(0.998 0.004 75);
     box-shadow: 0 16px 28px -24px rgb(9 9 11 / 0.28);
@@ -1193,7 +1226,7 @@
   }
 
   .training-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(var(--motion-hover-lift-md));
     border-color: oklch(0.86 0.012 75);
     background-color: oklch(0.998 0.004 75);
     box-shadow: 0 16px 28px -24px rgb(9 9 11 / 0.28);
@@ -1355,38 +1388,24 @@
 @keyframes skills-content-enter {
   from {
     opacity: 0;
-    transform: translate3d(0, 10px, 0) scale(0.992);
+    transform: translate3d(0, 4px, 0);
   }
 
   to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-}
-
-@keyframes skills-copy-enter {
-  from {
-    filter: blur(2px);
-    opacity: 0;
-    transform: translate3d(0, 8px, 0);
-  }
-
-  to {
-    filter: blur(0);
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
 
-@keyframes skills-card-enter {
+@keyframes skills-copy-enter {
   from {
     opacity: 0;
-    transform: translate3d(0, 12px, 0) scale(0.985);
+    transform: translate3d(0, 4px, 0);
   }
 
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -1423,18 +1442,6 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes project-card-reveal {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 22px, 0) scale(0.985);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 

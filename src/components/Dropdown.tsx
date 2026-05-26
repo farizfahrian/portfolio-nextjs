@@ -76,10 +76,10 @@ const Content = ({
   return (
     <>
       <Transition
-        enter="transition ease-out duration-200"
+        enter="transition duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]"
         enterFrom="opacity-0 scale-95"
         enterTo="opacity-100 scale-100"
-        leave="transition ease-in duration-75"
+        leave="transition duration-[120ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
         show={open}
@@ -110,7 +110,7 @@ const DropdownLink = ({
     <Link
       {...props}
       className={
-        'block w-full px-4 py-2 text-start text-gray-700 text-sm leading-5 transition duration-150 ease-in-out hover:bg-gray-100 focus:bg-gray-100 focus:outline-none ' +
+        'block w-full px-4 py-2 text-start text-gray-700 text-sm leading-5 transition-[background-color,color] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-gray-100 focus:bg-gray-100 focus:outline-none ' +
         className
       }
     >

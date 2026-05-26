@@ -36,15 +36,15 @@ export default function Modal({
     <Transition leave="duration-200" show={show}>
       <Dialog
         as="div"
-        className="fixed inset-0 z-50 flex transform items-center overflow-y-auto px-4 py-6 transition-all sm:px-0"
+        className="fixed inset-0 z-50 flex transform items-center overflow-y-auto px-4 py-6 transition-[opacity,transform] sm:px-0"
         id="modal"
         onClose={close}
       >
         <TransitionChild
-          enter="ease-out duration-300"
+          enter="duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
           enterFrom="opacity-0"
           enterTo="opacity-100"
-          leave="ease-in duration-200"
+          leave="duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
@@ -52,15 +52,15 @@ export default function Modal({
         </TransitionChild>
 
         <TransitionChild
-          enter="ease-out duration-300"
+          enter="duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
           enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           enterTo="opacity-100 translate-y-0 sm:scale-100"
-          leave="ease-in duration-200"
+          leave="duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]"
           leaveFrom="opacity-100 translate-y-0 sm:scale-100"
           leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
           <DialogPanel
-            className={`mb-6 transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:mx-auto sm:w-full ${maxWidthClass}`}
+            className={`mb-6 transform overflow-hidden rounded-lg bg-white shadow-xl transition-[opacity,transform] sm:mx-auto sm:w-full ${maxWidthClass}`}
           >
             {children}
           </DialogPanel>
