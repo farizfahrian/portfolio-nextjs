@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 
 const REVEAL_TARGET_SELECTOR =
-  '.section-stage, .journey-entry, .project-card, .compact-project-card';
+  '.section-stage:not(.section-stage-hero), .journey-entry, .project-card, .compact-project-card';
 
 export default function SectionReveal() {
   useEffect(() => {
