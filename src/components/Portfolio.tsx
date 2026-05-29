@@ -105,7 +105,7 @@ const projects = [
     description:
       'Designed and developed a landing page for a digital marketing agency, translating service positioning into a responsive interface with clear sections, brand presence, and content structure that can support ongoing campaign updates.',
     image: '/assets/images/sirkel.jpg',
-    technologies: ['React', 'Tailwind', 'Figma', 'Sanity'],
+    technologies: ['React', 'Tailwind', 'Figma', 'Framer Motion', 'Sanity'],
     liveUrl: 'https://sirkel-agency.vercel.app/',
     githubUrl: '',
     availabilityLabel: 'Live project',

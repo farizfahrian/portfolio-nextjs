@@ -740,12 +740,7 @@
     transition:
       border-color var(--motion-duration-base) var(--motion-ease-standard),
       background-color var(--motion-duration-base) var(--motion-ease-standard),
-      box-shadow var(--motion-duration-base) var(--motion-ease-standard),
-      transform var(--motion-duration-fast) var(--motion-ease-standard);
-  }
-
-  .skill-card-motion:active {
-    transform: scale(var(--motion-active-press-soft));
+      box-shadow var(--motion-duration-base) var(--motion-ease-standard);
   }
 
   .skill-tab-motion {
@@ -818,10 +813,6 @@
 
   .skills-tab-content[data-state="active"] .skill-card-motion {
     animation: none;
-  }
-
-  .skill-tooltip-motion {
-    transform-origin: var(--radix-tooltip-content-transform-origin);
   }
 
   .hero-project-strip {
@@ -1304,13 +1295,6 @@
     transform: translateX(3px);
   }
 
-  .skill-card-motion:hover {
-    transform: translateY(var(--motion-hover-lift-sm));
-    border-color: oklch(0.872 0.01 258.338);
-    background-color: oklch(0.99 0.006 75);
-    box-shadow: 0 12px 20px -12px rgb(9 9 11 / 0.22);
-  }
-
   .skill-tab-motion:not([data-state="active"]):hover {
     color: oklch(0.44 0.02 75);
   }
@@ -1744,8 +1728,6 @@
   .hero-project-card:active .hero-project-arrow-icon,
   .hero-project-card:focus-visible .hero-project-arrow-icon,
   .skill-card-motion,
-  .skill-card-motion:active,
-  .skill-card-motion:hover,
   .skill-tab-motion,
   .skill-tab-motion:active,
   .skill-tab-motion svg,
@@ -1753,7 +1735,6 @@
   .skill-tab-motion:not([data-state="active"]):hover,
   .skills-tab-content[data-state="active"],
   .skill-category-copy,
-  .skill-tooltip-motion,
   .about-panel,
   .about-copy,
   .about-system,
@@ -1844,7 +1825,4 @@
       color 120ms ease;
   }
 
-  .skill-tooltip-motion {
-    transition: opacity 120ms ease;
-  }
 }

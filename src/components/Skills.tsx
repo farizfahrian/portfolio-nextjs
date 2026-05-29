@@ -1,15 +1,10 @@
 'use client';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Code2, Database, Layers, Settings } from 'lucide-react';
 import Image from 'next/image';
 import type React from 'react';
 import { useMemo, useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
 
 interface Skill {
   name: string;
@@ -99,6 +94,12 @@ const frameworks: Skill[] = [
     name: 'Tailwind CSS',
     icon: '/assets/icons/skills/tailwindcss-original.svg',
     description: 'Utility-first CSS framework for rapid UI styling',
+  },
+  {
+    name: 'Framer Motion',
+    icon: '/assets/icons/skills/framer-motion.svg',
+    description:
+      'Production-ready motion library for polished React interactions',
   },
 ];
 
@@ -278,48 +279,40 @@ const SkillIcon: React.FC<{ index: number; skill: Skill }> = ({
   index,
   skill,
 }) => {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <Tooltip delayDuration={160}>
-      <TooltipTrigger asChild>
-        <button
-          aria-label={`${skill.name}: ${skill.description}`}
-          className="skill-card-motion group flex min-h-[9.5rem] w-full flex-col items-start justify-between gap-4 rounded-2xl border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-4 text-left shadow-[0_1px_2px_rgb(9_9_11_/_0.04)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[oklch(0.965_0.004_75)]"
-          style={{ '--skill-card-index': index } as React.CSSProperties}
-          type="button"
-        >
-          <div className="flex size-11 items-center justify-center rounded-full border border-zinc-200 bg-[oklch(0.97_0.005_75)] transition-colors duration-200 group-hover:border-orange-200 group-hover:bg-orange-50 motion-reduce:transition-colors">
-            <Image
-              alt=""
-              aria-hidden="true"
-              className="h-6 w-6 object-contain"
-              height={24}
-              src={skill.icon}
-              width={24}
-            />
-          </div>
-          <div className="space-y-1.5">
-            <span className="block max-w-full text-balance font-semibold text-sm text-zinc-950 leading-tight transition-colors duration-200 group-hover:text-orange-700">
-              {skill.name}
-            </span>
-            <span className="line-clamp-2 block text-sm text-zinc-600 leading-5">
-              {skill.description}
-            </span>
-          </div>
-        </button>
-      </TooltipTrigger>
-      <TooltipContent
-        className="skill-tooltip-motion mb-2 max-w-72 border-zinc-800 bg-zinc-950 text-zinc-50 shadow-[0_20px_40px_-20px_rgb(9_9_11_/_0.45)]"
-        side="top"
-        sideOffset={10}
-      >
-        <div className="space-y-2">
-          <p className="font-semibold">{skill.name}</p>
-          <p className="text-sm text-zinc-200 leading-relaxed">
-            {skill.description}
-          </p>
-        </div>
-      </TooltipContent>
-    </Tooltip>
+    <motion.article
+      className="skill-card-motion flex min-h-[9.5rem] w-full flex-col items-start justify-between gap-4 rounded-2xl border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-4 text-left shadow-[0_1px_2px_rgb(9_9_11_/_0.04)]"
+      initial={reduceMotion ? false : { opacity: 0, y: 12, scale: 0.98 }}
+      transition={{
+        delay: Math.min(index * 0.035, 0.24),
+        duration: 0.42,
+        ease: [0.23, 1, 0.32, 1],
+      }}
+      viewport={{ margin: '0px 0px -12% 0px', once: true }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+      style={{ '--skill-card-index': index } as React.CSSProperties}
+    >
+      <div className="flex size-11 items-center justify-center rounded-full border border-zinc-200 bg-[oklch(0.97_0.005_75)]">
+        <Image
+          alt=""
+          aria-hidden="true"
+          className="h-6 w-6 object-contain"
+          height={24}
+          src={skill.icon}
+          width={24}
+        />
+      </div>
+      <div className="space-y-1.5">
+        <span className="block max-w-full text-balance font-semibold text-sm text-zinc-950 leading-tight">
+          {skill.name}
+        </span>
+        <span className="line-clamp-2 block text-sm text-zinc-600 leading-5">
+          {skill.description}
+        </span>
+      </div>
+    </motion.article>
   );
 };
 
@@ -366,78 +359,74 @@ export const Skills: React.FC = () => {
   );
 
   return (
-    <TooltipProvider delayDuration={160} skipDelayDuration={0}>
-      <section className="section-stage section-stage-skills section-frame">
-        <div className="skills-panel overflow-hidden rounded-[1.25rem] px-4 py-12 text-zinc-950 sm:px-6 md:px-8 lg:px-10 lg:py-16">
-          <div className="page-content">
-            <div className="mb-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.6fr)] lg:items-end">
-              <div className="space-y-4">
-                <p className="mb-4 flex items-center gap-3 font-semibold text-[0.68rem] text-zinc-700 uppercase tracking-[0.24em]">
+    <section className="section-stage section-stage-skills section-frame">
+      <div className="skills-panel overflow-hidden rounded-[1.25rem] px-4 py-12 text-zinc-950 sm:px-6 md:px-8 lg:px-10 lg:py-16">
+        <div className="page-content">
+          <div className="mb-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.6fr)] lg:items-end">
+            <div className="space-y-4">
+              <p className="mb-4 flex items-center gap-3 font-semibold text-[0.68rem] text-zinc-700 uppercase tracking-[0.24em]">
                 <span className="size-1.5 rounded-full bg-orange-600" />
                 Technical range
               </p>
-                <div className="space-y-3">
-                  <h2 className="max-w-4xl font-display font-semibold text-4xl leading-tight sm:text-5xl">
-                    Tools I use to turn product problems into working systems.
-                  </h2>
-                  <p className="max-w-3xl text-base text-zinc-600 leading-7">
-                    A focused view of the languages, frameworks, workflows, and
-                    data tools behind the projects below. Select a category to
-                    see where each capability fits in the build process.
-                  </p>
-                </div>
-              </div>
-              <div className="space-y-3 border-zinc-300 border-t pt-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-6">
-                <p className="font-medium text-sm text-zinc-500 leading-6">
-                  Current emphasis
-                </p>
-                <p className="font-display font-semibold text-2xl text-zinc-950 leading-tight">
-                  Full-stack delivery with product design judgment.
+              <div className="space-y-3">
+                <h2 className="max-w-4xl font-display font-semibold text-4xl leading-tight sm:text-5xl">
+                  Tools I use to turn product problems into working systems.
+                </h2>
+                <p className="max-w-3xl text-base text-zinc-600 leading-7">
+                  A focused view of the languages, frameworks, workflows, and
+                  data tools behind the projects below. Select a category to see
+                  where each capability fits in the build process.
                 </p>
               </div>
             </div>
-
-            <Tabs
-              className="w-full gap-8"
-              onValueChange={setActiveTab}
-              value={activeTab}
-            >
-              <TabsList
-                className="skills-tabs-list grid h-auto w-full grid-cols-2 gap-2 rounded-2xl border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-1.5 text-zinc-600 shadow-[0_1px_2px_rgb(9_9_11_/_0.04)] sm:grid-cols-4"
-                style={tabIndicatorStyle}
-              >
-                {skillGroups.map((group) => {
-                  const Icon = group.icon;
-
-                  return (
-                    <TabsTrigger
-                      className="skill-tab-motion relative z-10 min-h-11 rounded-xl bg-transparent px-3 py-2 font-semibold text-sm focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[oklch(0.995_0.004_75)] data-[state=active]:bg-transparent data-[state=active]:text-orange-50 data-[state=active]:shadow-none"
-                      key={group.value}
-                      value={group.value}
-                    >
-                      <Icon className="h-4 w-4" />
-                      <span className="hidden md:inline">
-                        {group.shortTitle}
-                      </span>
-                      <span className="md:hidden">{group.mobileTitle}</span>
-                    </TabsTrigger>
-                  );
-                })}
-              </TabsList>
-
-              {skillGroups.map((group) => (
-                <TabsContent
-                  className="skills-tab-content pt-1"
-                  key={group.value}
-                  value={group.value}
-                >
-                  <SkillCategory group={group} />
-                </TabsContent>
-              ))}
-            </Tabs>
+            <div className="space-y-3 border-zinc-300 border-t pt-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-6">
+              <p className="font-medium text-sm text-zinc-500 leading-6">
+                Current emphasis
+              </p>
+              <p className="font-display font-semibold text-2xl text-zinc-950 leading-tight">
+                Full-stack delivery with product design judgment.
+              </p>
+            </div>
           </div>
+
+          <Tabs
+            className="w-full gap-8"
+            onValueChange={setActiveTab}
+            value={activeTab}
+          >
+            <TabsList
+              className="skills-tabs-list grid h-auto w-full grid-cols-2 gap-2 rounded-2xl border border-zinc-200 bg-[oklch(0.995_0.004_75)] p-1.5 text-zinc-600 shadow-[0_1px_2px_rgb(9_9_11_/_0.04)] sm:grid-cols-4"
+              style={tabIndicatorStyle}
+            >
+              {skillGroups.map((group) => {
+                const Icon = group.icon;
+
+                return (
+                  <TabsTrigger
+                    className="skill-tab-motion relative z-10 min-h-11 rounded-xl bg-transparent px-3 py-2 font-semibold text-sm focus-visible:ring-2 focus-visible:ring-orange-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[oklch(0.995_0.004_75)] data-[state=active]:bg-transparent data-[state=active]:text-orange-50 data-[state=active]:shadow-none"
+                    key={group.value}
+                    value={group.value}
+                  >
+                    <Icon className="h-4 w-4" />
+                    <span className="hidden md:inline">{group.shortTitle}</span>
+                    <span className="md:hidden">{group.mobileTitle}</span>
+                  </TabsTrigger>
+                );
+              })}
+            </TabsList>
+
+            {skillGroups.map((group) => (
+              <TabsContent
+                className="skills-tab-content pt-1"
+                key={group.value}
+                value={group.value}
+              >
+                <SkillCategory group={group} />
+              </TabsContent>
+            ))}
+          </Tabs>
         </div>
-      </section>
-    </TooltipProvider>
+      </div>
+    </section>
   );
 };

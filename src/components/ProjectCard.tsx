@@ -8,6 +8,7 @@ const toolIcons: Record<string, string> = {
   React: '/assets/icons/Reactjs.svg',
   Alpinejs: '/assets/icons/Alpinejs.svg',
   Figma: '/assets/icons/Figma.svg',
+  'Framer Motion': '/assets/icons/FramerMotion.svg',
   Filament: '/assets/icons/Filament.svg',
   Midtrans: '/assets/icons/Midtrans.svg',
   MongoDB: '/assets/icons/MongoDB.svg',
