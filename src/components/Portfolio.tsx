@@ -17,7 +17,7 @@ const projects = [
       'Reduced manual event work with automated confirmations and scan-ready attendance.',
     description:
       'Designed and built a production registration system for a public running event. The platform connected participant onboarding, Midtrans payments, email confirmations, QR-based check-ins, and a Filament admin dashboard so organizers could manage race-day operations without spreadsheet handoffs.',
-    image: '/assets/images/uwgm.png',
+    image: '/assets/images/uwgm.jpg',
     technologies: [
       'Laravel',
       'Tailwind',
@@ -26,8 +26,9 @@ const projects = [
       'Filament',
       'Midtrans',
     ],
-    liveUrl: 'https://uwgmrunfestival.com',
+    liveUrl: '',
     githubUrl: '',
+    availabilityLabel: 'Archived project',
     realProject: true,
   },
   {
@@ -40,10 +41,11 @@ const projects = [
       'A responsive company profile that makes products, services, and credibility easier to evaluate.',
     description:
       'Developed a responsive company profile for a palm oil business, shaping the content structure around products, services, and trust signals. The result gives buyers and partners a cleaner path to understand the company before starting a conversation.',
-    image: '/assets/images/nps.png',
+    image: '/assets/images/nps.jpg',
     technologies: ['Wordpress'],
-    liveUrl: 'https://gray-bison-645847.hostingersite.com',
+    liveUrl: '',
     githubUrl: '',
+    availabilityLabel: 'Archived project',
     realProject: true,
   },
   {
@@ -56,7 +58,7 @@ const projects = [
       'Kept registration, payment, email, QR check-in, and admin workflows stable during peak demand.',
     description:
       'Built a lean registration system that handled 1,500+ signups on constrained hosting. I tuned the operational flow around fast registration, Midtrans payments, automated email confirmations, QR check-ins, and admin visibility, keeping the experience dependable during traffic spikes.',
-    image: '/assets/images/Activest.png',
+    image: '/assets/images/activest.jpg',
     technologies: [
       'Laravel',
       'Tailwind',
@@ -65,8 +67,9 @@ const projects = [
       'Filament',
       'Midtrans',
     ],
-    liveUrl: 'https://activefestsmr.com',
+    liveUrl: '',
     githubUrl: '',
+    availabilityLabel: 'Archived project',
     realProject: true,
   },
   {
@@ -79,11 +82,11 @@ const projects = [
       'A clearer enrollment experience for users with varied levels of technical confidence.',
     description:
       'Designed the enrollment experience for a school registration system, with emphasis on accessibility for parents and staff who have different levels of technical literacy. The work covered flow structure, information architecture, high-fidelity prototypes, and stakeholder handoff.',
-    image: '/assets/images/Al-Mazaya.png',
+    image: '/assets/images/al mazaya.jpg',
     technologies: ['Figma', 'Notion'],
-    liveUrl:
-      'https://www.figma.com/design/fuAWQVZXpNVp4iDQyOfMZW/Al-Mazaya-Paser?node-id=0-1&t=K4loj3LluqKX01k3-1',
+    liveUrl: '',
     githubUrl: '',
+    availabilityLabel: 'Design case study',
     realProject: true,
   },
   {
@@ -96,10 +99,11 @@ const projects = [
       'A sharper first impression for an agency selling strategy, content, and campaign work.',
     description:
       'Designed and developed a landing page for a digital marketing agency, translating service positioning into a responsive interface with clear sections, brand presence, and content structure that can support ongoing campaign updates.',
-    image: '/assets/images/Sirkel.png',
+    image: '/assets/images/sirkel.jpg',
     technologies: ['React', 'Tailwind', 'Figma', 'Sanity'],
-    liveUrl: 'https://snow-gorilla-383164.hostingersite.com/',
+    liveUrl: 'https://sirkel-agency.vercel.app/',
     githubUrl: '',
+    availabilityLabel: 'Live project',
     realProject: true,
   },
   {
@@ -113,10 +117,11 @@ const projects = [
       'A scalable media experience that supports publishing depth without losing readability.',
     description:
       'Delivered a news platform from wireframes to deployment, including information architecture, high-fidelity UI, responsive front-end implementation, hosting, and server configuration. The work focused on making a growing editorial library easier to scan and navigate.',
-    image: '/assets/images/Kaltimfolks.png',
+    image: '/assets/images/kaltimfolks.jpg',
     technologies: ['Nextjs', 'Tailwind', 'MongoDB', 'Prisma', 'Sanity'],
     liveUrl: 'https://kaltimfolks.com',
     githubUrl: '',
+    availabilityLabel: 'Live project',
     realProject: true,
   },
   {
@@ -130,10 +135,11 @@ const projects = [
       'A polished agency presence that explains the team, offer, and proof of work quickly.',
     description:
       'Collaborated with stakeholders to design and build a responsive software agency site. The interface presents services, expertise, and portfolio context with a clean content model and scalable front-end implementation.',
-    image: '/assets/images/Graviton.png',
+    image: '/assets/images/graviton.jpg',
     technologies: ['Nextjs', 'React', 'Figma', 'Tailwind', 'Sanity'],
-    liveUrl: 'https://gravitonsoftworks.com',
+    liveUrl: '',
     githubUrl: '',
+    availabilityLabel: 'Archived project',
     realProject: true,
   },
   {
@@ -146,10 +152,11 @@ const projects = [
       'A responsive profile that makes services and brand identity easier to browse.',
     description:
       'Developed a responsive company profile for a digital marketing firm, connecting brand identity, service explanation, and manageable content. The build prioritized smooth navigation, clear hierarchy, and practical performance.',
-    image: '/assets/images/Davila.png',
+    image: '/assets/images/davila.jpg',
     technologies: ['Laravel', 'React', 'Tailwind', 'Sanity'],
-    liveUrl: 'https://davila.id',
+    liveUrl: '',
     githubUrl: '',
+    availabilityLabel: 'Archived project',
     realProject: true,
   },
   // Fake Mini Projects
@@ -350,7 +357,7 @@ export default function PortfolioSection() {
                     </div>
                   </div>
 
-                  {project.liveUrl && (
+                  {project.liveUrl ? (
                     <Button
                       asChild
                       className="h-10 w-full rounded-md border-2 border-orange-200 bg-orange-600 px-5 font-semibold text-orange-50 transition-[transform,background-color,border-color] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-orange-700 active:scale-[0.98] sm:w-fit"
@@ -365,6 +372,10 @@ export default function PortfolioSection() {
                         View live project
                       </Link>
                     </Button>
+                  ) : (
+                    <span className="inline-flex h-10 w-full items-center justify-center rounded-md border-2 border-zinc-200 bg-zinc-100 px-5 font-semibold text-sm text-zinc-500 sm:w-fit">
+                      {project.availabilityLabel}
+                    </span>
                   )}
                 </div>
               </article>

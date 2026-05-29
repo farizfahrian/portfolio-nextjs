@@ -6,32 +6,32 @@ import Marquee from './ui/marquee';
 
 const featuredProjects = [
   {
-    img: '/assets/images/Activest.png',
+    img: '/assets/images/activest.jpg',
     title: 'Active Festival',
     meta: 'Event platform • Full-stack',
   },
   {
-    img: '/assets/images/Al-Mazaya.png',
+    img: '/assets/images/al mazaya.jpg',
     title: 'Al Mazaya',
     meta: 'School flow • UI design',
   },
   {
-    img: '/assets/images/Davila.png',
+    img: '/assets/images/davila.jpg',
     title: 'Davila',
     meta: 'Brand site • Front-end',
   },
   {
-    img: '/assets/images/Graviton.png',
+    img: '/assets/images/graviton.jpg',
     title: 'Graviton',
     meta: 'Agency site • Engineering',
   },
   {
-    img: '/assets/images/Kaltimfolks.png',
+    img: '/assets/images/kaltimfolks.jpg',
     title: 'Kaltimfolks',
     meta: 'Media site • Next.js',
   },
   {
-    img: '/assets/images/Sirkel.png',
+    img: '/assets/images/sirkel.jpg',
     title: 'Sirkel',
     meta: 'Landing page • UI',
   },
@@ -79,7 +79,7 @@ const ReviewCard = ({
         />
       </div>
       <figcaption className="relative flex min-h-21 items-center justify-between gap-4 px-4 py-3">
-        <div>
+        <div className="hero-project-copy">
           <p className="font-semibold text-base text-zinc-950 leading-tight">
             {title}
           </p>

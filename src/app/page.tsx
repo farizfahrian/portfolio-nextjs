@@ -87,12 +87,12 @@ function Home() {
           <div className="hero-copy relative z-10 mx-auto mb-10 max-w-[1220px] px-4 sm:mb-16 sm:px-6 lg:mb-16">
             <div className="hero-eyebrow mb-5 flex w-full justify-center">
               <div className="hero-availability inline-flex max-w-full items-center gap-2 rounded-full border border-zinc-200 bg-[oklch(0.995_0.004_75/0.86)] px-3 py-2 shadow-[0_10px_26px_-22px_rgb(9_9_11/0.42)] sm:gap-3 sm:px-4">
-                <span className="size-2.5 shrink-0 rounded-full bg-orange-600 shadow-[0_0_0_4px_oklch(0.82_0.12_45/0.22)]" />
-                <p className="font-semibold text-[0.68rem] text-zinc-700 uppercase tracking-[0.2em] max-[420px]:tracking-[0.12em]">
+                <span className="hero-availability-dot size-2.5 shrink-0 rounded-full bg-orange-600 shadow-[0_0_0_4px_oklch(0.82_0.12_45/0.22)]" />
+                <p className="hero-availability-role font-semibold text-[0.68rem] text-zinc-700 uppercase tracking-[0.2em] max-[420px]:tracking-[0.12em]">
                   Available for product engineering roles
                 </p>
-                <span className="hidden h-4 w-px bg-zinc-200 sm:block" />
-                <span className="hidden font-medium text-xs text-zinc-500 sm:inline">
+                <span className="hero-availability-divider hidden h-4 w-px bg-zinc-200 sm:block" />
+                <span className="hero-availability-context hidden font-medium text-xs text-zinc-500 sm:inline">
                   UI, systems, and practical AI workflows
                 </span>
               </div>
@@ -100,7 +100,7 @@ function Home() {
             <div className="hero-heading mb-5 text-center lg:mb-7">
               <h1 className="mx-auto max-w-[1180px] text-balance font-display font-semibold text-[2.6rem] leading-[0.98] max-[415px]:text-[2.15rem] sm:text-[4rem] md:text-[5.35rem] lg:text-[6.25rem] xl:text-[7.25rem]">
                 Building clean interfaces, backend systems, and
-                <span className="font-normal text-orange-600 italic">
+                <span className="hero-title-accent font-normal text-orange-600 italic">
                   practical AI automation.
                 </span>
               </h1>
@@ -112,13 +112,14 @@ function Home() {
             </div>
             <div className="hero-actions mb-8 flex w-full justify-center gap-4 max-[520px]:flex-col max-[520px]:gap-3">
               <Button
-                className="max-[520px]:w-full"
+                className="hero-action-item max-[520px]:w-full"
                 link="#portfolio"
                 text="View selected work"
               />
               <div className="flex items-center justify-center gap-2 max-[520px]:mt-1">
                 <Button
                   ariaLabel="View GitHub profile"
+                  className="hero-action-item"
                   iconOnly={true}
                   link="https://github.com/farizfahrian"
                   trailingIcon="/assets/icons/Github.svg"
@@ -126,6 +127,7 @@ function Home() {
                 />
                 <Button
                   ariaLabel="View LinkedIn profile"
+                  className="hero-action-item"
                   iconOnly={true}
                   link="https://linkedin.com/in/fariz-fahrian-60a75014a"
                   trailingIcon="/assets/icons/Linkedin.svg"
@@ -133,6 +135,7 @@ function Home() {
                 />
                 <Button
                   ariaLabel="Open CV"
+                  className="hero-action-item"
                   iconOnly={true}
                   link="/assets/CV-Fariz_Fahrian.pdf"
                   trailingIcon="/assets/icons/CV.svg"
