@@ -170,6 +170,7 @@
 
   html {
     @apply bg-background text-foreground;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -706,6 +707,33 @@
     transition:
       filter var(--motion-duration-base) var(--motion-ease-standard),
       transform var(--motion-duration-fast) var(--motion-ease-standard);
+  }
+
+  .hero-project-card:active {
+    transform: translateY(-1px) scale(0.99);
+    transition-duration: 120ms;
+  }
+
+  .hero-project-card:active .hero-project-image,
+  .hero-project-card:focus-visible .hero-project-image {
+    transform: rotate(0deg) scale(1.085) translateY(-2px);
+  }
+
+  .hero-project-card:active .hero-project-arrow,
+  .hero-project-card:focus-visible .hero-project-arrow {
+    border-color: oklch(0.646 0.194 41.116);
+    color: oklch(0.995 0.004 75);
+  }
+
+  .hero-project-card:active .hero-project-arrow::before,
+  .hero-project-card:focus-visible .hero-project-arrow::before {
+    clip-path: inset(0 0 0 0 round 999px);
+  }
+
+  .hero-project-card:active .hero-project-arrow-icon,
+  .hero-project-card:focus-visible .hero-project-arrow-icon {
+    filter: none;
+    transform: translateX(3px);
   }
 
   .skill-card-motion {
@@ -1258,11 +1286,6 @@
     border-color: oklch(0.86 0.012 75);
   }
 
-  .hero-project-card:active {
-    transform: translateY(-1px) scale(0.99);
-    transition-duration: 120ms;
-  }
-
   .hero-project-card:hover .hero-project-image {
     transform: rotate(0deg) scale(1.085) translateY(-2px);
   }
@@ -1656,6 +1679,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .hero-panel,
   .hero-panel::before,
   .section-stage,
@@ -1701,13 +1728,21 @@
   .hero-project-card,
   .hero-project-copy,
   .hero-project-card:hover,
+  .hero-project-card:active,
+  .hero-project-card:focus-visible,
   .hero-project-image,
   .hero-project-card:hover .hero-project-image,
+  .hero-project-card:active .hero-project-image,
+  .hero-project-card:focus-visible .hero-project-image,
   .hero-project-arrow,
   .hero-project-arrow::before,
   .hero-project-card:hover .hero-project-arrow,
+  .hero-project-card:active .hero-project-arrow,
+  .hero-project-card:focus-visible .hero-project-arrow,
   .hero-project-arrow-icon,
   .hero-project-card:hover .hero-project-arrow-icon,
+  .hero-project-card:active .hero-project-arrow-icon,
+  .hero-project-card:focus-visible .hero-project-arrow-icon,
   .skill-card-motion,
   .skill-card-motion:active,
   .skill-card-motion:hover,
@@ -1758,7 +1793,9 @@
   }
 
   .hero-project-image,
-  .hero-project-card:hover .hero-project-image {
+  .hero-project-card:hover .hero-project-image,
+  .hero-project-card:active .hero-project-image,
+  .hero-project-card:focus-visible .hero-project-image {
     transform: scale(1.045);
   }
 

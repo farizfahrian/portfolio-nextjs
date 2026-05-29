@@ -9,6 +9,7 @@ const projects = [
   {
     id: 1,
     title: 'UWGM Run Festival',
+    anchorId: 'project-uwgm-run-festival',
     type: 'Event registration platform',
     role: 'Full-stack delivery',
     proof:
@@ -34,6 +35,7 @@ const projects = [
   {
     id: 2,
     title: 'Nusantara Prima Solusi',
+    anchorId: 'project-nusantara-prima-solusi',
     type: 'Company profile website',
     role: 'Website development',
     proof: 'Clear product storytelling for an industrial palm oil business.',
@@ -51,6 +53,7 @@ const projects = [
   {
     id: 3,
     title: 'Active Festival',
+    anchorId: 'project-active-festival',
     type: 'Event registration platform',
     role: 'Full-stack delivery',
     proof: '1,500+ registrations on a 1GB RAM, single-core server.',
@@ -75,6 +78,7 @@ const projects = [
   {
     id: 4,
     title: 'Al Mazaya',
+    anchorId: 'project-al-mazaya',
     type: 'School registration platform',
     role: 'UI/UX design',
     proof: 'Parent and staff workflows mapped before interface production.',
@@ -92,6 +96,7 @@ const projects = [
   {
     id: 5,
     title: 'Sirkel',
+    anchorId: 'project-sirkel',
     type: 'Digital marketing agency landing page',
     role: 'Design and frontend',
     proof: 'Brand messaging, responsive UI, and CMS-backed content structure.',
@@ -109,6 +114,7 @@ const projects = [
   {
     id: 6,
     title: 'Kaltimfolks',
+    anchorId: 'project-kaltimfolks',
     type: 'News media website',
     role: 'Product design and web delivery',
     proof:
@@ -127,6 +133,7 @@ const projects = [
   {
     id: 7,
     title: 'Graviton Softworks',
+    anchorId: 'project-graviton-softworks',
     type: 'Software agency landing page',
     role: 'Design and frontend',
     proof:
@@ -145,6 +152,7 @@ const projects = [
   {
     id: 8,
     title: 'Davila',
+    anchorId: 'project-davila',
     type: 'Digital marketing company profile',
     role: 'Full-stack web delivery',
     proof: 'Laravel, React, Tailwind, and Sanity for a manageable brand site.',
@@ -242,7 +250,10 @@ export default function PortfolioSection() {
   );
 
   return (
-    <section className="section-stage section-stage-portfolio section-frame">
+    <section
+      className="section-stage section-stage-portfolio section-frame"
+      id="portfolio"
+    >
       <div className="portfolio-panel overflow-hidden rounded-[1.25rem] border border-zinc-200 px-4 py-12 text-zinc-950 sm:px-6 md:px-8 lg:px-10 lg:py-16">
         <div className="page-content">
           <div className="mb-10 border-zinc-200 border-b pb-8">
@@ -291,7 +302,10 @@ export default function PortfolioSection() {
                 key={project.id}
                 style={{ '--project-index': index } as React.CSSProperties}
               >
-                <div className="relative min-h-[230px] overflow-hidden bg-zinc-100 sm:min-h-[310px] lg:min-h-full">
+                <div
+                  className="relative min-h-[230px] scroll-mt-24 overflow-hidden bg-zinc-100 sm:min-h-[310px] lg:min-h-full"
+                  id={project.anchorId}
+                >
                   <Image
                     alt={`${project.title} project screenshot`}
                     className="project-image-motion object-cover object-top"
